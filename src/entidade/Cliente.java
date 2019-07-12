@@ -16,32 +16,37 @@ public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idCliente;
-    private final String nome;
-    private String cidadeUF, logradouro;
+    private String nome;
+    private String cidadeUF, logradouro;    
+
+    private String telefone1;
+    private String telefone2;
+    private String sexo;
+    private String dataNascimento;
+    private String cpf;
     
-    @OneToMany(cascade = CascadeType.PERSIST)
-    private List<String> telefones;
-    private enum Sexo {M, F};
-    private final Sexo sexo;
-    private final Date dataNascimento;
-    private final int cpf;
-    private List<ReservaEquipamento> reservas;
+//    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "user")
+//    private List<ReservaEquipamento> reservas;
     //assinatura digital
     
-    public Cliente (String nome, Sexo sexo, Date dataNascimento, int cpf, List<String> telefones, String cidadeUF, String logradouro) {
+    public Cliente(){        
+    }
+    
+    public Cliente (String nome, String sexo, String dataNascimento, String cpf, String telefone1, String telefone2, String cidadeUF, String logradouro) {
         this.nome = nome;
         this.sexo = sexo;
         this.dataNascimento = dataNascimento;
         this.cpf = cpf;
-        this.telefones = telefones;
+        this.telefone1 = telefone1;
+        this.telefone2 = telefone2;
         this.cidadeUF = cidadeUF;
         this.logradouro = logradouro;
-        reservas = new ArrayList<>();
+//        reservas = new ArrayList<>();
     }
     
     
     public void fazReserva(ReservaEquipamento r){
-        reservas.add(r);
+//        reservas.add(r);
     }
 
     public Integer getIdCliente() {

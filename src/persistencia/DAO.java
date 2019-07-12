@@ -15,7 +15,8 @@ import javax.persistence.Query;
 
 public class DAO {
 
-    EntityManagerFactory emf = Persistence.createEntityManagerFactory("bancoTrabPU");
+    String factory = "AlumaqNetbeansPU";
+    EntityManagerFactory emf = Persistence.createEntityManagerFactory(factory);
     EntityManager em = emf.createEntityManager();
 
     public void cadastrar(Object o) {

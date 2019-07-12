@@ -14,7 +14,7 @@ public class Contrato implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idC;
     private Locacao locacao;
-    private Date dataInicio, dataFim;
+    //private Date dataInicio, dataFim;
     private boolean contratoAceito;
     Fase fase;
     private Double multa;

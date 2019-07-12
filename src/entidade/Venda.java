@@ -1,29 +1,11 @@
 package entidade;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
-
-import java.util.ArrayList;
-import java.util.List;
-import javax.persistence.OneToMany;
-
-@Entity
-public class Venda implements Operacao, Serializable{
-    private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idVenda;
-    
-    @OneToMany(cascade = CascadeType.PERSIST)
-    private List<Item> itens ;
-    
+public class Venda implements Operacao{
+    private int idVenda;
+     private List<Item> itens;
     private boolean fimVenda;
     private ControladorEstoque estoque;
  

@@ -1,9 +1,13 @@
 package entidade;
 
-import java.util.List;
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
-public class Funcionario {
-    
+@Entity
+public class Funcionario implements Serializable {
+
+    @Id
     private int idFunc;
     private String nome, dataNasc;
     private Endereco endereco;
@@ -11,9 +15,6 @@ public class Funcionario {
     private String telefone2;
     private Double salario;  
     private Loja loja = new Loja();
-
-     
-    
     
     public Funcionario(int id, String nome, String dataN, Endereco endereco, String tel, Double sal) {
         idFunc = id;
@@ -22,10 +23,6 @@ public class Funcionario {
         this.endereco = endereco;
         this.telefone1 = tel;
         salario = sal;
-    }
-    
-    public Loja getLoja(){
-        return this.loja;
     }
     
     public String getTelefone1() {
@@ -43,7 +40,16 @@ public class Funcionario {
     public void setTelefone2(String telefone2) {
         this.telefone2 = telefone2;
     }
+    
+    public Loja getLoja(){
+        return this.loja;
+    }
 
+    public int getIdFunc() {
+        return idFunc;
+    }
 
-
+    public void setIdFunc(int idFunc) {
+        this.idFunc = idFunc;
+    }
 }

@@ -1,11 +1,22 @@
 package entidade;
 
-public class Item {
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+
+@Entity
+public class Item implements Serializable {
+    @Id
+    private Long idItem;
+    
     private Equipamento equipamento;
     private int qtd;
     private boolean disponivel;
     private Double subtotal;
     private Tipo tipo;
+   
+   
         
     public Item(Equipamento eq, int q) {
         setEquipamento(eq);
@@ -46,5 +57,13 @@ public class Item {
 
     public void setQtd(int qtd) {
         this.qtd = qtd;
+    }
+
+    public Long getIdItem() {
+        return idItem;
+    }
+
+    public void setIdItem(Long idItem) {
+        this.idItem = idItem;
     }
 }

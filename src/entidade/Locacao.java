@@ -1,14 +1,30 @@
 package entidade;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Locacao implements Operacao {
-    private int idLoc;    
+@Entity 
+public class Locacao implements Operacao, Serializable {
+    @Id
+    private Long idLocacao;
+    private int idLoc;  
+    
+    @OneToMany(cascade = CascadeType.PERSIST)
     private List<Item> itens;
     private boolean seguroLoc;
     private boolean fimLoc;
-    private ControladorEstoque estoque;
+    private ControladorEstoque estoque;  
     
     
     public Locacao(int id, Funcionario f, Cliente c) {
@@ -89,6 +105,14 @@ public class Locacao implements Operacao {
         boolean dispo = false;
        
         return dispo;        
+    }
+
+    public Long getIdLocacao() {
+        return idLocacao;
+    }
+
+    public void setIdLocacao(Long idLocacao) {
+        this.idLocacao = idLocacao;
     }
 
 }

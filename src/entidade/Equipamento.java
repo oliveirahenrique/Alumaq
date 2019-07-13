@@ -8,6 +8,7 @@ import javax.persistence.Id;
 
 @Entity
 public class Equipamento implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idEq;
@@ -15,19 +16,19 @@ public class Equipamento implements Serializable {
     private Double valor;
     private boolean disponivel;
     private Setor setor;
-    
-    
+
     public Equipamento(int id, String n, String desc, Setor s, Double valor) {
         setIdEq(id);
-        nome =n;
+        nome = n;
         descricao = desc;
         setSetor(s);
         setDisponivel(false);
         this.setValor(valor);
-        
+
     }
-    public Equipamento(){}
-                      
+
+    public Equipamento() {
+    }
 
     public int getIdEq() {
         return idEq;
@@ -36,8 +37,6 @@ public class Equipamento implements Serializable {
     public void setIdEq(int idEq) {
         this.idEq = idEq;
     }
-
-   
 
     public boolean isDisponivel() {
         return disponivel;
@@ -55,7 +54,6 @@ public class Equipamento implements Serializable {
         this.setor = setor;
     }
 
-
     public Double getValor() {
         return valor;
     }
@@ -63,6 +61,5 @@ public class Equipamento implements Serializable {
     public void setValor(Double valor) {
         this.valor = valor;
     }
-    
-    
+
 }

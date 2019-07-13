@@ -5,7 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class Fornecedor implements Serializable{
+public class Fornecedor implements Serializable {
 
     @Id
     private Integer idFornecedor;
@@ -17,5 +17,4 @@ public class Fornecedor implements Serializable{
     public void setID(Integer idFornecedor) {
         this.idFornecedor = idFornecedor;
     }
-    
 }

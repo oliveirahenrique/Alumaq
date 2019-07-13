@@ -13,9 +13,9 @@ public class Funcionario implements Serializable {
     private Endereco endereco;
     private String telefone1;
     private String telefone2;
-    private Double salario;  
+    private Double salario;
     private Loja loja = new Loja();
-    
+
     public Funcionario(int id, String nome, String dataN, Endereco endereco, String tel, Double sal) {
         idFunc = id;
         this.nome = nome;
@@ -24,7 +24,7 @@ public class Funcionario implements Serializable {
         this.telefone1 = tel;
         salario = sal;
     }
-    
+
     public String getTelefone1() {
         return telefone1;
     }
@@ -40,8 +40,8 @@ public class Funcionario implements Serializable {
     public void setTelefone2(String telefone2) {
         this.telefone2 = telefone2;
     }
-    
-    public Loja getLoja(){
+
+    public Loja getLoja() {
         return this.loja;
     }
 

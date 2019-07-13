@@ -12,27 +12,26 @@ import javax.persistence.OneToMany;
 
 @Entity
 public class Cliente {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idCliente;
     private String nome;
-    private String cidadeUF, logradouro;    
+    private String cidadeUF, logradouro;
 
     private String telefone1;
     private String telefone2;
     private String sexo;
     private String dataNascimento;
     private String cpf;
-    
+
 //    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "user")
 //    private List<ReservaEquipamento> reservas;
     //assinatura digital
-    
-    public Cliente(){        
+    public Cliente() {
     }
-    
-    public Cliente (String nome, String sexo, String dataNascimento, String cpf, String telefone1, String telefone2, String cidadeUF, String logradouro) {
+
+    public Cliente(String nome, String sexo, String dataNascimento, String cpf, String telefone1, String telefone2, String cidadeUF, String logradouro) {
         this.nome = nome;
         this.sexo = sexo;
         this.dataNascimento = dataNascimento;
@@ -43,9 +42,8 @@ public class Cliente {
         this.logradouro = logradouro;
 //        reservas = new ArrayList<>();
     }
-    
-    
-    public void fazReserva(ReservaEquipamento r){
+
+    public void fazReserva(ReservaEquipamento r) {
 //        reservas.add(r);
     }
 
@@ -57,4 +55,3 @@ public class Cliente {
         this.idCliente = idCliente;
     }
 }
-

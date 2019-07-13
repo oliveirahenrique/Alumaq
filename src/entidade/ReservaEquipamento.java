@@ -6,21 +6,20 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-
 @Entity
-public class ReservaEquipamento implements Serializable{
+public class ReservaEquipamento implements Serializable {
 
     private Cliente cliente;
     private Equipamento equipamento;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idReserva;
-    
-    public ReservaEquipamento(){
-        
+
+    public ReservaEquipamento() {
+
     }
-    
-    public ReservaEquipamento (Cliente cliente, Equipamento equipamento) {
+
+    public ReservaEquipamento(Cliente cliente, Equipamento equipamento) {
         this.cliente = cliente;
         this.equipamento = equipamento;
     }
@@ -33,4 +32,3 @@ public class ReservaEquipamento implements Serializable{
         this.idReserva = idReserva;
     }
 }
-

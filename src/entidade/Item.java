@@ -4,28 +4,27 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-
 @Entity
 public class Item implements Serializable {
+
     @Id
     private Long idItem;
-    
+
     private Equipamento equipamento;
     private int qtd;
     private boolean disponivel;
     private Double subtotal;
     private Tipo tipo;
-   
-   
-        
+
     public Item(Equipamento eq, int q) {
         setEquipamento(eq);
         setQtd(q);
         setDisponivel(false);
-        subtotal = getQtd() * eq.getValor();        
+        subtotal = getQtd() * eq.getValor();
     }
-    public Item(){
-        
+
+    public Item() {
+
     }
 
     public Equipamento getEquipamento() {
@@ -35,7 +34,6 @@ public class Item implements Serializable {
     public void setEquipamento(Equipamento equipamento) {
         this.equipamento = equipamento;
     }
-
 
     public boolean isDisponivel() {
         return disponivel;
@@ -48,8 +46,6 @@ public class Item implements Serializable {
     public Double getSubtotal() {
         return subtotal;
     }
-    
-    
 
     public int getQtd() {
         return qtd;

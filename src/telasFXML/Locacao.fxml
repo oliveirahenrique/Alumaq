@@ -1,11 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LocacaoController">
-    
+<AnchorPane id="AnchorPane" prefHeight="638.0" prefWidth="689.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LocacaoController">
+   <children>
+      <Label layoutX="244.0" layoutY="14.0" prefHeight="69.0" prefWidth="161.0" text="LOCAÇÃO" textAlignment="CENTER">
+         <font>
+            <Font name="Garuda Bold" size="36.0" />
+         </font>
+      </Label>
+      <Label layoutX="40.0" layoutY="94.0" text="Funcionário:" />
+      <Label layoutX="337.0" layoutY="94.0" text="Cliente:" />
+      <TableView fx:id="tv_itens" layoutX="35.0" layoutY="203.0" prefHeight="350.0" prefWidth="405.0">
+         <columns>
+            <TableColumn fx:id="tc_item" prefWidth="164.0" text="Item" />
+            <TableColumn fx:id="tc_qtde" prefWidth="57.0" text="Qtde." />
+            <TableColumn fx:id="tc_valor" prefWidth="88.0" text="Valor" />
+            <TableColumn fx:id="tc_subtotal" prefWidth="94.0" text="Subtotal" />
+         </columns>
+      </TableView>
+      <Button fx:id="btn_adicionar" layoutX="449.0" layoutY="461.0" mnemonicParsing="false" text="Adicionar" />
+      <Button fx:id="btn_remover" layoutX="451.0" layoutY="500.0" mnemonicParsing="false" text="Remover" />
+      <Group layoutX="460.0" layoutY="353.0" />
+      <Label fx:id="lb_funcionario" layoutX="128.0" layoutY="96.0" />
+      <Label layoutX="40.0" layoutY="130.0" text="Data Inicio:" />
+      <Label layoutX="313.0" layoutY="130.0" text="Data Fim:" />
+      <TextField fx:id="tf_dataInicio" layoutX="120.0" layoutY="125.0" />
+      <TextField fx:id="tf_dataFim" layoutX="394.0" layoutY="125.0" />
+      <Label layoutX="40.0" layoutY="164.0" text="Fase:" />
+      <Label fx:id="lb_fase" layoutX="79.0" layoutY="166.0" />
+      <Button fx:id="btn_concluir" layoutX="565.0" layoutY="563.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="98.0" text="Concluir" />
+      <Label layoutX="46.0" layoutY="567.0" text="TOTAL: R$">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="lb_total" layoutX="158.0" layoutY="567.0" prefHeight="25.0" prefWidth="107.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <CheckBox layoutX="46.0" layoutY="606.0" mnemonicParsing="false" text="Aceito o seguro." />
+      <Label fx:id="lb_cliente" layoutX="393.0" layoutY="94.0" />
+      <Label fx:id="lb_cliente" layoutX="394.0" layoutY="94.0" />
+   </children>
 </AnchorPane>

@@ -1,5 +1,23 @@
 package entidade;
 
-public class Fornecedor {
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
+public class Fornecedor implements Serializable{
+
+    @Id
+    private Integer idFornecedor;
+    private String nome, telefone, email;
+    private Endereco endereco;
+
+    public Integer getID() {
+        return idFornecedor;
+    }
+
+    public void setID(Integer idFornecedor) {
+        this.idFornecedor = idFornecedor;
+    }
     
 }

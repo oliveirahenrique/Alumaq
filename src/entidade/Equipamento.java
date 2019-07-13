@@ -1,20 +1,31 @@
 package entidade;
 
-public class Equipamento {
-    private int idEq;
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+public class Equipamento implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer idEq;
     private String nome, descricao;
     private Double valor;
     private boolean disponivel;
     private Setor setor;
+    private int quantidade;
     
     
-    public Equipamento(int id, String n, String desc, Setor s, Double valor) {
+    public Equipamento(int id, String n, String desc, Setor s, Double valor, int q) {
         setIdEq(id);
         nome =n;
         descricao = desc;
         setSetor(s);
         setDisponivel(false);
         this.setValor(valor);
+        quantidade = q;
         
     }
     public Equipamento(){}

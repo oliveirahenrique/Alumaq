@@ -24,6 +24,7 @@ public class Venda implements Operacao, Serializable{
     @OneToMany(cascade = CascadeType.PERSIST)
     private List<Item> itens ;
     
+    private Contrato contrato;    
     private boolean fimVenda;
     private ControladorEstoque estoque;
  

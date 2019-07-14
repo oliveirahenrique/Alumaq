@@ -3,6 +3,15 @@
   <persistence-unit name="AlumaqNetbeansPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>entidade.Cliente</class>
+    <class>entidade.Usuario</class>
+    <class>entidade.Contrato_Equipamento</class>
+    <class>entidade.Cargo</class>
+    <class>entidade.Contrato</class>
+    <class>entidade.Endereco</class>
+    <class>entidade.Equipamento</class>
+    <class>entidade.Fornecedor</class>
+    <class>entidade.Funcionario</class>
+    <class>entidade.ReservaEquipamento</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3303/alumaq?useTimezone=true&amp;serverTimezone=UTC"/>
       <property name="javax.persistence.jdbc.user" value="root"/>

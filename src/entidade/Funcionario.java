@@ -2,29 +2,39 @@ package entidade;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Funcionario implements Serializable {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idFunc;
-    private String nome, dataNasc;
-    private Endereco endereco;
+    private String nome, dataNascimento;
+    private Double salario;
+    private String cpf;
     private String telefone1;
     private String telefone2;
-    private Double salario;  
-    private Loja loja = new Loja();
     
-    public Funcionario(int id, String nome, String dataN, Endereco endereco, String tel, Double sal) {
-        idFunc = id;
-        this.nome = nome;
-        dataNasc = dataN;
-        this.endereco = endereco;
-        this.telefone1 = tel;
-        salario = sal;
+    @OneToOne
+    private Endereco enderecoId;
+
+    public Funcionario(){
     }
     
+    public Funcionario(String nome, String cpf, String dataNascimento, Endereco endereco, String telefone1, String telefone2, Double salario) {
+        this.nome = nome;
+        this.cpf = cpf;
+        this.dataNascimento = dataNascimento;
+        this.enderecoId = endereco;
+        this.telefone1 = telefone1;
+        this.telefone2 = telefone2;
+        this.salario = salario;
+    }
+
     public String getTelefone1() {
         return telefone1;
     }
@@ -40,10 +50,6 @@ public class Funcionario implements Serializable {
     public void setTelefone2(String telefone2) {
         this.telefone2 = telefone2;
     }
-    
-    public Loja getLoja(){
-        return this.loja;
-    }
 
     public int getIdFunc() {
         return idFunc;
@@ -51,5 +57,75 @@ public class Funcionario implements Serializable {
 
     public void setIdFunc(int idFunc) {
         this.idFunc = idFunc;
+    }
+
+    /**
+     * @return the nome
+     */
+    public String getNome() {
+        return nome;
+    }
+
+    /**
+     * @param nome the nome to set
+     */
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    /**
+     * @return the dataNascimento
+     */
+    public String getDataNascimento() {
+        return dataNascimento;
+    }
+
+    /**
+     * @param dataNascimento the dataNascimento to set
+     */
+    public void setDataNascimento(String dataNascimento) {
+        this.dataNascimento = dataNascimento;
+    }
+
+    /**
+     * @return the salario
+     */
+    public Double getSalario() {
+        return salario;
+    }
+
+    /**
+     * @param salario the salario to set
+     */
+    public void setSalario(Double salario) {
+        this.salario = salario;
+    }
+
+    /**
+     * @return the endereco
+     */
+    public Endereco getEndereco() {
+        return enderecoId;
+    }
+
+    /**
+     * @param endereco the endereco to set
+     */
+    public void setEndereco(Endereco endereco) {
+        this.enderecoId = endereco;
+    }
+
+    /**
+     * @return the cpf
+     */
+    public String getCpf() {
+        return cpf;
+    }
+
+    /**
+     * @param cpf the cpf to set
+     */
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 }

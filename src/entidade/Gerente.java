@@ -9,7 +9,7 @@ public class Gerente extends Funcionario implements BalconistaInterface{
     private ControladorEstoque controle = new ControladorEstoque();
     
     public Gerente(int id, String nome, String dataN, Endereco endereco, String tel, Double sal) {
-        super(id, nome,dataN, endereco, tel,sal);
+//        super(id, nome,dataN, endereco, tel,sal);
         compras = new ArrayList<>();
         
     }

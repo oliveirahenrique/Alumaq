@@ -11,13 +11,13 @@ public class Pagamento {
     }
 
     public void realizarPagamento(){
-        if(contrato.fase==Fase.FASE1){
-            contrato.setSaldoDevedor(contrato.getSaldoDevedor() - valor);
-            contrato.fase = Fase.FASE2;
+        if(contrato.getFase()==Fase.FASE1){
+//            contrato.setSaldoDevedor(contrato.getSaldoDevedor() - valor);
+            contrato.setFase(Fase.FASE2);
         }
         else{
-            if(contrato.fase==Fase.FASE2){
-                contrato.setSaldoDevedor(contrato.getSaldoDevedor() - valor);
+            if(contrato.getFase()==Fase.FASE2){
+//                contrato.setSaldoDevedor(contrato.getSaldoDevedor() - valor);
                 Devolucao d = new Devolucao(contrato);                       
             }
         }

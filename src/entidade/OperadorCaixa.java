@@ -8,7 +8,7 @@ public class OperadorCaixa extends Funcionario implements BalconistaInterface {
     private List<Contrato> contratos;
     
     public OperadorCaixa(int id, String nome, String dataN, Endereco endereco, String tel, Double sal) {
-        super(id, nome,dataN, endereco, tel,sal);
+//        super(id, nome,dataN, endereco, tel,sal);
         contratos = new ArrayList<>();
     }
     

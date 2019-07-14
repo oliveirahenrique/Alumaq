@@ -8,7 +8,7 @@ public class Balconista extends Funcionario implements BalconistaInterface {
     private List<Venda> vendas;
     
     public Balconista(int id, String nome, String dataN, Endereco endereco, String tel, Double sal) {
-        super(id, nome,dataN, endereco, tel,sal);
+//        super(id, nome,dataN, endereco, tel,sal);
         locacoes = new ArrayList<>();
         vendas = new ArrayList<>();
     }

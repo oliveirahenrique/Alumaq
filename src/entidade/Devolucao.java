@@ -7,6 +7,6 @@ public class Devolucao {
     
     public Devolucao(Contrato c) {
       contrato = c;
-      contrato.fase = Fase.FINALIZADO;
+      contrato.setFase(Fase.FINALIZADO);
     }
 }

@@ -6,20 +6,24 @@
 package entidade;
 
 import java.io.Serializable;
+import javax.persistence.Embeddable;
 
 /**
  *
  * @author Pichau
  */
+@Embeddable
 public class Contrato_EquipamentoId implements Serializable {
 
-    private Contrato contratoId;
-    private Equipamento equipamentoId;
+    private static final long serialVersionUID = 1L;
+    
+    private Integer contratoId;
+    private Integer equipamentoId;
     
     public Contrato_EquipamentoId(){
     }
 
-    public Contrato_EquipamentoId(Contrato contrato,Equipamento equipamento){
+    public Contrato_EquipamentoId(Integer contrato,Integer equipamento){
         this.contratoId=contrato;
         this.equipamentoId=equipamento;
     }
@@ -27,28 +31,28 @@ public class Contrato_EquipamentoId implements Serializable {
     /**
      * @return the contratoId
      */
-    public Contrato getContratoId() {
+    public Integer getContratoId() {
         return contratoId;
     }
 
     /**
      * @param contratoId the contratoId to set
      */
-    public void setContratoId(Contrato contratoId) {
+    public void setContratoId(Integer contratoId) {
         this.contratoId = contratoId;
     }
 
     /**
      * @return the equipamentoId
      */
-    public Equipamento getEquipamentoId() {
+    public Integer getEquipamentoId() {
         return equipamentoId;
     }
 
     /**
      * @param equipamentoId the equipamentoId to set
      */
-    public void setEquipamentoId(Equipamento equipamentoId) {
+    public void setEquipamentoId(Integer equipamentoId) {
         this.equipamentoId = equipamentoId;
     }
     
@@ -57,8 +61,9 @@ public class Contrato_EquipamentoId implements Serializable {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result
-				+ ((branchName == null) ? 0 : branchName.hashCode());
-		result = prime * result + idEmployee;
+				+ ((contratoId == null) ? 0 : contratoId.hashCode());
+		result = prime * result
+				+ ((equipamentoId == null) ? 0 : equipamentoId.hashCode());
 		return result;
 	}
     

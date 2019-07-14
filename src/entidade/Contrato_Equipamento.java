@@ -11,7 +11,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 
 /**
  *
@@ -19,19 +21,22 @@ import javax.persistence.OneToOne;
  */
 @Entity 
 @IdClass(Contrato_EquipamentoId.class)
+//@PrimaryKeyJoinColumn
 public class Contrato_Equipamento implements Serializable {
 
     private static long serialVersionUID = 1L;
     @Id
+//    private Contrato_EquipamentoId id;
     @NotNull
-//    @OneToOne
-    @Column(name = "contrato")
+    @OneToOne
+    @JoinColumn(name = "contratoId")
     private Contrato contratoId;
     @Id
     @NotNull
     @OneToOne
-    @Column(name = "equipamento")
+    @JoinColumn(name = "equipamentoId")
     private Equipamento equipamentoId;
+    
     @NotNull
     private Integer qtd;
     @NotNull
@@ -43,36 +48,9 @@ public class Contrato_Equipamento implements Serializable {
     public Contrato_Equipamento(Contrato contrato, Equipamento equipamento, Integer qtd, Double valor) {
         this.contratoId = contrato;
         this.equipamentoId = equipamento;
+//        id = new Contrato_EquipamentoId(contrato,equipamento);
         this.qtd = qtd;
         this.valor = valor;
-    }
-
-    /**
-     * @return the contratoId
-     */
-    public Contrato getContratoId() {
-        return contratoId;
-    }
-
-    /**
-     * @param contratoId the contratoId to set
-     */
-    public void setContratoId(Contrato contratoId) {
-        this.contratoId = contratoId;
-    }
-
-    /**
-     * @return the equipamentoId
-     */
-    public Equipamento getEquipamentoId() {
-        return equipamentoId;
-    }
-
-    /**
-     * @param equipamentoId the equipamentoId to set
-     */
-    public void setEquipamentoId(Equipamento equipamentoId) {
-        this.equipamentoId = equipamentoId;
     }
 
     /**

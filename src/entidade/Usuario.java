@@ -7,11 +7,11 @@ package entidade;
 
 import com.sun.istack.internal.NotNull;
 import java.io.Serializable;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 /**
@@ -32,10 +32,11 @@ public class Usuario implements Serializable {
     private String senha;
     @OneToOne
     @NotNull
-    @Column(name = "funcionario")
+    @JoinColumn(name = "funcionario")
     private Funcionario funcionarioId;
     @OneToOne
     @NotNull
+    @JoinColumn(name="cargo")
     private Cargo cargoId;
 
     public Usuario() {

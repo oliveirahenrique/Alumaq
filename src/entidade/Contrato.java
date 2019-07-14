@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -34,11 +35,11 @@ public class Contrato implements Serializable {
 
     @OneToOne
     @NotNull
-    @Column(name = "cliente")
+    @JoinColumn(name = "cliente")
     private Cliente clienteId;
     @OneToOne
     @NotNull
-    @Column(name = "funcionario")
+    @JoinColumn(name = "funcionario")
     private Funcionario funcionarioId;
     //assinatura digital
 

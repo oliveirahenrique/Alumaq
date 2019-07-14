@@ -2,12 +2,14 @@ package entidade;
 
 import com.sun.istack.internal.NotNull;
 import java.io.Serializable;
+import java.util.Calendar;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -33,7 +35,7 @@ public class Funcionario implements Serializable {
     private String telefone2 = null;
 
     @OneToOne
-    @Column(name = "endereco")
+    @JoinColumn(name = "endereco")
     private Endereco enderecoId;
 
     public Funcionario() {

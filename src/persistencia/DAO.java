@@ -6,8 +6,10 @@
 package persistencia;
 
 import entidade.Cliente;
+import entidade.Contrato;
 import entidade.Equipamento;
 import entidade.Fornecedor;
+import entidade.Funcionario;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
@@ -63,6 +65,27 @@ public class DAO {
     public List<Equipamento> getListEquipamentos() {
         Query consulta = em.createQuery("SELECT * FROM equipamento");
         List<Equipamento> lista = (List<Equipamento>) consulta.getResultList();
+
+        return lista;
+    }
+
+    public List<Funcionario> getListFuncionarios() {
+        Query consulta = em.createQuery("SELECT * FROM funcionario");
+        List<Funcionario> lista = (List<Funcionario>) consulta.getResultList();
+
+        return lista;
+    }
+
+    public List<Contrato> getListLocacoes() {
+        Query consulta = em.createQuery("SELECT * FROM cotrato WHERE tipo = LOCACAO");
+        List<Contrato> lista = (List<Contrato>) consulta.getResultList();
+
+        return lista;
+    }
+
+    public List<Contrato> getListVendas() {
+        Query consulta = em.createQuery("SELECT * FROM cotrato WHERE tipo = VENDA");
+        List<Contrato> lista = (List<Contrato>) consulta.getResultList();
 
         return lista;
     }

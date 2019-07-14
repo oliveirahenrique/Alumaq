@@ -43,13 +43,13 @@ public class Gerente extends Funcionario implements BalconistaInterface{
     public void editar(Equipamento e){
         gerencia = new GerenciaEquipamentos();
         
-        gerencia.editar(e.getIdEq(), Setor.LOCACAO);
+//        gerencia.editar(e.getIdEq(), Setor.LOCACAO);
         
     }
     
     public List<Equipamento> consultar () {
         gerencia = new GerenciaEquipamentos();
-        gerencia.consultar(Setor.LOCACAO);
+//        gerencia.consultar(Setor.LOCACAO);
         return null;
     }
 

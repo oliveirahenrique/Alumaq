@@ -1,14 +1,12 @@
 package entidade;
 
-import com.sun.istack.internal.NotNull;
 import java.io.Serializable;
 import java.util.Date;
-import javax.persistence.Column;
+import java.util.concurrent.TimeUnit;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -17,29 +15,20 @@ import javax.persistence.TemporalType;
 public class Contrato implements Serializable {
 
     @Id
-    @NotNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idContrato;
     //private Locacao locacao;
-    @NotNull
     @Temporal(TemporalType.DATE)
     private Date dataInicio, dataFim;
-    @NotNull
     private Double valorp1;
-    private Double valorp2 = null;
-    @NotNull
+    private Double valorp2;
     private Tipo tipo;
-    private Double multa = null;
-    @NotNull
+    private Double multa;
     private Fase fase;
 
     @OneToOne
-    @NotNull
-    @JoinColumn(name = "cliente")
     private Cliente clienteId;
     @OneToOne
-    @NotNull
-    @JoinColumn(name = "funcionario")
     private Funcionario funcionarioId;
     //assinatura digital
 
@@ -158,10 +147,16 @@ public class Contrato implements Serializable {
     }
 
     /**
+     * @param c
+     * @param dataDevolucao
      * @return the multa
      */
-    public Double getMulta() {
-        return multa;
+    public Double getMulta(Contrato c, Date dataDevolucao) {
+        long diffInMillies = Math.abs(dataDevolucao.getTime() - c.dataFim.getTime());
+        long diff = TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS);
+        double valorDaMulta = (c.getValorp1() + c.getValorp2()) * 0.02 * diff;
+        
+        return valorDaMulta;
     }
 
     /**
@@ -212,4 +207,5 @@ public class Contrato implements Serializable {
     public void setFuncionarioId(Funcionario funcionarioId) {
         this.funcionarioId = funcionarioId;
     }
+
 }

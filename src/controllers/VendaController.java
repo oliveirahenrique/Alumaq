@@ -51,6 +51,7 @@ public class VendaController implements Initializable {
             }
         }
         dao.fechar();
+        
         if (valor.equals(0.0)) {
             r = "Equipamentos não disponíveis. Venda não realizada.";
         } else if (!indisp.isEmpty()) {

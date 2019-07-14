@@ -6,8 +6,11 @@
 package controllers;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
+import persistencia.DAO;
+import entidade.*;
 
 /**
  * FXML Controller class
@@ -22,6 +25,44 @@ public class VendaController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
+    
+    ArrayList<Equipamento> equipamentos;
+
+    public VendaController(ArrayList<Equipamento> equipamentos) {
+        this.equipamentos = equipamentos;
+    }
+    
+    public String vender() {
+        Double valor = 0.0;
+        ArrayList<Equipamento> indisp = new ArrayList(); 
+        String r = " ";
+        DAO dao = new DAO();
+        for (Equipamento e : equipamentos) {
+            if (e.getSetor().equals(Setor.VENDA) && e.isDisponivel()) {
+                valor += e.getValor();
+                e.qtd = e.qtd-1;
+                if (e.qtd == 0)
+                    e.setDisponivel(false);
+                
+                dao.atualizar(e);
+            } else {
+                indisp.add(e);
+            }
+        }
+        dao.fechar();
+        if (valor.equals(0.0)) {
+            r = "Equipamentos não disponíveis. Venda não realizada.";
+        } else if (!indisp.isEmpty()) {
+            r = "Equipamentos ";
+            for (Equipamento e : indisp) {
+                r = r + e.getNome() + " (" + e.getIdEq() + ") ";
+            }
+            r = r + "não disponíveis. Valor da venda: R$"+valor;
+        } else {
+            r = "Venda realizada com sucesso! Valor: R$"+valor;
+        }
+        return r;
+    }
     
 }

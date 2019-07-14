@@ -1,11 +1,14 @@
 package entidade;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 public class Funcionario implements Serializable {
@@ -13,7 +16,9 @@ public class Funcionario implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idFunc;
-    private String nome, dataNascimento;
+    private String nome;
+    @Temporal(TemporalType.DATE)
+    private Date dataNascimento;
     private Double salario;
     private String cpf;
     private String telefone1;
@@ -25,7 +30,7 @@ public class Funcionario implements Serializable {
     public Funcionario(){
     }
     
-    public Funcionario(String nome, String cpf, String dataNascimento, Endereco endereco, String telefone1, String telefone2, Double salario) {
+    public Funcionario(String nome, String cpf, Date dataNascimento, Endereco endereco, String telefone1, String telefone2, Double salario) {
         this.nome = nome;
         this.cpf = cpf;
         this.dataNascimento = dataNascimento;
@@ -76,14 +81,14 @@ public class Funcionario implements Serializable {
     /**
      * @return the dataNascimento
      */
-    public String getDataNascimento() {
+    public Date getDataNascimento() {
         return dataNascimento;
     }
 
     /**
      * @param dataNascimento the dataNascimento to set
      */
-    public void setDataNascimento(String dataNascimento) {
+    public void setDataNascimento(Date dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 

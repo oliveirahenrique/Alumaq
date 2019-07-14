@@ -50,6 +50,9 @@ public class VendaController implements Initializable {
                 indisp.add(e);
             }
         }
+        // TODO registrar comissoes
+        // TODO gerar contrato de venda
+        // TODO encaminhar pagamento referente à venda ao setor de pagamento
         dao.fechar();
         
         if (valor.equals(0.0)) {

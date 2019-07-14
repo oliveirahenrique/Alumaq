@@ -1,29 +1,42 @@
 package entidade;
 
 import java.util.List;
+import persistencia.DAO;
 
 public class GerenciaEquipamentos {
+
     private ControladorEstoque controle = new ControladorEstoque();
-    private Equipamento equipamento;
-    
-    public boolean insere (Equipamento equipamento, Setor setor) {
-        boolean equipamentoInserido= false;
+    private List<Equipamento> equipamentos;
+
+    public void insere(Equipamento equipamento, Setor setor) {
         //Query para inserir Equipamento no banco de dados
-        
-         return equipamentoInserido;
+        equipamento.setSetor(setor);
+        DAO dao = new DAO();
+        dao.cadastrar(equipamento);
+        dao.fechar();
     }
-    
-    public void exclui (Equipamento equipamento, Setor setor) {
-        //Query para excluir equipamento do banco de dados
+
+    public void exclui(Equipamento equipamento, Setor setor) {
+        if (equipamento.getSetor().equals(setor)) {
+            DAO dao = new DAO();
+            dao.remover(equipamento);
+            dao.fechar();
+        }
     }
-    
-    public void editar (int id, Setor setor) {
-        //Query para editar um equipamento no banco de dados
+
+    public void editar(Equipamento equipamento, Setor setor) {
+        equipamento.setSetor(setor);
+        DAO dao = new DAO();
+        dao.atualizar(equipamento);
+        dao.fechar();
     }
-    
-    public List<Equipamento> consultar (Setor setor) {
+
+    public List<Equipamento> getEquipamentos() {
         //Query para consultar equipamentos de um setor
-        return null;
+        DAO dao = new DAO();
+        this.equipamentos = dao.getListEquipamentos();
+        dao.fechar();
+
+        return equipamentos;
     }
 }
-

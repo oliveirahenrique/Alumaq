@@ -1,21 +1,19 @@
 package entidade;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.util.List;
 import persistencia.DAO;
 
 public class GerenciaEquipamentos {
 
     private ControladorEstoque controle = new ControladorEstoque();
-    private Equipamento equipamento;
+    private List<Equipamento> equipamentos;
 
-    public boolean insere(Equipamento equipamento, Setor setor) {
-        boolean equipamentoInserido = false;
+    public void insere(Equipamento equipamento, Setor setor) {
         //Query para inserir Equipamento no banco de dados
-
-        return equipamentoInserido;
+        equipamento.setSetor(setor);
+        DAO dao = new DAO();
+        dao.cadastrar(equipamento);
+        dao.fechar();
     }
 
     public void exclui(Equipamento equipamento, Setor setor) {
@@ -33,10 +31,12 @@ public class GerenciaEquipamentos {
         dao.fechar();
     }
 
-    public void consultarEquipamentos() {
+    public List<Equipamento> getEquipamentos() {
         //Query para consultar equipamentos de um setor
         DAO dao = new DAO();
-        dao.getListEquipamentos();
+        this.equipamentos = dao.getListEquipamentos();
         dao.fechar();
+
+        return equipamentos;
     }
 }

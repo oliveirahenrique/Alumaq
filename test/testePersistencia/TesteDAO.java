@@ -14,7 +14,7 @@ public class TesteDAO {
 
         DAO dao = new DAO();
 
-        Cliente c1 = new Cliente("Henrique", "Masculino", "16/04/1994", "09861690646", "33731730", null, "Capitólio-MG", "Augusto Theodoro,88");
+        Cliente c1 = new Cliente("Henrique", "Masculino", "16/04/1994", "58", "33731730", null, "Capitólio-MG", "Augusto Theodoro,88");
         Cliente c2 = new Cliente("Nathalia", "Feminio", "16/04/1994", "52", "991298585", null, "Mogimirim-MG", " Afonso Arinos,256");
         Cliente c3 = new Cliente("Roberval", "Masculino", "16/04/1994", "28", "778956", null, "São Paulo-MG", "Chuca,85");
         Cliente c4 = new Cliente("Henrique", "Masculino", "16/04/1994", "78", "86", null, "Rio de Janeiro-MG", "Augusto Theodoro,88");

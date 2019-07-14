@@ -1,5 +1,6 @@
 package entidade;
 
+import com.sun.istack.internal.NotNull;
 import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,27 +10,34 @@ import javax.persistence.OneToOne;
 
 @Entity
 public class Equipamento implements Serializable {
+
     @Id
+    @NotNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idEq;
-    private String nome, descricao;
-    private boolean disponivel;
-    private Double valor;
-    private Integer qtd_estoque;
+    @NotNull
+    private String nome;
+    private String descricao = null;
+    @NotNull
     private Setor setor;
-    
-    public Equipamento(){
+    @NotNull
+    private boolean disponivel;
+    @NotNull
+    private Double valor;
+    @NotNull
+    private Integer qtd_estoque;
+
+    public Equipamento() {
     }
-    
-    public Equipamento( String nome, String descricao, boolean disponivel,  Integer qtd_estoque, Double valor, Setor setor) {
-        this.nome =nome;
+
+    public Equipamento(String nome, String descricao, boolean disponivel, Integer qtd_estoque, Double valor, Setor setor) {
+        this.nome = nome;
         this.descricao = descricao;
-        this.disponivel= disponivel;
-        this.valor=valor;
-        this.qtd_estoque=qtd_estoque;
-        this.setor=setor;
-        
-        
+        this.disponivel = disponivel;
+        this.valor = valor;
+        this.qtd_estoque = qtd_estoque;
+        this.setor = setor;
+
     }
 
     public int getIdEq() {
@@ -39,8 +47,6 @@ public class Equipamento implements Serializable {
     public void setIdEq(int idEq) {
         this.setIdEq((Integer) idEq);
     }
-
-   
 
     public boolean isDisponivel() {
         return disponivel;
@@ -57,7 +63,6 @@ public class Equipamento implements Serializable {
     public void setSetor(Setor setor) {
         this.setor = setor;
     }
-
 
     public Double getValor() {
         return valor;
@@ -115,6 +120,5 @@ public class Equipamento implements Serializable {
     public void setQtd_estoque(Integer qtd_estoque) {
         this.qtd_estoque = qtd_estoque;
     }
-    
-    
+
 }

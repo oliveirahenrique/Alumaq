@@ -16,7 +16,7 @@ public class CompraEquipamentos {
         DAO dao = new DAO();
         for (Equipamento e : equipamentos) {
             valor += e.getValor();
-            e.qtd = e.qtd + 1;
+            e.setQtd_estoque(e.getQtd_estoque()+1); 
             e.setDisponivel(true);
 
             dao.atualizar(e);

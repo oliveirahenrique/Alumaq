@@ -5,6 +5,7 @@
  */
 package entidade;
 
+import com.sun.istack.internal.NotNull;
 import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,8 +19,10 @@ import javax.persistence.Id;
 @Entity
 public class Cargo implements Serializable{
     @Id
+    @NotNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idCargo;
+    @NotNull
     private String funcao;
     
     public Cargo(){

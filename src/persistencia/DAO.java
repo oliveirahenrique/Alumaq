@@ -6,6 +6,7 @@
 package persistencia;
 
 import entidade.Cliente;
+import entidade.Equipamento;
 import entidade.Fornecedor;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -51,10 +52,17 @@ public class DAO {
 
         return lista;
     }
-    
+
     public List<Fornecedor> getListFornecedores() {
         Query consulta = em.createQuery("SELECT * FROM fornecedores");
         List<Fornecedor> lista = (List<Fornecedor>) consulta.getResultList();
+
+        return lista;
+    }
+
+    public List<Equipamento> getListEquipamentos() {
+        Query consulta = em.createQuery("SELECT * FROM equipamento");
+        List<Equipamento> lista = (List<Equipamento>) consulta.getResultList();
 
         return lista;
     }

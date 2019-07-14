@@ -41,8 +41,8 @@ public class VendaController implements Initializable {
         for (Equipamento e : equipamentos) {
             if (e.getSetor().equals(Setor.VENDA) && e.isDisponivel()) {
                 valor += e.getValor();
-                e.qtd = e.qtd-1;
-                if (e.qtd == 0)
+                e.setQtd_estoque(e.getQtd_estoque()-1);
+                if (e.getQtd_estoque() == 0)
                     e.setDisponivel(false);
                 
                 dao.atualizar(e);

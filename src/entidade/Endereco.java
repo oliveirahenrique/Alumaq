@@ -1,5 +1,6 @@
 package entidade;
 
+import com.sun.istack.internal.NotNull;
 import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,21 +8,28 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Endereco implements Serializable{
+public class Endereco implements Serializable {
+
     @Id
+    @NotNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idEndereco;
-    private String rua, bairro, complemento;
+    @NotNull
+    private String rua, bairro, cidade, estado;
+    private String complemento = null;
+    @NotNull
     private int numero;
-    
-    public Endereco (){
+
+    public Endereco() {
     }
-    
-    public Endereco(String rua, String bairro, String complemento, int numero) {
+
+    public Endereco(String rua, String bairro, String complemento, int numero, String cidade, String estado) {
         this.rua = rua;
         this.complemento = complemento;
         this.bairro = bairro;
         this.numero = numero;
+        this.cidade = cidade;
+        this.estado = estado;
     }
 
     /**

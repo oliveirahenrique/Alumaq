@@ -5,7 +5,9 @@
  */
 package entidade;
 
+import com.sun.istack.internal.NotNull;
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,25 +23,30 @@ public class Usuario implements Serializable {
 
     private static long serialVersionUID = 1L;
     @Id
+    @NotNull
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
+    @NotNull
     private String login;
+    @NotNull
     private String senha;
     @OneToOne
+    @NotNull
+    @Column(name = "funcionario")
     private Funcionario funcionarioId;
     @OneToOne
+    @NotNull
     private Cargo cargoId;
-    
-    public Usuario(){        
+
+    public Usuario() {
     }
-    
-    public Usuario(String login, String senha, Funcionario funcionario, Cargo cargo){
-        this.login=login;
-        this.senha=senha;
-        this.funcionarioId=funcionario;
-        this.cargoId=cargo;
+
+    public Usuario(String login, String senha, Funcionario funcionario, Cargo cargo) {
+        this.login = login;
+        this.senha = senha;
+        this.funcionarioId = funcionario;
+        this.cargoId = cargo;
     }
-    
 
     public Integer getId() {
         return id;
@@ -104,7 +111,7 @@ public class Usuario implements Serializable {
     public void setCargoId(Cargo cargoId) {
         this.cargoId = cargoId;
     }
-    
+
     @Override
     public int hashCode() {
         int hash = 0;

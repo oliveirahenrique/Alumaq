@@ -5,28 +5,36 @@
  */
 package entidade;
 
+import com.sun.istack.internal.NotNull;
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.IdClass;
 import javax.persistence.OneToOne;
 
 /**
  *
  * @author Pichau
  */
-@Entity
+@Entity 
+@IdClass(Contrato_EquipamentoId.class)
 public class Contrato_Equipamento implements Serializable {
 
     private static long serialVersionUID = 1L;
     @Id
-    @OneToOne
+    @NotNull
+//    @OneToOne
+    @Column(name = "contrato")
     private Contrato contratoId;
     @Id
+    @NotNull
     @OneToOne
+    @Column(name = "equipamento")
     private Equipamento equipamentoId;
+    @NotNull
     private Integer qtd;
+    @NotNull
     private double valor;
 
     public Contrato_Equipamento() {
@@ -95,5 +103,4 @@ public class Contrato_Equipamento implements Serializable {
         this.valor = valor;
     }
 
-   
 }

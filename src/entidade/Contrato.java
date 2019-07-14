@@ -1,7 +1,9 @@
 package entidade;
 
+import com.sun.istack.internal.NotNull;
 import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,36 +16,45 @@ import javax.persistence.TemporalType;
 public class Contrato implements Serializable {
 
     @Id
+    @NotNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idContrato;
     //private Locacao locacao;
+    @NotNull
     @Temporal(TemporalType.DATE)
     private Date dataInicio, dataFim;
+    @NotNull
     private Double valorp1;
-    private Double valorp2;
+    private Double valorp2 = null;
+    @NotNull
     private Tipo tipo;
-    private Double multa;
+    private Double multa = null;
+    @NotNull
     private Fase fase;
-    
+
     @OneToOne
+    @NotNull
+    @Column(name = "cliente")
     private Cliente clienteId;
     @OneToOne
+    @NotNull
+    @Column(name = "funcionario")
     private Funcionario funcionarioId;
     //assinatura digital
-    
+
     public Contrato() {
     }
-    
-    public Contrato(Date dataInicio, Date dataFim, Double valorp1, Double valorp2,Double multa, Tipo tipo, Fase fase, Cliente cliente, Funcionario funcionario) {
-        this.dataInicio=dataInicio;
+
+    public Contrato(Date dataInicio, Date dataFim, Double valorp1, Double valorp2, Double multa, Tipo tipo, Fase fase, Cliente cliente, Funcionario funcionario) {
+        this.dataInicio = dataInicio;
         this.dataFim = dataFim;
-        this.valorp1=valorp1;
-        this.valorp2=valorp2;
-        this.multa=multa;
-        this.tipo=tipo;
-        this.fase=fase;
-        this.clienteId=cliente;
-        this.funcionarioId=funcionario;
+        this.valorp1 = valorp1;
+        this.valorp2 = valorp2;
+        this.multa = multa;
+        this.tipo = tipo;
+        this.fase = fase;
+        this.clienteId = cliente;
+        this.funcionarioId = funcionario;
 
     }
 

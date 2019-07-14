@@ -1,7 +1,9 @@
 package entidade;
 
+import com.sun.istack.internal.NotNull;
 import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,22 +16,29 @@ import javax.persistence.TemporalType;
 public class Funcionario implements Serializable {
 
     @Id
+    @NotNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idFunc;
+    @NotNull
     private String nome;
+    @NotNull
     @Temporal(TemporalType.DATE)
     private Date dataNascimento;
+    @NotNull
     private Double salario;
+    @NotNull
     private String cpf;
+    @NotNull
     private String telefone1;
-    private String telefone2;
-    
+    private String telefone2 = null;
+
     @OneToOne
+    @Column(name = "endereco")
     private Endereco enderecoId;
 
-    public Funcionario(){
+    public Funcionario() {
     }
-    
+
     public Funcionario(String nome, String cpf, Date dataNascimento, Endereco endereco, String telefone1, String telefone2, Double salario) {
         this.nome = nome;
         this.cpf = cpf;

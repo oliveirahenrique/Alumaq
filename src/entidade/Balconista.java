@@ -2,6 +2,7 @@ package entidade;
 
 import java.util.ArrayList;
 import java.util.List;
+import persistencia.DAO;
 
 public class Balconista extends Funcionario implements BalconistaInterface {
     private List<Contrato> contrato;

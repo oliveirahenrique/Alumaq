@@ -1,5 +1,5 @@
 package entidade;
 
-public enum  Tipo {
-   VENDA, LOCACAO;
+public enum Tipo {
+    LOCACAO, VENDA;
 }

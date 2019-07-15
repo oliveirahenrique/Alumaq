@@ -28,6 +28,7 @@ public class Funcionario implements Serializable {
     private Date dataNascimento;
     @NotNull
     private Double salario;
+    private Double comissao;
     @NotNull
     private String cpf;
     @NotNull
@@ -143,5 +144,19 @@ public class Funcionario implements Serializable {
      */
     public void setCpf(String cpf) {
         this.cpf = cpf;
+    }
+
+    /**
+     * @return the comissao
+     */
+    public Double getComissao() {
+        return comissao;
+    }
+
+    /**
+     * @param comissao the comissao to set
+     */
+    public void setComissao(Double comissao) {
+        this.comissao = comissao;
     }
 }

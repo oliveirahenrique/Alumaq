@@ -3,6 +3,7 @@ package entidade;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import persistencia.DAO;
 
 public class OperadorCaixa extends Funcionario implements BalconistaInterface {
     private List<Contrato> contratos;

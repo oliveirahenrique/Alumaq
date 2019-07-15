@@ -1,13 +1,18 @@
 package entidade;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class Pagamento {
     private Contrato contrato;
     private Double valor;
-  
+    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+    Date dataDevolucao;
     
-    public Pagamento(Contrato contrato) {
-       
-        
+    public Pagamento(Contrato contrato, String dataDevolucao) throws ParseException {
+        this.contrato = contrato;
+        this.dataDevolucao = sdf.parse(dataDevolucao);
     }
 
     public void realizarPagamento(){
@@ -18,10 +23,9 @@ public class Pagamento {
         else{
             if(contrato.getFase()==Fase.FASE2){
 //                contrato.setSaldoDevedor(contrato.getSaldoDevedor() - valor);
-                Devolucao d = new Devolucao(contrato);                       
+                Devolucao d = new Devolucao();
+                d.devolverLocacao(contrato, dataDevolucao);
             }
         }
     }
-    
-
 }

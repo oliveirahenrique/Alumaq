@@ -6,23 +6,22 @@
 package persistencia;
 
 import entidade.Cliente;
-import entidade.ContratoOperacao;
 import entidade.Equipamento;
 import entidade.Fornecedor;
 import entidade.Funcionario;
 import entidade.Locacao;
 import entidade.Tipo;
+import entidade.Usuario;
 import entidade.Venda;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
 public class DAO {
 
-    String factory = "AlumaqNetbeansPU";
-    EntityManagerFactory emf = Persistence.createEntityManagerFactory(factory);
+    EntityManagerFactory emf = Persistence.createEntityManagerFactory("AlumaqNetbeansPU");
     EntityManager em = emf.createEntityManager();
 
     public void cadastrar(Object o) {
@@ -52,45 +51,52 @@ public class DAO {
     }
 
     public List<Cliente> getListClientes() {
-        Query consulta = em.createQuery("SELECT * FROM cliente");
-        List<Cliente> lista = (List<Cliente>) consulta.getResultList();
+        TypedQuery<Cliente> consulta = (TypedQuery<Cliente>) em.createNativeQuery("SELECT * FROM cliente",Cliente.class        );
+        List<Cliente> lista = consulta.getResultList();
 
         return lista;
     }
 
     public List<Fornecedor> getListFornecedores() {
-        Query consulta = em.createQuery("SELECT * FROM fornecedores");
-        List<Fornecedor> lista = (List<Fornecedor>) consulta.getResultList();
+        TypedQuery<Fornecedor> consulta = (TypedQuery<Fornecedor>) em.createNativeQuery("SELECT * FROM fornecedores", Fornecedor.class);
+        List<Fornecedor> lista = consulta.getResultList();
 
         return lista;
     }
 
     public List<Equipamento> getListEquipamentos() {
-        Query consulta = em.createQuery("SELECT * FROM equipamento");
-        List<Equipamento> lista = (List<Equipamento>) consulta.getResultList();
+        TypedQuery<Equipamento> consulta = (TypedQuery<Equipamento>) em.createNativeQuery("SELECT * FROM equipamento", Equipamento.class);
+        List<Equipamento> lista = consulta.getResultList();
 
         return lista;
     }
 
     public List<Funcionario> getListFuncionarios() {
-        Query consulta = em.createQuery("SELECT * FROM funcionario");
-        List<Funcionario> lista = (List<Funcionario>) consulta.getResultList();
+        TypedQuery<Funcionario> consulta = (TypedQuery<Funcionario>) em.createNativeQuery("SELECT * FROM funcionario", Funcionario.class);
+        List<Funcionario> lista = consulta.getResultList();
 
         return lista;
     }
 
     public List<Locacao> getListLocacoes() {
-        Query consulta = em.createQuery("SELECT * FROM cotrato WHERE tipo = " + Tipo.LOCACAO);
-        List<Locacao> lista = (List<Locacao>) consulta.getResultList();
+        TypedQuery<Locacao> consulta = (TypedQuery<Locacao>) em.createNativeQuery("SELECT * FROM contrato WHERE tipo = " + Tipo.LOCACAO,Locacao.class);
+        List<Locacao> lista = consulta.getResultList();
 
         return lista;
     }
 
     public List<Venda> getListVendas() {
-        Query consulta = em.createQuery("SELECT * FROM cotrato WHERE tipo = " + Tipo.VENDA);
-        List<Venda> lista = (List<Venda>) consulta.getResultList();
+        TypedQuery<Venda> consulta = (TypedQuery<Venda>) em.createNativeQuery("SELECT * FROM contrato WHERE tipo = " + Tipo.VENDA, Venda.class);
+        List<Venda> lista = consulta.getResultList();
 
         return lista;
+    }
+    
+    @SuppressWarnings("empty-statement")
+    public Usuario getUsuario(String login) {
+        TypedQuery<Usuario> query = (TypedQuery<Usuario>) em.createNativeQuery("select * from usuario u where u.login = '"+login+"'", Usuario.class);
+        List<Usuario> users = query.getResultList();
+        return users.get(0);
     }
 
     public void fechar() {

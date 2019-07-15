@@ -5,12 +5,15 @@
  */
 package alumaqnetbeans;
 
+import persistencia.DAO;
+
 /**
  *
  * @author natalia
  */
 public class AlumaqNetbeans {
 
+    final static DAO dao = new DAO();
     /**
      * @param args the command line arguments
      */

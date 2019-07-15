@@ -7,13 +7,12 @@ package entidade;
 
 import com.sun.istack.internal.NotNull;
 import java.io.Serializable;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Table;
 
 /**
  *
@@ -21,16 +20,15 @@ import javax.persistence.PrimaryKeyJoinColumn;
  */
 @Entity 
 @IdClass(Contrato_EquipamentoId.class)
-//@PrimaryKeyJoinColumn
+@Table(name="contrato_equipamento")
 public class Contrato_Equipamento implements Serializable {
 
     private static long serialVersionUID = 1L;
     @Id
-//    private Contrato_EquipamentoId id;
     @NotNull
     @OneToOne
     @JoinColumn(name = "contratoId")
-    private Contrato contratoId;
+    private ContratoOperacao contratoId;
     @Id
     @NotNull
     @OneToOne
@@ -45,10 +43,9 @@ public class Contrato_Equipamento implements Serializable {
     public Contrato_Equipamento() {
     }
 
-    public Contrato_Equipamento(Contrato contrato, Equipamento equipamento, Integer qtd, Double valor) {
+    public Contrato_Equipamento(ContratoOperacao contrato, Equipamento equipamento, Integer qtd, Double valor) {
         this.contratoId = contrato;
         this.equipamentoId = equipamento;
-//        id = new Contrato_EquipamentoId(contrato,equipamento);
         this.qtd = qtd;
         this.valor = valor;
     }

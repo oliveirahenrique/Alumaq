@@ -4,6 +4,7 @@ import com.sun.istack.internal.NotNull;
 import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,11 +12,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import persistencia.DAO;
 
 @Entity
-public class Funcionario implements Serializable {
+@Table(name="funcionario")
+public class Funcionario implements Serializable,BalconistaInterface {
 
     @Id
     @NotNull
@@ -158,5 +162,68 @@ public class Funcionario implements Serializable {
      */
     public void setComissao(Double comissao) {
         this.comissao = comissao;
+    }
+    
+     @Override
+    public List<Locacao> getLocacoes() {
+        DAO dao = new DAO();
+        List<Locacao> listaLocacao =dao.getListLocacoes() ;
+        dao.fechar();
+
+        return listaLocacao;
+    }
+
+    @Override
+    public void setLocacao(Locacao loc) {
+      
+    }
+
+    @Override
+    public List<Venda> getVendas() {
+        DAO dao = new DAO();
+        List<Venda> listaVenda = dao.getListVendas();
+        dao.fechar();
+
+        return listaVenda;
+    }
+
+    @Override
+    public void setVenda(Venda venda) {
+        
+    }
+
+    @Override
+    public void iniciaNovaLocacao(Cliente c) {
+      
+    }
+
+    @Override
+    public void iniciaNovaVenda(Cliente c) {
+      
+    }
+
+    @Override
+    public void seguroLoc(Locacao loc, boolean seg) {
+        
+    }
+
+    @Override
+    public void finalizaLocacao(Locacao loc) {
+        
+    }
+
+    @Override
+    public void finalizaVenda(Venda venda) {
+        
+    }
+
+    @Override
+    public void setItemLocacao(Locacao loc) {
+       
+    }
+
+    @Override
+    public void setItemVenda(Venda venda) {
+        
     }
 }

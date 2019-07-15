@@ -13,11 +13,11 @@ import java.util.List;
  */
 public interface BalconistaInterface {
     
-    public List<Contrato> getLocacoes();
+    public List<Locacao> getLocacoes();
 
     public void setLocacao(Locacao loc);
 
-    public List<Contrato> getVendas();
+    public List<Venda> getVendas();
     
     public void setVenda(Venda venda);
     

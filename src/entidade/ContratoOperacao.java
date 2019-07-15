@@ -1,5 +1,6 @@
 package entidade;
 
+import com.sun.istack.internal.NotNull;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
@@ -8,34 +9,42 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-public class Contrato implements Serializable {
+@Table(name="contrato")
+public class ContratoOperacao implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idContrato;
+    protected Integer idContrato;
     //private Locacao locacao;
+    @NotNull
     @Temporal(TemporalType.DATE)
-    private Date dataInicio, dataFim;
-    private Double valorp1;
-    private Double valorp2;
-    private Tipo tipo;
-    private Double multa;
-    private Fase fase;
+    protected Date dataInicio;
+    @Temporal(TemporalType.DATE)
+    protected Date dataFim=null;
+    @NotNull
+    protected Double valorp1;
+    protected Double valorp2=null;
+    @NotNull
+    protected Tipo tipo;
+    protected Double multa=null;
+    @NotNull
+    protected Fase fase;
 
     @OneToOne
-    private Cliente clienteId;
+    protected Cliente clienteId;
     @OneToOne
-    private Funcionario funcionarioId;
+    protected Funcionario funcionarioId;
     //assinatura digital
 
-    public Contrato() {
+    public ContratoOperacao() {
     }
 
-    public Contrato(Date dataInicio, Date dataFim, Double valorp1, Double valorp2, Double multa, Tipo tipo, Fase fase, Cliente cliente, Funcionario funcionario) {
+    public ContratoOperacao(Date dataInicio, Date dataFim, Double valorp1, Double valorp2, Double multa, Tipo tipo, Fase fase, Cliente cliente, Funcionario funcionario) {
         this.dataInicio = dataInicio;
         this.dataFim = dataFim;
         this.valorp1 = valorp1;
@@ -56,8 +65,8 @@ public class Contrato implements Serializable {
         this.setIdContrato(idContrato);
     }
 
-    public Contrato buscaContrato(int id) {
-        Contrato contrato = null;
+    public ContratoOperacao buscaContrato(int id) {
+        ContratoOperacao contrato = null;
 
         return contrato;
     }
@@ -144,26 +153,6 @@ public class Contrato implements Serializable {
      */
     public void setTipo(Tipo tipo) {
         this.tipo = tipo;
-    }
-
-    /**
-     * @param c
-     * @param dataDevolucao
-     * @return the multa
-     */
-    public Double getMulta(Contrato c, Date dataDevolucao) {
-        long diffMilisegundos = Math.abs(dataDevolucao.getTime() - c.dataFim.getTime());
-        long diffDias = TimeUnit.DAYS.convert(diffMilisegundos, TimeUnit.MILLISECONDS);
-        double valorDaMulta = (c.getValorp1() + c.getValorp2()) * 0.02 * diffDias;
-        
-        return valorDaMulta;
-    }
-
-    /**
-     * @param multa the multa to set
-     */
-    public void setMulta(Double multa) {
-        this.multa = multa;
     }
 
     /**

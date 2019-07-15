@@ -3,11 +3,24 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/Pichau/Documents/Alumaq/src/entidade/Usuario.java</file>
             <file>file:/C:/Users/Pichau/Documents/Alumaq/src/entidade/Venda.java</file>
+            <file>file:/C:/Users/Pichau/Documents/Alumaq/src/entidade/ContratoOperacao.java</file>
+            <file>file:/C:/Users/Pichau/Documents/Alumaq/src/entidade/OperadorCaixa.java</file>
             <file>file:/C:/Users/Pichau/Documents/Alumaq/src/entidade/Setor.java</file>
             <file>file:/C:/Users/Pichau/Documents/Alumaq/test/testePersistencia/TesteDAO.java</file>
             <file>file:/C:/Users/Pichau/Documents/Alumaq/src/entidade/Locacao.java</file>
+            <file>file:/C:/Users/Pichau/Documents/Alumaq/src/entidade/Pagamento.java</file>
+            <file>file:/C:/Users/Pichau/Documents/Alumaq/src/entidade/Contrato_EquipamentoId.java</file>
+            <file>file:/C:/Users/Pichau/Documents/Alumaq/src/entidade/Fornecedor.java</file>
             <file>file:/C:/Users/Pichau/Documents/Alumaq/src/entidade/Item.java</file>
+            <file>file:/C:/Users/Pichau/Documents/Alumaq/src/entidade/Equipamento.java</file>
+            <file>file:/C:/Users/Pichau/Documents/Alumaq/src/entidade/Funcionario.java</file>
+            <file>file:/C:/Users/Pichau/Documents/Alumaq/src/entidade/Endereco.java</file>
+            <file>file:/C:/Users/Pichau/Documents/Alumaq/src/entidade/ReservaEquipamento.java</file>
+            <file>file:/C:/Users/Pichau/Documents/Alumaq/src/persistencia/DAO.java</file>
+            <file>file:/C:/Users/Pichau/Documents/Alumaq/src/entidade/Devolucao.java</file>
+            <file>file:/C:/Users/Pichau/Documents/Alumaq/src/entidade/Contrato_Equipamento.java</file>
         </group>
     </open-files>
 </project-private>

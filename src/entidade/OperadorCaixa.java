@@ -1,97 +1,32 @@
 package entidade;
 
-import java.util.ArrayList;
+import java.text.ParseException;
+import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
-import persistencia.DAO;
 
-public class OperadorCaixa extends Funcionario implements BalconistaInterface {
-    private List<Contrato> contrato;
     
-    public OperadorCaixa(int id, String nome, String dataN, Endereco endereco, String tel, Double sal) {
-//        super(id, nome,dataN, endereco, tel,sal);
+public class OperadorCaixa extends Funcionario implements BalconistaInterface {
+    
+    public OperadorCaixa(String nome, String cpf, Date dataNascimento, Endereco endereco, String telefone1, String telefone2, Double salario) {
+        super( nome,  cpf,  dataNascimento,  endereco,  telefone1,  telefone2, salario);
         //contratos = new ArrayList<>();
     }
     
      
-    public Contrato buscaContrato(){
+    public ContratoOperacao buscaContrato(){
         System.out.println("Entre com o id do contrato");
         Scanner s = new Scanner(System.in);
         int id = s.nextInt();
-        Contrato c = new Contrato();
+        ContratoOperacao c = new ContratoOperacao();
         return c.buscaContrato(id);       
         
     }
     
-    public void realizarPagamentoContrato(Contrato c, String dataPagamento) throws ParseException{
+    public void realizarPagamentoContrato(ContratoOperacao c, String dataPagamento) throws ParseException{
         Pagamento pag = new Pagamento(c, dataPagamento);
         
         pag.realizarPagamento();
     }
 
-    @Override
-   public List<Contrato> getLocacoes() {
-        DAO dao = new DAO();
-        this.contrato = dao.getListLocacoes();
-        dao.fechar();
-
-        return contrato;
-    }
-
-    @Override
-    public void setLocacao(Locacao loc) {
-        
-    }
-
-    @Override
-    public List<Contrato> getVendas() {
-        DAO dao = new DAO();
-        this.contrato = dao.getListVendas();
-        dao.fechar();
-
-        return contrato;
-    }
-
-    @Override
-    public void setVenda(Venda venda) {
-        
-    }
-
-    @Override
-    public void iniciaNovaLocacao(Cliente c) {
-        
-    }
-
-    @Override
-    public void iniciaNovaVenda(Cliente c) {
-        
-    }
-
-    @Override
-    public void seguroLoc(Locacao loc, boolean seg) {
-      
-    }
-
-    @Override
-    public void finalizaLocacao(Locacao loc) {
-      
-    }
-
-    @Override
-    public void finalizaVenda(Venda venda) {
-       
-    }
-
-    @Override
-    public void setItemLocacao(Locacao loc) {
-       
-    }
-
-    @Override
-    public void setItemVenda(Venda venda) {
-     
-    }
-            
-            
- 
 }

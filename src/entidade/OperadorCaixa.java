@@ -6,11 +6,11 @@ import java.util.Scanner;
 import persistencia.DAO;
 
 public class OperadorCaixa extends Funcionario implements BalconistaInterface {
-    private List<Contrato> contratos;
+    private List<Contrato> contrato;
     
     public OperadorCaixa(int id, String nome, String dataN, Endereco endereco, String tel, Double sal) {
 //        super(id, nome,dataN, endereco, tel,sal);
-        contratos = new ArrayList<>();
+        //contratos = new ArrayList<>();
     }
     
      

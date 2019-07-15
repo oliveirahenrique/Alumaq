@@ -152,9 +152,9 @@ public class Contrato implements Serializable {
      * @return the multa
      */
     public Double getMulta(Contrato c, Date dataDevolucao) {
-        long diffInMillies = Math.abs(dataDevolucao.getTime() - c.dataFim.getTime());
-        long diff = TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS);
-        double valorDaMulta = (c.getValorp1() + c.getValorp2()) * 0.02 * diff;
+        long diffMilisegundos = Math.abs(dataDevolucao.getTime() - c.dataFim.getTime());
+        long diffDias = TimeUnit.DAYS.convert(diffMilisegundos, TimeUnit.MILLISECONDS);
+        double valorDaMulta = (c.getValorp1() + c.getValorp2()) * 0.02 * diffDias;
         
         return valorDaMulta;
     }

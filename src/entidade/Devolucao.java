@@ -12,13 +12,13 @@ public class Devolucao {
     public Devolucao() {
     }
     
-    public double devolverLocacao(ContratoOperacao c, Date dataDevolucao){
-        if (c.getTipo().equals(Tipo.LOCACAO)) {
-            if (c.getFase().equals(Fase.FASE2)) {
-                this.valorTotal = c.getValorp1() + c.getValorp2() + c.getMulta(c, dataDevolucao);
-                c.setFase(Fase.FINALIZADO);
+    public double devolverLocacao(Locacao l, Date dataDevolucao){
+        if (l.getTipo().equals(Tipo.LOCACAO)) {
+            if (l.getFase().equals(Fase.FASE2)) {
+                this.valorTotal = l.getValorp1() + l.getValorp2() + l.getMulta(l, dataDevolucao);
+                l.setFase(Fase.FINALIZADO);
                 DAO dao = new DAO();
-                dao.atualizar(c);
+                dao.atualizar(l);
                 dao.fechar();
             }
         }

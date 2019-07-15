@@ -5,6 +5,9 @@ import java.util.Date;
 
 public class Venda extends ContratoOperacao{
     
+    public Venda(){
+    }
+    
     public Venda(Date dataInicio, Double valorp1, Tipo tipo, Fase fase, Cliente cliente, Funcionario funcionario) {
         this.dataInicio = dataInicio;
         this.valorp1 = valorp1;

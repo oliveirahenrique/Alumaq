@@ -10,7 +10,9 @@ import entidade.ContratoOperacao;
 import entidade.Equipamento;
 import entidade.Fornecedor;
 import entidade.Funcionario;
+import entidade.Locacao;
 import entidade.Tipo;
+import entidade.Venda;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
@@ -77,16 +79,16 @@ public class DAO {
         return lista;
     }
 
-    public List<ContratoOperacao> getListLocacoes() {
+    public List<Locacao> getListLocacoes() {
         Query consulta = em.createQuery("SELECT * FROM cotrato WHERE tipo = " + Tipo.LOCACAO);
-        List<ContratoOperacao> lista = (List<ContratoOperacao>) consulta.getResultList();
+        List<Locacao> lista = (List<Locacao>) consulta.getResultList();
 
         return lista;
     }
 
-    public List<ContratoOperacao> getListVendas() {
+    public List<Venda> getListVendas() {
         Query consulta = em.createQuery("SELECT * FROM cotrato WHERE tipo = " + Tipo.VENDA);
-        List<ContratoOperacao> lista = (List<ContratoOperacao>) consulta.getResultList();
+        List<Venda> lista = (List<Venda>) consulta.getResultList();
 
         return lista;
     }

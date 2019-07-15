@@ -5,6 +5,9 @@ import java.util.concurrent.TimeUnit;
 
 
 public class Locacao extends ContratoOperacao {
+    
+    public Locacao(){
+    }
        
     public Locacao(Date dataInicio, Date dataFim, Double valorp1, Double valorp2, Double multa, Tipo tipo, Fase fase, Cliente cliente, Funcionario funcionario) {
         this.dataInicio = dataInicio;
@@ -24,10 +27,10 @@ public class Locacao extends ContratoOperacao {
      * @param dataDevolucao
      * @return the multa
      */
-    public Double getMulta(ContratoOperacao c, Date dataDevolucao) {
-        long diffMilisegundos = Math.abs(dataDevolucao.getTime() - c.dataFim.getTime());
+    public Double getMulta(Locacao l, Date dataDevolucao) {
+        long diffMilisegundos = Math.abs(dataDevolucao.getTime() - l.dataFim.getTime());
         long diffDias = TimeUnit.DAYS.convert(diffMilisegundos, TimeUnit.MILLISECONDS);
-        double valorDaMulta = (c.getValorp1() + c.getValorp2()) * 0.02 * diffDias;
+        double valorDaMulta = (l.getValorp1() + l.getValorp2()) * 0.02 * diffDias;
         
         return valorDaMulta;
     }

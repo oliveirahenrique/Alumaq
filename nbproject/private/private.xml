@@ -3,11 +3,22 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Pichau/Documents/Alumaq/src/entidade/Venda.java</file>
-            <file>file:/C:/Users/Pichau/Documents/Alumaq/src/entidade/Setor.java</file>
-            <file>file:/C:/Users/Pichau/Documents/Alumaq/test/testePersistencia/TesteDAO.java</file>
-            <file>file:/C:/Users/Pichau/Documents/Alumaq/src/entidade/Locacao.java</file>
-            <file>file:/C:/Users/Pichau/Documents/Alumaq/src/entidade/Item.java</file>
+            <file>file:/C:/Users/vitor/Documents/NetBeansProjects/Alumaq/src/entidade/Operacao.java</file>
+            <file>file:/C:/Users/vitor/Documents/NetBeansProjects/Alumaq/src/entidade/Pagamento.java</file>
+            <file>file:/C:/Users/vitor/Documents/NetBeansProjects/Alumaq/src/entidade/GerenciaEquipamentos.java</file>
+            <file>file:/C:/Users/vitor/Documents/NetBeansProjects/Alumaq/src/controllers/DevolucaoController.java</file>
+            <file>file:/C:/Users/vitor/Documents/NetBeansProjects/Alumaq/src/entidade/Balconista.java</file>
+            <file>file:/C:/Users/vitor/Documents/NetBeansProjects/Alumaq/src/entidade/Devolucao.java</file>
+            <file>file:/C:/Users/vitor/Documents/NetBeansProjects/Alumaq/src/entidade/Loja.java</file>
+            <file>file:/C:/Users/vitor/Documents/NetBeansProjects/Alumaq/src/entidade/Contrato.java</file>
+            <file>file:/C:/Users/vitor/Documents/NetBeansProjects/Alumaq/src/persistencia/DAO.java</file>
+            <file>file:/C:/Users/vitor/Documents/NetBeansProjects/Alumaq/src/entidade/Gerente.java</file>
+            <file>file:/C:/Users/vitor/Documents/NetBeansProjects/Alumaq/src/entidade/CompraEquipamentos.java</file>
+            <file>file:/C:/Users/vitor/Documents/NetBeansProjects/Alumaq/src/entidade/ControladorEstoque.java</file>
+            <file>file:/C:/Users/vitor/Documents/NetBeansProjects/Alumaq/src/entidade/OperadorCaixa.java</file>
+            <file>file:/C:/Users/vitor/Documents/NetBeansProjects/Alumaq/src/controllers/ReservaEquipamentoController.java</file>
+            <file>file:/C:/Users/vitor/Documents/NetBeansProjects/Alumaq/src/controllers/CadastrarClienteController.java</file>
+            <file>file:/C:/Users/vitor/Documents/NetBeansProjects/Alumaq/src/entidade/Fase.java</file>
         </group>
     </open-files>
 </project-private>

@@ -19,7 +19,6 @@ public class CompraEquipamentos {
     public String comprar() {
         Double valor = 0.0;
         String r = " ";
-        DAO dao = new DAO();
         for (Equipamento e : equipamentos) {
             valor += e.getValor();
             e.setQtd_estoque(e.getQtd_estoque() + 1);
@@ -27,7 +26,6 @@ public class CompraEquipamentos {
 
             dao.atualizar(e);
         }
-        dao.fechar();
 
         contactarFornecedor();
         r = "Compra realizada com sucesso! Valor: R$" + valor;

@@ -37,7 +37,6 @@ public class VendaController implements Initializable {
         Double valor = 0.0;
         ArrayList<Equipamento> indisp = new ArrayList(); 
         String r = " ";
-        DAO dao = new DAO();
         for (Equipamento e : equipamentos) {
             if (e.getSetor().equals(Setor.VENDA) && e.isDisponivel()) {
                 valor += e.getValor();
@@ -53,7 +52,6 @@ public class VendaController implements Initializable {
         // TODO registrar comissoes
         // TODO gerar contrato de venda
         // TODO encaminhar pagamento referente à venda ao setor de pagamento
-        dao.fechar();
         
         if (valor.equals(0.0)) {
             r = "Equipamentos não disponíveis. Venda não realizada.";

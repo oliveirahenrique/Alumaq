@@ -24,7 +24,7 @@ public class OperadorCaixa extends Funcionario implements BalconistaInterface {
     }
     
     public void realizarPagamentoContrato(Contrato c){
-        Pagamento pag = new Pagamento(c);
+        Pagamento pag = new Pagamento(c, "data do pagamento aqui");
         
         pag.realizarPagamento();
     }

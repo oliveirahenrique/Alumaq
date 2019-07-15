@@ -23,7 +23,7 @@ public class OperadorCaixa extends Funcionario implements BalconistaInterface {
         
     }
     
-    public void realizarPagamentoContrato(Contrato c){
+    public void realizarPagamentoContrato(Contrato c) throws ParseException {
         Pagamento pag = new Pagamento(c, "data do pagamento aqui");
         
         pag.realizarPagamento();

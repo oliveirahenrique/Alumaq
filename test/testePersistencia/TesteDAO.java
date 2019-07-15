@@ -5,7 +5,9 @@ import entidade.ContratoOperacao;
 import entidade.Endereco;
 import entidade.Fase;
 import entidade.Funcionario;
+import entidade.Locacao;
 import entidade.Tipo;
+import entidade.Venda;
 import java.util.Date;
 import persistencia.DAO;
 
@@ -59,14 +61,14 @@ public class TesteDAO {
         dao.cadastrar(f1);
         System.out.println("Funcionario 1 cadastrado");
 
-        ContratoOperacao cont1 = new ContratoOperacao(new Date(16 / 04 / 2020), new Date(16 / 04 / 2019), 100.0, 0.0, 0.0, Tipo.VENDA, Fase.FASE1, c1, f1);
-        ContratoOperacao cont2 = new ContratoOperacao(new Date(16 / 04 / 2020), new Date(16 / 04 / 2019), 100.0, 0.0, 0.0, Tipo.LOCACAO, Fase.FASE2, c1, f1);
+        Venda cont1 = new Venda(new Date(16 / 04 / 2020), 100.0, Tipo.VENDA, Fase.FASE1, c1, f1);
+        Locacao cont2 = new Locacao(new Date(16 / 04 / 2020), new Date(16 / 04 / 2019), 100.0, 0.0, 0.0, Tipo.LOCACAO, Fase.FASE2, c1, f1);
 
         dao.cadastrar(cont1);
-        System.out.println("Contrato 1 cadastrado");
+        System.out.println("Contrato de Venda cadastrado");
 
         dao.cadastrar(cont2);
-        System.out.println("Contrato 2 cadastrado");
+        System.out.println("Contrato Locação cadastrado");
 
         dao.fechar();
 

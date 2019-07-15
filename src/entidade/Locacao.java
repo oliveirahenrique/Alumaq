@@ -2,8 +2,9 @@ package entidade;
 
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
+import javax.persistence.Entity;
 
-
+@Entity
 public class Locacao extends ContratoOperacao {
     
     public Locacao(){

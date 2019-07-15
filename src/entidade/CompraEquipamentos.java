@@ -35,7 +35,7 @@ public class CompraEquipamentos {
         return r;
     }
 
-    private void contactarFornecedor() {
+    public void contactarFornecedor() {
         //email alumaq
         final String username = "alumaqmaquinas@gmail.com";
         final String password = "alumaq123";

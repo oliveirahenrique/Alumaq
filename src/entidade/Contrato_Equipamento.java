@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 /**
  *
@@ -19,12 +20,11 @@ import javax.persistence.OneToOne;
  */
 @Entity 
 @IdClass(Contrato_EquipamentoId.class)
-//@PrimaryKeyJoinColumn
+@Table(name="contrato_equipamento")
 public class Contrato_Equipamento implements Serializable {
 
     private static long serialVersionUID = 1L;
     @Id
-//    private Contrato_EquipamentoId id;
     @NotNull
     @OneToOne
     @JoinColumn(name = "contratoId")

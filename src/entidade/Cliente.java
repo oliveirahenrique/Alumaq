@@ -1,19 +1,17 @@
 package entidade;
 
 import com.sun.istack.internal.NotNull;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Date;
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
+@Table(name="cliente")
 public class Cliente {
 
     @Id
@@ -36,9 +34,6 @@ public class Cliente {
     @NotNull
     private String sexo;
 
-//    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "user")
-//    private List<ReservaEquipamento> reservas;
-    //assinatura digital
     public Cliente() {
     }
 

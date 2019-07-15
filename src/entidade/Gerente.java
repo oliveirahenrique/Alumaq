@@ -17,10 +17,8 @@ public class Gerente extends Funcionario implements BalconistaInterface{
         
     }
     
-    public void compraEquipamento(CompraEquipamentos compra,Equipamento e, int qtd){
-        
-        Item item = new Item(e, qtd);        
-       
+    public void compraEquipamento(CompraEquipamentos compra,Equipamento e, int qtd){    
+       compra.contactarFornecedor();
     }
     
     public void cunsutarEstoque( Equipamento e){

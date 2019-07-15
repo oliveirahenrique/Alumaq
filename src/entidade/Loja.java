@@ -1,5 +1,6 @@
 package entidade;
 
+import java.util.ArrayList;
 import java.util.List;
 import persistencia.DAO;
 
@@ -19,19 +20,19 @@ public class Loja {
         return funcionarios;
     }
 
-    public List<ContratoOperacao> getLocacoes() {
+    public List<Locacao> getLocacoes() {
         DAO dao = new DAO();
-        this.contrato = dao.getListLocacoes();
+        List<Locacao> listaLocacao = dao.getListLocacoes();
         dao.fechar();
 
-        return contrato;
+        return listaLocacao;
     }
 
-    public List<ContratoOperacao> getVendas() {
+    public List<Venda> getVendas() {
         DAO dao = new DAO();
-        this.contrato = dao.getListVendas();
+        List<Venda> listaVenda = dao.getListVendas();
         dao.fechar();
 
-        return contrato;
+        return listaVenda;
     }
 }

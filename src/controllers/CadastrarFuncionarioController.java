@@ -1,5 +1,6 @@
 package controllers;
 
+import entidade.Cargo;
 import entidade.Endereco;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -9,6 +10,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import entidade.Funcionario;
+import entidade.Usuario;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -61,6 +63,15 @@ public class CadastrarFuncionarioController implements Initializable {
     
     @FXML
     private TextField tf_cpf;
+    
+    @FXML
+    private TextField tf_login;
+    
+    @FXML
+    private TextField tf_senha;
+    
+    @FXML
+    private TextField tf_cargoId;
 
     @FXML
     void clica_salvar(ActionEvent event) throws ParseException {        
@@ -95,24 +106,42 @@ public class CadastrarFuncionarioController implements Initializable {
         } else {
             endereco = new Endereco(rua, bairro, complemento, numero, cidade, estado);
         }
+        dao.cadastrar(endereco);
         
         // cadastra novo funcionario
         Funcionario funcionario = new Funcionario(nome, cpf, dataNascimento, endereco, telefone1, telefone2, salario);
         dao.cadastrar(funcionario);
+        
+        // cadastra novo usuario
+        String login = this.tf_login.toString();
+        String senha = this.tf_senha.toString();
+        int cargoId = Integer.parseInt(this.tf_cargoId.toString());
+        try {
+            Cargo cargo = dao.pesquisarPorChave(Cargo.class, cargoId);
+            Usuario usuario = new Usuario(login, senha, funcionario, cargo);
+            dao.cadastrar(usuario);
+        } catch (Exception e) {
+            dao.remover(endereco);
+            dao.remover(funcionario);
+            System.out.println("Erro: cargo não encontrado no banco de dados. Usuário não cadastrado!");
+        }
     }
 
     @FXML
     void clica_cancela(ActionEvent event) {
         this.tf_bairro.setText("");
+        this.tf_cargoId.setText("");
         this.tf_cidade.setText("");
         this.tf_complemento.setText("");
         this.tf_cpf.setText("");
         this.tf_dataNasc.setText("");
         this.tf_estado.setText("");
+        this.tf_login.setText("");
         this.tf_nome.setText("");
         this.tf_num.setText("");
         this.tf_rua.setText("");
         this.tf_salario.setText("");
+        this.tf_senha.setText("");
         this.tf_tel1.setText("");
         this.tf_tel2.setText("");
     }

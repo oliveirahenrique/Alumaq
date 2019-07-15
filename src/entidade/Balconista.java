@@ -4,13 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Balconista extends Funcionario implements BalconistaInterface {
-    private List<Locacao> locacoes;
-    private List<Venda> vendas;
+    private List<Contrato> contrato;
     
     public Balconista(int id, String nome, String dataN, Endereco endereco, String tel, Double sal) {
 //        super(id, nome,dataN, endereco, tel,sal);
-        locacoes = new ArrayList<>();
-        vendas = new ArrayList<>();
+        //locacoes = new ArrayList<>();
+        //vendas = new ArrayList<>();
     }
 
 
@@ -25,7 +24,7 @@ public class Balconista extends Funcionario implements BalconistaInterface {
 
     @Override
     public void setLocacao(Locacao loc) {
-        this.locacoes.add(loc);
+        
     }
 
     @Override
@@ -39,16 +38,14 @@ public class Balconista extends Funcionario implements BalconistaInterface {
 
     @Override
     public void setVenda(Venda venda) {
-        this.vendas.add(venda);
+        
     }
     
     @Override
     public void iniciaNovaLocacao(Cliente c){
-        int idL=00;        
-        Locacao loc = new Locacao(idL, this, c);
-        locacoes.add(loc);
-       
-        
+        //int idL=00;        
+        //Locacao loc = new Locacao(idL, this, c);
+        //locacoes.add(loc);
     }
     
     @Override
@@ -86,11 +83,9 @@ public class Balconista extends Funcionario implements BalconistaInterface {
     
     @Override
     public void iniciaNovaVenda(Cliente c){
-        int idL=11;
-        Venda venda = new Venda(idL, this, c);
-        vendas.add(venda);
-        
-        
+        //int idL=11;
+        //Venda venda = new Venda(idL, this, c);
+        //vendas.add(venda);
     }
     
      

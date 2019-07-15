@@ -29,8 +29,12 @@ public class OperadorCaixa extends Funcionario implements BalconistaInterface {
     }
 
     @Override
-    public List<Locacao> getLocacoes() {
-       return null;
+   public List<Contrato> getLocacoes() {
+        DAO dao = new DAO();
+        this.contrato = dao.getListLocacoes();
+        dao.fechar();
+
+        return contrato;
     }
 
     @Override
@@ -39,8 +43,12 @@ public class OperadorCaixa extends Funcionario implements BalconistaInterface {
     }
 
     @Override
-    public List<Venda> getVendas() {
-       return null;
+    public List<Contrato> getVendas() {
+        DAO dao = new DAO();
+        this.contrato = dao.getListVendas();
+        dao.fechar();
+
+        return contrato;
     }
 
     @Override

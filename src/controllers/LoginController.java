@@ -5,6 +5,7 @@
  */
 package controllers;
 
+import entidade.Usuario;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -34,7 +35,24 @@ public class LoginController implements Initializable {
     
     @FXML
     void clica_login(ActionEvent event) {
-
+        
+        Usuario usuario = dao.getUsuario(tf_usuario);
+        
+        if(usuario == null){
+            tf_usuario= null;
+            tf_senha= null;
+            
+            //mensagem de erro de usuario
+        }else{
+            if(!usuario.getSenha().equals(tf_senha.toString())){
+                tf_senha=null;
+                //mensagem de erro de senha
+            }else{
+                //prossegue pra página
+            }
+        }
+        
+        
     }
 
     @FXML

@@ -59,6 +59,7 @@ public class Gerente extends Funcionario implements BalconistaInterface{
         return equipamentos;
     }
 
+    @Override
     public List<Contrato> getLocacoes() {
         DAO dao = new DAO();
         this.contrato = dao.getListLocacoes();
@@ -72,6 +73,7 @@ public class Gerente extends Funcionario implements BalconistaInterface{
       
     }
 
+    @Override
     public List<Contrato> getVendas() {
         DAO dao = new DAO();
         this.contrato = dao.getListVendas();

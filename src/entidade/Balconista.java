@@ -5,7 +5,7 @@ import java.util.List;
 import persistencia.DAO; 
 
 public class Balconista extends Funcionario implements BalconistaInterface {
-    private List<Contrato> contrato;
+    private List<ContratoOperacao> contrato;
     
     public Balconista(int id, String nome, String dataN, Endereco endereco, String tel, Double sal) {
 //        super(id, nome,dataN, endereco, tel,sal);
@@ -15,7 +15,7 @@ public class Balconista extends Funcionario implements BalconistaInterface {
 
 
     @Override
-    public List<Contrato> getLocacoes() {
+    public List<ContratoOperacao> getLocacoes() {
         DAO dao = new DAO();
         this.contrato = dao.getListLocacoes();
         dao.fechar();
@@ -29,7 +29,7 @@ public class Balconista extends Funcionario implements BalconistaInterface {
     }
 
     @Override
-    public List<Contrato> getVendas() {
+    public List<ContratoOperacao> getVendas() {
         DAO dao = new DAO();
         this.contrato = dao.getListVendas();
         dao.fechar();

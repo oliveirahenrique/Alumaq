@@ -1,7 +1,7 @@
 package testePersistencia;
 
 import entidade.Cliente;
-import entidade.Contrato;
+import entidade.ContratoOperacao;
 import entidade.Endereco;
 import entidade.Fase;
 import entidade.Funcionario;
@@ -59,8 +59,8 @@ public class TesteDAO {
         dao.cadastrar(f1);
         System.out.println("Funcionario 1 cadastrado");
 
-        Contrato cont1 = new Contrato(new Date(16 / 04 / 2020), new Date(16 / 04 / 2019), 100.0, 0.0, 0.0, Tipo.VENDA, Fase.FASE1, c1, f1);
-        Contrato cont2 = new Contrato(new Date(16 / 04 / 2020), new Date(16 / 04 / 2019), 100.0, 0.0, 0.0, Tipo.LOCACAO, Fase.FASE2, c1, f1);
+        ContratoOperacao cont1 = new ContratoOperacao(new Date(16 / 04 / 2020), new Date(16 / 04 / 2019), 100.0, 0.0, 0.0, Tipo.VENDA, Fase.FASE1, c1, f1);
+        ContratoOperacao cont2 = new ContratoOperacao(new Date(16 / 04 / 2020), new Date(16 / 04 / 2019), 100.0, 0.0, 0.0, Tipo.LOCACAO, Fase.FASE2, c1, f1);
 
         dao.cadastrar(cont1);
         System.out.println("Contrato 1 cadastrado");

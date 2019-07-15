@@ -8,7 +8,7 @@ public class Gerente extends Funcionario implements BalconistaInterface{
     private List<CompraEquipamentos> compras;
     //private GerenciaEquipamentos gerencia;
     private ControladorEstoque controle = new ControladorEstoque();
-    private List<Contrato> contrato;
+    private List<ContratoOperacao> contrato;
     private List<Equipamento> equipamentos;
     
     public Gerente(int id, String nome, String dataN, Endereco endereco, String tel, Double sal) {
@@ -61,7 +61,7 @@ public class Gerente extends Funcionario implements BalconistaInterface{
     }
 
     @Override
-    public List<Contrato> getLocacoes() {
+    public List<ContratoOperacao> getLocacoes() {
         DAO dao = new DAO();
         this.contrato = dao.getListLocacoes();
         dao.fechar();
@@ -75,7 +75,7 @@ public class Gerente extends Funcionario implements BalconistaInterface{
     }
 
     @Override
-    public List<Contrato> getVendas() {
+    public List<ContratoOperacao> getVendas() {
         DAO dao = new DAO();
         this.contrato = dao.getListVendas();
         dao.fechar();

@@ -12,7 +12,7 @@ public class Devolucao {
     public Devolucao() {
     }
     
-    public double devolverLocacao(Contrato c, Date dataDevolucao){
+    public double devolverLocacao(ContratoOperacao c, Date dataDevolucao){
         if (c.getTipo().equals(Tipo.LOCACAO)) {
             if (c.getFase().equals(Fase.FASE2)) {
                 this.valorTotal = c.getValorp1() + c.getValorp2() + c.getMulta(c, dataDevolucao);

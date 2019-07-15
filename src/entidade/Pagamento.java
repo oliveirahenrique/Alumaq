@@ -5,12 +5,12 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Pagamento {
-    private Contrato contrato;
+    private ContratoOperacao contrato;
     private Double valor;
     SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
     Date dataDevolucao;
     
-    public Pagamento(Contrato contrato, String dataDevolucao) throws ParseException {
+    public Pagamento(ContratoOperacao contrato, String dataDevolucao) throws ParseException {
         this.contrato = contrato;
         this.dataDevolucao = sdf.parse(dataDevolucao);
     }

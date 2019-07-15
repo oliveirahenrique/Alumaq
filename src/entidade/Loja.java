@@ -6,7 +6,7 @@ import persistencia.DAO;
 public class Loja {
 
     private List<Funcionario> funcionarios;
-    private List<Contrato> contrato;
+    private List<ContratoOperacao> contrato;
 
     public Loja() {
     }
@@ -19,7 +19,7 @@ public class Loja {
         return funcionarios;
     }
 
-    public List<Contrato> getLocacoes() {
+    public List<ContratoOperacao> getLocacoes() {
         DAO dao = new DAO();
         this.contrato = dao.getListLocacoes();
         dao.fechar();
@@ -27,7 +27,7 @@ public class Loja {
         return contrato;
     }
 
-    public List<Contrato> getVendas() {
+    public List<ContratoOperacao> getVendas() {
         DAO dao = new DAO();
         this.contrato = dao.getListVendas();
         dao.fechar();

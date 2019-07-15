@@ -30,7 +30,7 @@ public class Contrato_Equipamento implements Serializable {
     @NotNull
     @OneToOne
     @JoinColumn(name = "contratoId")
-    private Contrato contratoId;
+    private ContratoOperacao contratoId;
     @Id
     @NotNull
     @OneToOne
@@ -45,10 +45,9 @@ public class Contrato_Equipamento implements Serializable {
     public Contrato_Equipamento() {
     }
 
-    public Contrato_Equipamento(Contrato contrato, Equipamento equipamento, Integer qtd, Double valor) {
+    public Contrato_Equipamento(ContratoOperacao contrato, Equipamento equipamento, Integer qtd, Double valor) {
         this.contratoId = contrato;
         this.equipamentoId = equipamento;
-//        id = new Contrato_EquipamentoId(contrato,equipamento);
         this.qtd = qtd;
         this.valor = valor;
     }

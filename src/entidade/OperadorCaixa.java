@@ -6,7 +6,7 @@ import java.util.Scanner;
 import persistencia.DAO;
 
 public class OperadorCaixa extends Funcionario implements BalconistaInterface {
-    private List<Contrato> contrato;
+    private List<ContratoOperacao> contrato;
     
     public OperadorCaixa(int id, String nome, String dataN, Endereco endereco, String tel, Double sal) {
 //        super(id, nome,dataN, endereco, tel,sal);
@@ -14,23 +14,23 @@ public class OperadorCaixa extends Funcionario implements BalconistaInterface {
     }
     
      
-    public Contrato buscaContrato(){
+    public ContratoOperacao buscaContrato(){
         System.out.println("Entre com o id do contrato");
         Scanner s = new Scanner(System.in);
         int id = s.nextInt();
-        Contrato c = new Contrato();
+        ContratoOperacao c = new ContratoOperacao();
         return c.buscaContrato(id);       
         
     }
     
-    public void realizarPagamentoContrato(Contrato c, String dataPagamento) throws ParseException{
+    public void realizarPagamentoContrato(ContratoOperacao c, String dataPagamento) throws ParseException{
         Pagamento pag = new Pagamento(c, dataPagamento);
         
         pag.realizarPagamento();
     }
 
     @Override
-   public List<Contrato> getLocacoes() {
+   public List<ContratoOperacao> getLocacoes() {
         DAO dao = new DAO();
         this.contrato = dao.getListLocacoes();
         dao.fechar();
@@ -44,7 +44,7 @@ public class OperadorCaixa extends Funcionario implements BalconistaInterface {
     }
 
     @Override
-    public List<Contrato> getVendas() {
+    public List<ContratoOperacao> getVendas() {
         DAO dao = new DAO();
         this.contrato = dao.getListVendas();
         dao.fechar();

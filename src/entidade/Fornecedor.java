@@ -5,26 +5,32 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="fornecedor")
-public class Fornecedor implements Serializable{
+@Table(name = "fornecedor")
+public class Fornecedor implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idFornecedor;
     private String nome;
     private String email;
+    @OneToOne
+    @JoinColumn(name = "endereco")
+    private Endereco enderecoId;
 
-    public Fornecedor(){
+    public Fornecedor() {
     }
-    
-    public Fornecedor (String nome, String email){
-        this.nome=nome;
-        this.email=email;
+
+    public Fornecedor(String nome, String email, Endereco endereco) {
+        this.nome = nome;
+        this.email = email;
+        this.enderecoId = endereco;
     }
-    
+
     public Integer getID() {
         return idFornecedor;
     }
@@ -48,6 +54,5 @@ public class Fornecedor implements Serializable{
     public void setEmail(String email) {
         this.email = email;
     }
-    
-    
+
 }

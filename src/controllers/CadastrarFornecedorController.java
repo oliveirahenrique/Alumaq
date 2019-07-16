@@ -4,6 +4,9 @@
  * and open the template in the editor.
  */
 package controllers;
+
+import entidade.Endereco;
+import entidade.Fornecedor;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -11,6 +14,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
+import telasFXML.Main;
 
 /**
  * FXML Controller class
@@ -18,7 +22,8 @@ import javafx.fxml.Initializable;
  * @author natalia
  */
 public class CadastrarFornecedorController implements Initializable, Controller {
-  @FXML
+
+    @FXML
     private TextField tf_nome;
 
     @FXML
@@ -37,6 +42,9 @@ public class CadastrarFornecedorController implements Initializable, Controller 
     private TextField tf_bairro;
 
     @FXML
+    private TextField tf_complemento;
+
+    @FXML
     private TextField tf_cidade;
 
     @FXML
@@ -44,17 +52,42 @@ public class CadastrarFornecedorController implements Initializable, Controller 
 
     @FXML
     private TextField tf_email;
-    
+
     @FXML
     private Button btn_cancelar;
 
     @FXML
     void clica_cancela(ActionEvent event) {
+        tf_nome = null;
+        tf_tel = null;
+        tf_rua = null;
+        tf_num = null;
+        tf_bairro = null;
+        tf_complemento = null;
+        tf_cidade = null;
+        tf_estado = null;
+        tf_email = null;
 
+        Main.changeScreen("index");
     }
 
     @FXML
     void clica_salvar(ActionEvent event) {
+        try {
+            Endereco endereco = new Endereco(tf_rua.getText(), tf_bairro.getText(), tf_complemento.getText(), Integer.parseInt(tf_num.getText()), tf_cidade.getText(), tf_estado.getText());
+            dao.cadastrar(endereco);
+            try {
+                Fornecedor fornecedor = new Fornecedor(tf_nome.getText(), tf_email.getText(), endereco);
+                dao.cadastrar(fornecedor);
+                Main.changeScreen("index");
+
+            } catch (Exception e) {
+                dao.remover(endereco);
+
+            }
+        } catch (Exception e) {
+            System.out.println("Erro ao Cadastrar Fornecedor");
+        }
 
     }
 
@@ -64,6 +97,6 @@ public class CadastrarFornecedorController implements Initializable, Controller 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
-    
+    }
+
 }

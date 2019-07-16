@@ -48,7 +48,6 @@ public class LoginController implements Initializable,Controller {
                 user.setSenha(usuario.getSenha());
                 user.setFuncionarioId(usuario.getFuncionarioId());
                 user.setCargoId(usuario.getCargoId());
-                 System.out.println("id: "+user.getId()+"  Login:"+user.getLogin()+"  Senha:"+user.getSenha()+"  Funcionario ID:"+user.getFuncionarioId()+"  Cargo ID:"+user.getCargoId());
                 Main.changeScreen("index");
             }
         } catch (Exception e) {
@@ -59,7 +58,7 @@ public class LoginController implements Initializable,Controller {
 
     @FXML
     void clica_sair(ActionEvent event) {
-
+        //sair do programa
     }
     /**
      * 

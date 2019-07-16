@@ -50,6 +50,7 @@ public class DAO {
         em.getTransaction().commit();
     }
 
+    @SuppressWarnings("empty-statement")
     public List<Cliente> getListClientes() {
         TypedQuery<Cliente> consulta = (TypedQuery<Cliente>) em.createNativeQuery("SELECT * FROM cliente",Cliente.class        );
         List<Cliente> lista = consulta.getResultList();
@@ -57,6 +58,7 @@ public class DAO {
         return lista;
     }
 
+    @SuppressWarnings("empty-statement")
     public List<Fornecedor> getListFornecedores() {
         TypedQuery<Fornecedor> consulta = (TypedQuery<Fornecedor>) em.createNativeQuery("SELECT * FROM fornecedores", Fornecedor.class);
         List<Fornecedor> lista = consulta.getResultList();
@@ -64,6 +66,7 @@ public class DAO {
         return lista;
     }
 
+    @SuppressWarnings("empty-statement")
     public List<Equipamento> getListEquipamentos() {
         TypedQuery<Equipamento> consulta = (TypedQuery<Equipamento>) em.createNativeQuery("SELECT * FROM equipamento", Equipamento.class);
         List<Equipamento> lista = consulta.getResultList();
@@ -71,6 +74,7 @@ public class DAO {
         return lista;
     }
 
+    @SuppressWarnings("empty-statement")
     public List<Funcionario> getListFuncionarios() {
         TypedQuery<Funcionario> consulta = (TypedQuery<Funcionario>) em.createNativeQuery("SELECT * FROM funcionario", Funcionario.class);
         List<Funcionario> lista = consulta.getResultList();
@@ -78,6 +82,7 @@ public class DAO {
         return lista;
     }
 
+    @SuppressWarnings("empty-statement")
     public List<Locacao> getListLocacoes() {
         TypedQuery<Locacao> consulta = (TypedQuery<Locacao>) em.createNativeQuery("SELECT * FROM contrato WHERE tipo = " + Tipo.LOCACAO,Locacao.class);
         List<Locacao> lista = consulta.getResultList();
@@ -85,6 +90,7 @@ public class DAO {
         return lista;
     }
 
+    @SuppressWarnings("empty-statement")
     public List<Venda> getListVendas() {
         TypedQuery<Venda> consulta = (TypedQuery<Venda>) em.createNativeQuery("SELECT * FROM contrato WHERE tipo = " + Tipo.VENDA, Venda.class);
         List<Venda> lista = consulta.getResultList();
@@ -95,8 +101,8 @@ public class DAO {
     @SuppressWarnings("empty-statement")
     public Usuario getUsuario(String login) {
         TypedQuery<Usuario> query = (TypedQuery<Usuario>) em.createNativeQuery("select * from usuario u where u.login = '"+login+"'", Usuario.class);
-        List<Usuario> users = query.getResultList();
-        return users.get(0);
+        Usuario user = query.getSingleResult();
+        return user;
     }
 
     public void fechar() {

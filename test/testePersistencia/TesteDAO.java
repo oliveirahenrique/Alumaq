@@ -64,7 +64,7 @@ public class TesteDAO {
         System.out.println("Funcionario 1 cadastrado");
         
         Venda cont1 = new Venda(new Date(16 / 04 / 2020), 100.0, Tipo.VENDA, Fase.FASE1, c1, f1);
-        Locacao cont2 = new Locacao(new Date(16 / 04 / 2020), new Date(16 / 04 / 2019), 100.0, 0.0, 0.0, Tipo.LOCACAO, Fase.FASE2, c1, f1);
+        Locacao cont2 = new Locacao(new Date(16 / 04 / 2020), new Date(16 / 04 / 2019), 100.0, 0.0, Tipo.LOCACAO, Fase.FASE2, c1, f1);
         
         dao.cadastrar(cont1);
         System.out.println("Contrato de Venda cadastrado");

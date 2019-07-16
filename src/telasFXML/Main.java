@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import persistencia.DAO;
 
 public class Main extends Application {
     
@@ -19,7 +20,9 @@ public class Main extends Application {
     private static Scene loginScene;
     private static Scene contratoScene;
     private static Scene reservaScene;
-  
+    
+    
+    protected static DAO dao = new DAO();      
     
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -44,12 +47,12 @@ public class Main extends Application {
         reservaScene = new Scene(reserva);
         loginScene = new Scene(login);
            
-        stage.setScene(indexScene);
+        stage.setScene(loginScene);
         stage.show();
     }
     
      
-    public static void chageScreen(String scr){
+    public static void changeScreen(String scr){
         switch(scr){
             case("index"):
                stage.setScene(indexScene);
@@ -79,7 +82,7 @@ public class Main extends Application {
 
     
   
-    public static void main(String[] args) {
+    public static void main(String[] args) {        
         launch(args);
     }
     

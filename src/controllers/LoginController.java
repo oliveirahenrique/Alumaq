@@ -13,13 +13,14 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import telasFXML.Main;
 
 /**
  * FXML Controller class
  *
  * @author natalia
  */
-public class LoginController implements Initializable {
+public class LoginController implements Initializable,Controller {
 
      @FXML
     private Button btn_login;
@@ -36,7 +37,7 @@ public class LoginController implements Initializable {
     @FXML
     void clica_login(ActionEvent event) {
         
-        Usuario usuario = dao.getUsuario(tf_usuario);
+        Usuario usuario = dao.getUsuario(tf_usuario.toString());
         
         if(usuario == null){
             tf_usuario= null;
@@ -49,6 +50,7 @@ public class LoginController implements Initializable {
                 //mensagem de erro de senha
             }else{
                 //prossegue pra página
+                Main.changeScreen("index");
             }
         }
         

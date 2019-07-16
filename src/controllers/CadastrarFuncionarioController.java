@@ -20,7 +20,7 @@ import java.util.Date;
  *
  * @author natalia
  */
-public class CadastrarFuncionarioController implements Initializable {
+public class CadastrarFuncionarioController implements Initializable, Controller {
 
     @FXML
     private TextField tf_nome;
@@ -117,7 +117,7 @@ public class CadastrarFuncionarioController implements Initializable {
         String senha = this.tf_senha.toString();
         int cargoId = Integer.parseInt(this.tf_cargoId.toString());
         try {
-            Cargo cargo = dao.pesquisarPorChave(Cargo.class, cargoId);
+            Cargo cargo = (Cargo) dao.pesquisarPorChave(Cargo.class, cargoId);
             Usuario usuario = new Usuario(login, senha, funcionario, cargo);
             dao.cadastrar(usuario);
             System.out.println("Usuário cadastrado com sucesso!");

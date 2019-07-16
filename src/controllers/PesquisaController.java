@@ -14,7 +14,7 @@ import javafx.fxml.Initializable;
  *
  * @author natalia
  */
-public class PesquisaController implements Initializable {
+public class PesquisaController implements Initializable, Controller {
 
     /**
      * Initializes the controller class.

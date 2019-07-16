@@ -19,7 +19,7 @@ import javafx.scene.control.TableView;
  *
  * @author natalia
  */
-public class ReservaEquipamentoController implements Initializable {
+public class ReservaEquipamentoController implements Initializable, Controller {
 
     @FXML
     private Button btn_buscaCliente;

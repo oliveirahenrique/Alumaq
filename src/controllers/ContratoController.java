@@ -25,7 +25,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import persistencia.DAO;
 
-public class ContratoController implements Initializable {
+public class ContratoController implements Initializable, Controller {
 
     @FXML
     private RadioButton rb_f1;
@@ -121,19 +121,20 @@ public class ContratoController implements Initializable {
                 int qtdEquip = Integer.parseInt(this.tc_qtde.toString());
 
                 //armazenando o valor da locacao
-                int valorEquip = Integer.parseInt(this.tc_valor.toString());
+                Double valorEquip = Double.parseDouble(this.tc_valor.toString());
                 
                 //pesquisando equipamento utilizando o id 
-                Equipamento equipamento = dao.pesquisarPorChave(Equipamento.class, equipamentoId);
+                Equipamento equipamento = (Equipamento) dao.pesquisarPorChave(Equipamento.class, equipamentoId);
 
                 //registrando contrato do equipamento
                 Contrato_Equipamento contratoEquip = new Contrato_Equipamento(locacao, equipamento, qtdEquip, valorEquip);
+                dao.cadastrar(contratoEquip);
 
                 //dando baixa da qtd do equipamento no estoque
                 equipamento.setQtd_estoque(equipamento.getQtd_estoque() - qtdEquip);
                 dao.atualizar(equipamento);
             }
-            dao.cadastrar(contratoEquip);
+            
         }
     }
 

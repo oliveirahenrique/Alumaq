@@ -22,7 +22,7 @@ import javafx.scene.control.TextField;
  *
  * @author rmachado
  */
-public class EditarFuncionarioController implements Initializable {
+public class EditarFuncionarioController implements Initializable, Controller {
     
     @FXML
     private TextField tf_loginUsuario; //not null
@@ -71,7 +71,7 @@ public class EditarFuncionarioController implements Initializable {
             
             try {
                 Usuario usuario = dao.getUsuario(this.tf_loginUsuario.toString());
-                Cargo novoCargo = dao.pesquisarPorChave(Cargo.class, novoCargoId);
+                Cargo novoCargo = (Cargo) dao.pesquisarPorChave(Cargo.class, novoCargoId);
                 usuario.setCargoId(novoCargo);
                 dao.atualizar(usuario);
                 System.out.println("Cargo atualizado com sucesso!");

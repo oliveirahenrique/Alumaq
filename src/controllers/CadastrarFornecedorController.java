@@ -17,7 +17,7 @@ import javafx.fxml.Initializable;
  *
  * @author natalia
  */
-public class CadastrarFornecedorController implements Initializable {
+public class CadastrarFornecedorController implements Initializable, Controller {
   @FXML
     private TextField tf_nome;
 

@@ -17,7 +17,7 @@ import entidade.*;
  *
  * @author natalia
  */
-public class VendaController implements Initializable {
+public class VendaController implements Initializable, Controller {
 
     /**
      * Initializes the controller class.

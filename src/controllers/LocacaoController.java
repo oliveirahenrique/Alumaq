@@ -18,7 +18,7 @@ import persistencia.DAO;
  *
  * @author natalia
  */
-public class LocacaoController implements Initializable {
+public class LocacaoController implements Initializable, Controller {
 
     /**
      * Initializes the controller class.

@@ -19,7 +19,7 @@ import javafx.fxml.Initializable;
  *
  * @author natalia
  */
-public class CadastrarEquipamentoController implements Initializable {
+public class CadastrarEquipamentoController implements Initializable, Controller {
   @FXML
     private TextArea ta_descricao;
 

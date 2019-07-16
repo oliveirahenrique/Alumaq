@@ -17,7 +17,7 @@ import javafx.fxml.Initializable;
  *
  * @author natalia
  */
-public class IndexController implements Initializable {
+public class IndexController implements Initializable, Controller {
     
      @FXML
     private Menu btn_MenuCliente;

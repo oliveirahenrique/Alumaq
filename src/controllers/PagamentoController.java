@@ -14,7 +14,7 @@ import javafx.fxml.Initializable;
  *
  * @author natalia
  */
-public class PagamentoController implements Initializable {
+public class PagamentoController implements Initializable, Controller {
 
     /**
      * Initializes the controller class.

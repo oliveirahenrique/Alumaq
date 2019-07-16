@@ -1,4 +1,5 @@
 package entidade;
+import controllers.Controller;
 import persistencia.DAO;
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
@@ -6,7 +7,7 @@ import javax.mail.internet.MimeMessage;
 import java.util.Properties;
 import java.util.ArrayList;
 
-public class CompraEquipamentos {
+public class CompraEquipamentos implements Controller {
     private int idCompra;
     private ArrayList<Equipamento> equipamentos;
     private Fornecedor fornecedor;

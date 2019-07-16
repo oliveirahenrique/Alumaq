@@ -98,30 +98,30 @@ public class ContratoController implements Initializable, Controller {
     void clica_salvar(ActionEvent event) throws ParseException {
         if (rb_locacao.isSelected()) {
             //data de inicio da locação
-            Date dataInicio = new SimpleDateFormat("dd/MM/yyyy").parse(this.tf_dataInicio.toString());
+            Date dataInicio = new SimpleDateFormat("dd/MM/yyyy").parse(this.tf_dataInicio.getText());
             
             //data fim da locação
-            Date dataFim = new SimpleDateFormat("dd/MM/yyyy").parse(this.tf_dataFim.toString());
+            Date dataFim = new SimpleDateFormat("dd/MM/yyyy").parse(this.tf_dataFim.getText());
             
             //primeira parcela
-            Double valorp1 = Double.parseDouble(this.lb_total.toString()) / 2;
+            Double valorp1 = Double.parseDouble(this.lb_total.getText()) / 2;
             
             //segunda parcela
-            Double valorp2 = Double.parseDouble(this.lb_total.toString()) / 2;
+            Double valorp2 = Double.parseDouble(this.lb_total.getText()) / 2;
             
             //registrando locacao
-            Locacao locacao = new Locacao(dataInicio, dataFim, valorp1, valorp2, Tipo.LOCACAO, Fase.FASE1, cliente, funcionario);
+            Locacao locacao = new Locacao(dataInicio, dataFim, valorp1, valorp2, Tipo.LOCACAO, Fase.FASE1, cliente, user.getFuncionarioId());
             dao.cadastrar(locacao);
             
             while("PRECISA IMPLEMENTAR ESSA CONDIÇÃO"){
                 //armazenando id do equipamento
-                int equipamentoId = Integer.parseInt(this.tc_item.toString());
+                int equipamentoId = Integer.parseInt(this.tc_item.getText());
                 
                 //armazenando qtd de itens da locacao
-                int qtdEquip = Integer.parseInt(this.tc_qtde.toString());
+                int qtdEquip = Integer.parseInt(this.tc_qtde.getText());
 
                 //armazenando o valor da locacao
-                Double valorEquip = Double.parseDouble(this.tc_valor.toString());
+                Double valorEquip = Double.parseDouble(this.tc_valor.getText());
                 
                 //pesquisando equipamento utilizando o id 
                 Equipamento equipamento = (Equipamento) dao.pesquisarPorChave(Equipamento.class, equipamentoId);
@@ -220,7 +220,6 @@ public class ContratoController implements Initializable, Controller {
         Double valor = 0.0;
         ArrayList<Equipamento> indisp = new ArrayList();
         String r = " ";
-        DAO dao = new DAO();
         for (Equipamento e : equipamentos) {
             if (e.getSetor().equals(Setor.VENDA) && e.isDisponivel()) {
                 valor += e.getValor();
@@ -236,7 +235,6 @@ public class ContratoController implements Initializable, Controller {
         // TODO registrar comissoes
         // TODO gerar contrato de venda
         // TODO encaminhar pagamento referente à venda ao setor de pagamento
-        dao.fechar();
 
         if (valor.equals(0.0)) {
             r = "Equipamentos não disponíveis. Venda não realizada.";
@@ -256,7 +254,6 @@ public class ContratoController implements Initializable, Controller {
         Double valor = 0.0;
         ArrayList<Equipamento> indisp = new ArrayList();
         String r = " ";
-        DAO dao = new DAO();
         for (Equipamento e : equipamentos) {
             if (e.getSetor().equals(Setor.LOCACAO) && e.isDisponivel()) {
                 valor += e.getValor();
@@ -270,7 +267,6 @@ public class ContratoController implements Initializable, Controller {
             }
         }
         // TODO gerar contrato de locacao
-        dao.fechar();
 
         if (valor.equals(0.0)) {
             r = "Equipamentos não disponíveis. Locação não realizada.";

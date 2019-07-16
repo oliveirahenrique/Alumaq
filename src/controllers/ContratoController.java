@@ -196,7 +196,6 @@ public class ContratoController implements Initializable, Controller {
         } else {
             rb_venda.setDisable(false);
         }
-
     }
 
     @FXML

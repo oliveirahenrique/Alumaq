@@ -27,7 +27,7 @@ public class CadastrarFornecedorController implements Initializable, Controller 
     private TextField tf_nome;
 
     @FXML
-    private Button btn_salvar;
+    private TextField tf_email;
 
     @FXML
     private TextField tf_tel;
@@ -51,22 +51,22 @@ public class CadastrarFornecedorController implements Initializable, Controller 
     private TextField tf_estado;
 
     @FXML
-    private TextField tf_email;
-
-    @FXML
     private Button btn_cancelar;
 
     @FXML
+    private Button btn_salvar;
+
+    @FXML
     void clica_cancela(ActionEvent event) {
-        tf_nome = null;
-        tf_tel = null;
-        tf_rua = null;
-        tf_num = null;
-        tf_bairro = null;
-        tf_complemento = null;
-        tf_cidade = null;
-        tf_estado = null;
-        tf_email = null;
+        tf_nome.setText("");
+        tf_tel.setText("");
+        tf_rua.setText("");
+        tf_num.setText("");
+        tf_bairro.setText("");
+        tf_complemento.setText("");
+        tf_cidade.setText("");
+        tf_estado.setText("");
+        tf_email.setText("");
 
         Main.changeScreen("index");
     }
@@ -74,7 +74,7 @@ public class CadastrarFornecedorController implements Initializable, Controller 
     @FXML
     void clica_salvar(ActionEvent event) {
         try {
-            Endereco endereco = new Endereco(tf_rua.getText(), tf_bairro.getText(), tf_complemento.getText(), Integer.parseInt(tf_num.getText()), tf_cidade.getText(), tf_estado.getText());
+            Endereco endereco = new Endereco(tf_rua.getText(), tf_bairro.getText(), null, Integer.parseInt(tf_num.getText()), tf_cidade.getText(), tf_estado.getText());
             dao.cadastrar(endereco);
             try {
                 Fornecedor fornecedor = new Fornecedor(tf_nome.getText(), tf_email.getText(), endereco);
@@ -83,12 +83,11 @@ public class CadastrarFornecedorController implements Initializable, Controller 
 
             } catch (Exception e) {
                 dao.remover(endereco);
-
+                System.out.println("Erro ao Cadastrar Fornecedor");
             }
         } catch (Exception e) {
             System.out.println("Erro ao Cadastrar Fornecedor");
         }
-
     }
 
     /**

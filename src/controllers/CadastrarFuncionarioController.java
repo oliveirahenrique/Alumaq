@@ -14,6 +14,7 @@ import entidade.Usuario;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import telasFXML.Main;
 
 /**
  * FXML Controller class
@@ -121,6 +122,7 @@ public class CadastrarFuncionarioController implements Initializable, Controller
             Usuario usuario = new Usuario(login, senha, funcionario, cargo);
             dao.cadastrar(usuario);
             System.out.println("Usuário cadastrado com sucesso!");
+            Main.changeScreen("index");
         } catch (Exception e) {
             dao.remover(endereco);
             dao.remover(funcionario);
@@ -145,6 +147,8 @@ public class CadastrarFuncionarioController implements Initializable, Controller
         this.tf_senha.setText("");
         this.tf_tel1.setText("");
         this.tf_tel2.setText("");
+        
+        Main.changeScreen("index");
     }
 
     /**

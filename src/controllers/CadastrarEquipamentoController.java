@@ -15,6 +15,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
+import telasFXML.Main;
 
 /**
  * FXML Controller class
@@ -72,6 +73,10 @@ public class CadastrarEquipamentoController implements Initializable, Controller
         this.tf_nome.setText("");
         this.tf_qtde.setText("");
         this.tf_valor.setText("");
+        rb_locacao.setDisable(false);
+        rb_venda.setDisable(false);
+        
+        Main.changeScreen("index");
     }
 
     @FXML
@@ -91,6 +96,7 @@ public class CadastrarEquipamentoController implements Initializable, Controller
 
             dao.cadastrar(equipamento);
             System.out.println("Equipamento cadastrado com sucesso!");
+            Main.changeScreen("index");
         } catch (Exception e) {
             System.out.println("Erro: não foi possível cadastrar o equipamento! " + e);
         }

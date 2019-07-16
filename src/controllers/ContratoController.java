@@ -24,6 +24,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import persistencia.DAO;
+import telasFXML.Main;
 
 public class ContratoController implements Initializable, Controller {
 
@@ -109,6 +110,7 @@ public class ContratoController implements Initializable, Controller {
             //segunda parcela
             Double valorp2 = Double.parseDouble(this.lb_total.getText()) / 2;
             
+            try{
             //registrando locacao
             Locacao locacao = new Locacao(dataInicio, dataFim, valorp1, valorp2, Tipo.LOCACAO, Fase.FASE1, cliente, user.getFuncionarioId());
             dao.cadastrar(locacao);
@@ -134,7 +136,10 @@ public class ContratoController implements Initializable, Controller {
                 equipamento.setQtd_estoque(equipamento.getQtd_estoque() - qtdEquip);
                 dao.atualizar(equipamento);
             }
-            
+            }catch(Exception e){
+                System.out.println("Erro ao iniar contrato");
+                Main.changeScreen("index");
+            }
         }
     }
 
@@ -153,7 +158,7 @@ public class ContratoController implements Initializable, Controller {
     void clicaVenda(ActionEvent event) {
         if (rb_venda.isSelected()) {
             rb_locacao.setDisable(true);
-
+            rb_f2.setDisable(true);
         } else {
             rb_locacao.setDisable(false);
 

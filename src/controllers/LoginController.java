@@ -8,6 +8,7 @@ package controllers;
 import entidade.Usuario;
 import java.net.URL;
 import java.util.ResourceBundle;
+import static javafx.application.Platform.exit;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -42,7 +43,6 @@ public class LoginController implements Initializable,Controller {
                 tf_senha=null;
                 //mensagem de erro de senha
             }else{
-                //prossegue pra página
                 user.setId(usuario.getId());
                 user.setLogin(usuario.getLogin());
                 user.setSenha(usuario.getSenha());
@@ -58,7 +58,8 @@ public class LoginController implements Initializable,Controller {
 
     @FXML
     void clica_sair(ActionEvent event) {
-        //sair do programa
+        dao.fechar();
+        exit();
     }
     /**
      * 

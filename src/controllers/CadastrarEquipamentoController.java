@@ -90,7 +90,7 @@ public class CadastrarEquipamentoController implements Initializable, Controller
             }
 
             dao.cadastrar(equipamento);
-            System.out.println("Equipamento cadasatrado com sucesso!");
+            System.out.println("Equipamento cadastrado com sucesso!");
         } catch (Exception e) {
             System.out.println("Erro: não foi possível cadastrar o equipamento! " + e);
         }

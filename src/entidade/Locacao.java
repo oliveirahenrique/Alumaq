@@ -10,12 +10,11 @@ public class Locacao extends ContratoOperacao {
     public Locacao(){
     }
        
-    public Locacao(Date dataInicio, Date dataFim, Double valorp1, Double valorp2, Double multa, Tipo tipo, Fase fase, Cliente cliente, Funcionario funcionario) {
+    public Locacao(Date dataInicio, Date dataFim, Double valorp1, Double valorp2, Tipo tipo, Fase fase, Cliente cliente, Funcionario funcionario) {
         this.dataInicio = dataInicio;
         this.dataFim = dataFim;
         this.valorp1 = valorp1;
         this.valorp2 = valorp2;
-        this.multa = multa;
         this.tipo = tipo;
         this.fase = fase;
         this.clienteId = cliente;
@@ -24,7 +23,7 @@ public class Locacao extends ContratoOperacao {
     }   
     
     /**
-     * @param c
+     * @param l
      * @param dataDevolucao
      * @return the multa
      */

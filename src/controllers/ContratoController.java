@@ -1,9 +1,17 @@
 package controllers;
 
+import entidade.Cargo;
+import entidade.Contrato_Equipamento;
 import entidade.Equipamento;
+import entidade.Fase;
+import entidade.Locacao;
 import entidade.Setor;
+import entidade.Tipo;
 import java.net.URL;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,9 +25,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import persistencia.DAO;
 
-public class ContratoController implements Initializable  {
+public class ContratoController implements Initializable {
 
-     @FXML
+    @FXML
     private RadioButton rb_f1;
 
     @FXML
@@ -76,7 +84,6 @@ public class ContratoController implements Initializable  {
     @FXML
     private Button btn_remover;
 
-    
     @FXML
     void clica_add(ActionEvent event) {
 
@@ -88,17 +95,38 @@ public class ContratoController implements Initializable  {
     }
 
     @FXML
-    void clica_salvar(ActionEvent event) {
-
+    void clica_salvar(ActionEvent event) throws ParseException {
+        if (rb_locacao.isSelected()) {
+            //data de inicio da locação
+            Date dataInicio = new SimpleDateFormat("dd/MM/yyyy").parse(this.tf_dataInicio.toString());
+            
+            //data fim da locação
+            Date dataFim = new SimpleDateFormat("dd/MM/yyyy").parse(this.tf_dataFim.toString());
+            
+            //primeira parcela
+            Double valorp1 = Double.parseDouble(lb_total.toString()) / 2;
+            
+            //segunda parcela
+            Double valorp2 = Double.parseDouble(lb_total.toString()) / 2;
+            
+            Locacao locacao = new Locacao(dataInicio, dataFim, valorp1, valorp2, Tipo.LOCACAO, Fase.FASE1, cliente, funcionario);
+            dao.cadastrar(locacao);
+            
+            int equipamentoId = Integer.parseInt("Id do equipamento");
+            Equipamento equipamento = dao.pesquisarPorChave(Equipamento.class, equipamentoId);
+            Contrato_Equipamento contratoEquip = new Contrato_Equipamento(locacao, equipamento, qtd, valor);
+            
+            dao.cadastrar(contratoEquip);
+        }
     }
+
     @FXML
     void clicaLocacao(ActionEvent event) {
         if (rb_locacao.isSelected()) {
             rb_venda.setDisable(true);
-            
+
         } else {
             rb_venda.setDisable(false);
-            
         }
 
     }
@@ -107,10 +135,10 @@ public class ContratoController implements Initializable  {
     void clicaVenda(ActionEvent event) {
         if (rb_venda.isSelected()) {
             rb_locacao.setDisable(true);
-            
+
         } else {
             rb_locacao.setDisable(false);
-           
+
         }
     }
 
@@ -160,30 +188,28 @@ public class ContratoController implements Initializable  {
 
     }
 
-      
     ArrayList<Equipamento> equipamentos;
 
-    
-    public ContratoController(){
-        
+    public ContratoController() {
+
     }
-    
+
     public ContratoController(ArrayList<Equipamento> equipamentos) {
         this.equipamentos = equipamentos;
     }
-    
+
     public String vender() {
         Double valor = 0.0;
-        ArrayList<Equipamento> indisp = new ArrayList(); 
+        ArrayList<Equipamento> indisp = new ArrayList();
         String r = " ";
         DAO dao = new DAO();
         for (Equipamento e : equipamentos) {
             if (e.getSetor().equals(Setor.VENDA) && e.isDisponivel()) {
                 valor += e.getValor();
-                e.setQtd_estoque(e.getQtd_estoque()-1);
+                e.setQtd_estoque(e.getQtd_estoque() - 1);
                 if (e.getQtd_estoque() == 0)
                     e.setDisponivel(false);
-                
+
                 dao.atualizar(e);
             } else {
                 indisp.add(e);
@@ -193,7 +219,7 @@ public class ContratoController implements Initializable  {
         // TODO gerar contrato de venda
         // TODO encaminhar pagamento referente à venda ao setor de pagamento
         dao.fechar();
-        
+
         if (valor.equals(0.0)) {
             r = "Equipamentos não disponíveis. Venda não realizada.";
         } else if (!indisp.isEmpty()) {
@@ -201,25 +227,25 @@ public class ContratoController implements Initializable  {
             for (Equipamento e : indisp) {
                 r = r + e.getNome() + " (" + e.getIdEq() + ") ";
             }
-            r = r + "não disponíveis. Valor da venda: R$"+valor;
+            r = r + "não disponíveis. Valor da venda: R$" + valor;
         } else {
-            r = "Venda realizada com sucesso! Valor: R$"+valor;
+            r = "Venda realizada com sucesso! Valor: R$" + valor;
         }
         return r;
     }
 
-     public String alugar() {
+    public String alugar() {
         Double valor = 0.0;
-        ArrayList<Equipamento> indisp = new ArrayList(); 
+        ArrayList<Equipamento> indisp = new ArrayList();
         String r = " ";
         DAO dao = new DAO();
         for (Equipamento e : equipamentos) {
             if (e.getSetor().equals(Setor.LOCACAO) && e.isDisponivel()) {
                 valor += e.getValor();
-                e.setQtd_estoque(e.getQtd_estoque()-1);
+                e.setQtd_estoque(e.getQtd_estoque() - 1);
                 if (e.getQtd_estoque() == 0)
                     e.setDisponivel(false);
-                
+
                 dao.atualizar(e);
             } else {
                 indisp.add(e);
@@ -227,7 +253,7 @@ public class ContratoController implements Initializable  {
         }
         // TODO gerar contrato de locacao
         dao.fechar();
-        
+
         if (valor.equals(0.0)) {
             r = "Equipamentos não disponíveis. Locação não realizada.";
         } else if (!indisp.isEmpty()) {
@@ -235,9 +261,9 @@ public class ContratoController implements Initializable  {
             for (Equipamento e : indisp) {
                 r = r + e.getNome() + " (" + e.getIdEq() + ") ";
             }
-            r = r + "não disponíveis. Valor da locação: R$"+valor;
+            r = r + "não disponíveis. Valor da locação: R$" + valor;
         } else {
-            r = "Locação realizada com sucesso! Valor: R$"+valor;
+            r = "Locação realizada com sucesso! Valor: R$" + valor;
         }
         return r;
     }
@@ -247,5 +273,4 @@ public class ContratoController implements Initializable  {
         // TODO
     }
 
- 
 }

@@ -109,13 +109,13 @@ public class ContratoController implements Initializable, Controller {
         //segunda parcela
         Double valorp2;
 
-        //armazenando id do equipamento
+        //armazena id do equipamento
         int equipamentoId;
 
-        //armazenando qtd de itens da locacao
+        //armazena qtd de itens da locacao
         int qtdEquip;
 
-        //armazenando o valor da locacao
+        //armazena o valor da locacao
         Double valorEquip;
 
         if (rb_locacao.isSelected()) {
@@ -133,13 +133,10 @@ public class ContratoController implements Initializable, Controller {
                 dao.cadastrar(locacao);
 
                 while ("PRECISA IMPLEMENTAR ESSA CONDIÇÃO") {
-                    //armazenando id do equipamento
                     equipamentoId = Integer.parseInt(this.tc_item.getText());
 
-                    //armazenando qtd de itens da locacao
                     qtdEquip = Integer.parseInt(this.tc_qtde.getText());
 
-                    //armazenando o valor da locacao
                     valorEquip = Double.parseDouble(this.tc_valor.getText());
 
                     //pesquisando equipamento utilizando o id 
@@ -168,13 +165,10 @@ public class ContratoController implements Initializable, Controller {
                 dao.cadastrar(venda);
 
                 while ("PRECISA IMPLEMENTAR ESSA CONDIÇÃO") {
-                    //armazenando id do equipamento
                     equipamentoId = Integer.parseInt(this.tc_item.getText());
 
-                    //armazenando qtd de itens da locacao
                     qtdEquip = Integer.parseInt(this.tc_qtde.getText());
 
-                    //armazenando o valor da locacao
                     valorEquip = Double.parseDouble(this.tc_valor.getText());
 
                     //pesquisando equipamento utilizando o id 
@@ -199,7 +193,6 @@ public class ContratoController implements Initializable, Controller {
     void clicaLocacao(ActionEvent event) {
         if (rb_locacao.isSelected()) {
             rb_venda.setDisable(true);
-
         } else {
             rb_venda.setDisable(false);
         }
@@ -213,7 +206,6 @@ public class ContratoController implements Initializable, Controller {
             rb_f2.setDisable(true);
         } else {
             rb_locacao.setDisable(false);
-
         }
     }
 
@@ -222,7 +214,6 @@ public class ContratoController implements Initializable, Controller {
         if (rb_f1.isSelected()) {
             rb_f2.setDisable(true);
             rb_fim.setDisable(true);
-
         } else {
             rb_f2.setDisable(false);
             rb_fim.setDisable(false);
@@ -234,7 +225,6 @@ public class ContratoController implements Initializable, Controller {
         if (rb_f2.isSelected()) {
             rb_f1.setDisable(true);
             rb_fim.setDisable(true);
-
         } else {
             rb_f1.setDisable(false);
             rb_fim.setDisable(false);
@@ -246,7 +236,6 @@ public class ContratoController implements Initializable, Controller {
         if (rb_fim.isSelected()) {
             rb_f2.setDisable(true);
             rb_f1.setDisable(true);
-
         } else {
             rb_f2.setDisable(false);
             rb_f1.setDisable(false);
@@ -345,5 +334,4 @@ public class ContratoController implements Initializable, Controller {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }
-
 }

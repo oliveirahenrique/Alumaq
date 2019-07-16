@@ -17,6 +17,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import telasFXML.Main;
 
 /**
  *
@@ -184,6 +185,8 @@ public class EditarFuncionarioController implements Initializable, Controller {
         this.tf_salario.setText("");
         this.tf_tel1.setText("");
         this.tf_tel2.setText("");
+        
+        Main.changeScreen("index");
     }
     
     public void excluir() {

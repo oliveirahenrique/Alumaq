@@ -5,6 +5,7 @@
  */
 package controllers;
 
+import entidade.Usuario;
 import persistencia.DAO;
 
 /**
@@ -13,4 +14,5 @@ import persistencia.DAO;
  */
 public interface Controller {
     final DAO dao = new DAO();
+    final Usuario user = new Usuario();
 }

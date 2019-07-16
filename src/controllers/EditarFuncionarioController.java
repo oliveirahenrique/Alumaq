@@ -65,12 +65,12 @@ public class EditarFuncionarioController implements Initializable, Controller {
     
     @FXML
     void clica_salvar(ActionEvent event) throws ParseException {
-        if (!this.tf_cargoId.toString().equals("")) {
+        if (!this.tf_cargoId.getText().equals("")) {
             // atualizar cargo
-            int novoCargoId = Integer.parseInt(this.tf_cargoId.toString());
+            int novoCargoId = Integer.parseInt(this.tf_cargoId.getText());
             
             try {
-                Usuario usuario = dao.getUsuario(this.tf_loginUsuario.toString());
+                Usuario usuario = dao.getUsuario(this.tf_loginUsuario.getText());
                 Cargo novoCargo = (Cargo) dao.pesquisarPorChave(Cargo.class, novoCargoId);
                 usuario.setCargoId(novoCargo);
                 dao.atualizar(usuario);
@@ -80,18 +80,18 @@ public class EditarFuncionarioController implements Initializable, Controller {
             }
         }
         
-        if (!this.tf_bairro.toString().equals("") || !this.tf_cidade.toString().equals("") || !this.tf_complemento.toString().equals("") || 
-                !this.tf_estado.toString().equals("") || !this.tf_num.toString().equals("") || !this.tf_rua.toString().equals("")) {
+        if (!this.tf_bairro.getText().equals("") || !this.tf_cidade.getText().equals("") || !this.tf_complemento.getText().equals("") || 
+                !this.tf_estado.getText().equals("") || !this.tf_num.getText().equals("") || !this.tf_rua.getText().equals("")) {
             // atualizar endereço
-            String bairro = this.tf_bairro.toString();
-            String cidade = this.tf_cidade.toString();
-            String complemento = this.tf_complemento.toString();
-            String estado = this.tf_estado.toString();
-            int numero = Integer.parseInt(this.tf_num.toString());
-            String rua = this.tf_rua.toString();
+            String bairro = this.tf_bairro.getText();
+            String cidade = this.tf_cidade.getText();
+            String complemento = this.tf_complemento.getText();
+            String estado = this.tf_estado.getText();
+            int numero = Integer.parseInt(this.tf_num.getText());
+            String rua = this.tf_rua.getText();
             
             try {
-                Usuario usuario = dao.getUsuario(this.tf_loginUsuario.toString());
+                Usuario usuario = dao.getUsuario(this.tf_loginUsuario.getText());
                 Funcionario funcionario = usuario.getFuncionarioId();
                 Endereco endereco = funcionario.getEndereco();
                 
@@ -128,11 +128,11 @@ public class EditarFuncionarioController implements Initializable, Controller {
             }
         }
         
-        if (!this.tf_salario.toString().equals("")) {
+        if (!this.tf_salario.getText().equals("")) {
             // atualizar salario
-            Double salario = Double.parseDouble(this.tf_salario.toString());
+            Double salario = Double.parseDouble(this.tf_salario.getText());
             try {
-                Usuario usuario = dao.getUsuario(this.tf_loginUsuario.toString());
+                Usuario usuario = dao.getUsuario(this.tf_loginUsuario.getText());
                 Funcionario funcionario = usuario.getFuncionarioId();
                 
                 funcionario.setSalario(salario);
@@ -146,18 +146,18 @@ public class EditarFuncionarioController implements Initializable, Controller {
             }
         }
         
-        if (!this.tf_tel1.toString().equals("") || !this.tf_tel2.toString().equals("")) {
+        if (!this.tf_tel1.getText().equals("") || !this.tf_tel2.getText().equals("")) {
             // atualizar telefone
-            String telefone1 = this.tf_tel1.toString();
-            String telefone2 = this.tf_tel2.toString();
+            String telefone1 = this.tf_tel1.getText();
+            String telefone2 = this.tf_tel2.getText();
             try {
-                Usuario usuario = dao.getUsuario(this.tf_loginUsuario.toString());
+                Usuario usuario = dao.getUsuario(this.tf_loginUsuario.getText());
                 Funcionario funcionario = usuario.getFuncionarioId();
                 
-                if (!this.tf_tel1.toString().equals("")) {
+                if (!this.tf_tel1.getText().equals("")) {
                     funcionario.setTelefone1(telefone1);
                 }
-                if (!this.tf_tel2.toString().equals("")) {
+                if (!this.tf_tel2.getText().equals("")) {
                     funcionario.setTelefone2(telefone2);
                 }
                 
@@ -188,7 +188,7 @@ public class EditarFuncionarioController implements Initializable, Controller {
     
     public void excluir() {
         try {
-            Usuario usuario = dao.getUsuario(this.tf_loginUsuario.toString());
+            Usuario usuario = dao.getUsuario(this.tf_loginUsuario.getText());
             dao.remover(usuario);
             System.out.println("Usuário excluído com sucesso!");
         } catch (Exception e) {

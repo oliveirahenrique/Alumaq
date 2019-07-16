@@ -76,30 +76,30 @@ public class CadastrarFuncionarioController implements Initializable, Controller
     @FXML
     void clica_salvar(ActionEvent event) throws ParseException {        
         // nome do funcionario
-        String nome = this.tf_nome.toString();
+        String nome = this.tf_nome.getText();
         
         // data de nascimento do funcionario
-        Date dataNascimento = new SimpleDateFormat("dd/MM/yyyy").parse(this.tf_dataNasc.toString());
+        Date dataNascimento = new SimpleDateFormat("dd/MM/yyyy").parse(this.tf_dataNasc.getText());
         
         // salario do funcionario
-        Double salario = Double.parseDouble(this.tf_salario.toString());
+        Double salario = Double.parseDouble(this.tf_salario.getText());
         
         // telefone1 do funcionario
-        String telefone1 = this.tf_tel1.toString();
+        String telefone1 = this.tf_tel1.getText();
         
         // telefone2 do funcionario
-        String telefone2 = this.tf_tel2.toString();
+        String telefone2 = this.tf_tel2.getText();
         
         // cpf do funcionario
-        String cpf = this.tf_cpf.toString();
+        String cpf = this.tf_cpf.getText();
         
         // endereço do funcionario
-        String rua = this.tf_rua.toString();
-        int numero = Integer.parseInt(this.tf_num.toString());
-        String bairro = this.tf_bairro.toString();
-        String cidade = this.tf_cidade.toString();
-        String estado = this.tf_estado.toString();
-        String complemento = this.tf_complemento.toString();
+        String rua = this.tf_rua.getText();
+        int numero = Integer.parseInt(this.tf_num.getText());
+        String bairro = this.tf_bairro.getText();
+        String cidade = this.tf_cidade.getText();
+        String estado = this.tf_estado.getText();
+        String complemento = this.tf_complemento.getText();
         Endereco endereco;
         if (complemento.equals("") || complemento.equals(" ")) {
             endereco = new Endereco(rua, bairro, null, numero, cidade, estado);
@@ -113,9 +113,9 @@ public class CadastrarFuncionarioController implements Initializable, Controller
         dao.cadastrar(funcionario);
         
         // cadastra novo usuario
-        String login = this.tf_login.toString();
-        String senha = this.tf_senha.toString();
-        int cargoId = Integer.parseInt(this.tf_cargoId.toString());
+        String login = this.tf_login.getText();
+        String senha = this.tf_senha.getText();
+        int cargoId = Integer.parseInt(this.tf_cargoId.getText());
         try {
             Cargo cargo = (Cargo) dao.pesquisarPorChave(Cargo.class, cargoId);
             Usuario usuario = new Usuario(login, senha, funcionario, cargo);

@@ -120,10 +120,11 @@ public class CadastrarFuncionarioController implements Initializable {
             Cargo cargo = dao.pesquisarPorChave(Cargo.class, cargoId);
             Usuario usuario = new Usuario(login, senha, funcionario, cargo);
             dao.cadastrar(usuario);
+            System.out.println("Usuário cadastrado com sucesso!");
         } catch (Exception e) {
             dao.remover(endereco);
             dao.remover(funcionario);
-            System.out.println("Erro: cargo não encontrado no banco de dados. Usuário não cadastrado!");
+            System.out.println("Erro: cargo não encontrado no banco de dados. Usuário não cadastrado! " + e);
         }
     }
 

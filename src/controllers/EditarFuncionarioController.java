@@ -5,6 +5,10 @@
  */
 package controllers;
 
+import entidade.Cargo;
+import entidade.Endereco;
+import entidade.Funcionario;
+import entidade.Usuario;
 import java.net.URL;
 import java.text.ParseException;
 import java.util.ResourceBundle;
@@ -21,7 +25,7 @@ import javafx.scene.control.TextField;
 public class EditarFuncionarioController implements Initializable {
     
     @FXML
-    private TextField tf_nome; //not null
+    private TextField tf_loginUsuario; //not null
     
     @FXML
     private TextField tf_salario;
@@ -62,24 +66,108 @@ public class EditarFuncionarioController implements Initializable {
     @FXML
     void clica_salvar(ActionEvent event) throws ParseException {
         if (!this.tf_cargoId.toString().equals("")) {
-            // TODO atualizar cargo
+            // atualizar cargo
+            int novoCargoId = Integer.parseInt(this.tf_cargoId.toString());
+            
+            try {
+                Usuario usuario = dao.getUsuario(this.tf_loginUsuario.toString());
+                Cargo novoCargo = dao.pesquisarPorChave(Cargo.class, novoCargoId);
+                usuario.setCargoId(novoCargo);
+                dao.atualizar(usuario);
+                System.out.println("Cargo atualizado com sucesso!");
+            } catch (Exception e) {
+                System.out.println("Erro: cargo inexistente ou usuário não encontrado no banco de dados. Usuário não atualizado! " + e);
+            }
         }
         
         if (!this.tf_bairro.toString().equals("") || !this.tf_cidade.toString().equals("") || !this.tf_complemento.toString().equals("") || 
                 !this.tf_estado.toString().equals("") || !this.tf_num.toString().equals("") || !this.tf_rua.toString().equals("")) {
-            // TODO atualizar endereço
+            // atualizar endereço
+            String bairro = this.tf_bairro.toString();
+            String cidade = this.tf_cidade.toString();
+            String complemento = this.tf_complemento.toString();
+            String estado = this.tf_estado.toString();
+            int numero = Integer.parseInt(this.tf_num.toString());
+            String rua = this.tf_rua.toString();
+            
+            try {
+                Usuario usuario = dao.getUsuario(this.tf_loginUsuario.toString());
+                Funcionario funcionario = usuario.getFuncionarioId();
+                Endereco endereco = funcionario.getEndereco();
+                
+                if (!bairro.equals("")) {
+                    endereco.setBairro(bairro);
+                }
+                if (!cidade.equals("")) {
+                    endereco.setCidade(cidade);
+                }
+                if (!complemento.equals("")) {
+                    endereco.setComplemento(complemento);
+                } else if (numero != endereco.getNumero()) {
+                    //nesse caso, quer dizer que funcionário mudou para uma casa que não tem complemento
+                    endereco.setComplemento(null);
+                }
+                if (!estado.equals("")) {
+                    endereco.setEstado(estado);
+                }
+                if (!this.tf_num.equals("")) {
+                    endereco.setNumero(numero);
+                }
+                if (!rua.equals("")) {
+                    endereco.setRua(rua);
+                }
+                
+                dao.atualizar(endereco);
+                funcionario.setEndereco(endereco);
+                dao.atualizar(funcionario);
+                usuario.setFuncionarioId(funcionario);
+                dao.atualizar(usuario);
+                System.out.println("Endereço atualizado com sucesso!");
+            } catch (Exception e) {
+                System.out.println("Erro: endereço e usuário não atualizados! " + e);
+            }
         }
         
         if (!this.tf_salario.toString().equals("")) {
-            // TODO atualizar salario
+            // atualizar salario
+            Double salario = Double.parseDouble(this.tf_salario.toString());
+            try {
+                Usuario usuario = dao.getUsuario(this.tf_loginUsuario.toString());
+                Funcionario funcionario = usuario.getFuncionarioId();
+                
+                funcionario.setSalario(salario);
+                
+                dao.atualizar(funcionario);
+                usuario.setFuncionarioId(funcionario);
+                dao.atualizar(usuario);
+                System.out.println("Salário atualizado com sucesso!");
+            } catch (Exception e) {
+                System.out.println("Erro: salário e usuário não atualizados! " + e);
+            }
         }
         
-        if (!this.tf_tel1.toString().equals("")) {
-            // TODO atualizar telefone1
-        }
-        
-        if (!this.tf_tel2.toString().equals("")) {
-            // TODO atualizar telefone2
+        if (!this.tf_tel1.toString().equals("") || !this.tf_tel2.toString().equals("")) {
+            // atualizar telefone
+            String telefone1 = this.tf_tel1.toString();
+            String telefone2 = this.tf_tel2.toString();
+            try {
+                Usuario usuario = dao.getUsuario(this.tf_loginUsuario.toString());
+                Funcionario funcionario = usuario.getFuncionarioId();
+                
+                if (!this.tf_tel1.toString().equals("")) {
+                    funcionario.setTelefone1(telefone1);
+                }
+                if (!this.tf_tel2.toString().equals("")) {
+                    funcionario.setTelefone2(telefone2);
+                }
+                
+                dao.atualizar(funcionario);
+                usuario.setFuncionarioId(funcionario);
+                dao.atualizar(usuario);
+                System.out.println("Telefone atualizado com sucesso!");
+            } catch (Exception e) {
+                System.out.println("Erro: telefone e usuário não atualizados! " + e);
+            }
         }
     }
     
@@ -90,7 +178,7 @@ public class EditarFuncionarioController implements Initializable {
         this.tf_cidade.setText("");
         this.tf_complemento.setText("");
         this.tf_estado.setText("");
-        this.tf_nome.setText("");
+        this.tf_loginUsuario.setText("");
         this.tf_num.setText("");
         this.tf_rua.setText("");
         this.tf_salario.setText("");

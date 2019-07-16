@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package controllers;
+import entidade.Equipamento;
+import entidade.Setor;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
@@ -66,12 +68,32 @@ public class CadastrarEquipamentoController implements Initializable, Controller
 
     @FXML
     void clica_cancela(ActionEvent event) {
-
+        this.ta_descricao.setText("");
+        this.tf_nome.setText("");
+        this.tf_qtde.setText("");
+        this.tf_valor.setText("");
     }
 
     @FXML
     void clica_salvar(ActionEvent event) {
+        String nome = this.tf_nome.getText();
+        String descricao = this.ta_descricao.getText();
+        Integer qtd = Integer.parseInt(this.tf_qtde.getText());
+        Double valor = Double.parseDouble(this.tf_valor.getText());
 
+        try {
+            Equipamento equipamento = null;
+            if (this.rb_locacao.isSelected()) {
+                equipamento = new Equipamento(nome, descricao, true, qtd, valor, Setor.LOCACAO);
+            } else if (this.rb_venda.isSelected()) {
+                equipamento = new Equipamento(nome, descricao, true, qtd, valor, Setor.VENDA);
+            }
+
+            dao.cadastrar(equipamento);
+            System.out.println("Equipamento cadasatrado com sucesso!");
+        } catch (Exception e) {
+            System.out.println("Erro: não foi possível cadastrar o equipamento! " + e);
+        }
     }
     
     /**

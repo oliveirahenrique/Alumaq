@@ -101,8 +101,8 @@ public class DAO {
     @SuppressWarnings("empty-statement")
     public Usuario getUsuario(String login) {
         TypedQuery<Usuario> query = (TypedQuery<Usuario>) em.createNativeQuery("select * from usuario u where u.login = '"+login+"'", Usuario.class);
-        Usuario user = query.getSingleResult();
-        return user;
+        List<Usuario> users = query.getResultList();
+        return users.get(0);
     }
 
     public void fechar() {

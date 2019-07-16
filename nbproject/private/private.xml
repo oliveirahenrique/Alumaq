@@ -3,23 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/rmachado/NetBeansProjects/Alumaq/src/controllers/Controller.java</file>
-            <file>file:/home/rmachado/NetBeansProjects/Alumaq/src/controllers/CadastrarClienteController.java</file>
-            <file>file:/home/rmachado/NetBeansProjects/Alumaq/src/controllers/EditarFuncionarioController.java</file>
-            <file>file:/home/rmachado/NetBeansProjects/Alumaq/src/controllers/CadastrarFuncionarioController.java</file>
-            <file>file:/home/rmachado/NetBeansProjects/Alumaq/src/entidade/Cliente.java</file>
-            <file>file:/home/rmachado/NetBeansProjects/Alumaq/src/entidade/Endereco.java</file>
-            <file>file:/home/rmachado/NetBeansProjects/Alumaq/src/entidade/Funcionario.java</file>
-            <file>file:/home/rmachado/NetBeansProjects/Alumaq/src/persistencia/DAO.java</file>
-            <file>file:/home/rmachado/NetBeansProjects/Alumaq/src/controllers/VendaController.java</file>
-            <file>file:/home/rmachado/NetBeansProjects/Alumaq/src/controllers/CadastrarFornecedorController.java</file>
-            <file>file:/home/rmachado/NetBeansProjects/Alumaq/src/entidade/Fornecedor.java</file>
-            <file>file:/home/rmachado/NetBeansProjects/Alumaq/src/entidade/Usuario.java</file>
-            <file>file:/home/rmachado/NetBeansProjects/Alumaq/src/alumaqnetbeans/AlumaqNetbeans.java</file>
-            <file>file:/home/rmachado/NetBeansProjects/Alumaq/src/controllers/IndexController.java</file>
-            <file>file:/home/rmachado/NetBeansProjects/Alumaq/src/META-INF/persistence.xml</file>
-            <file>file:/home/rmachado/NetBeansProjects/Alumaq/src/controllers/LoginController.java</file>
-            <file>file:/home/rmachado/NetBeansProjects/Alumaq/src/entidade/Cargo.java</file>
+            <file>file:/C:/Users/Pichau/Documents/Alumaq/src/persistencia/DAO.java</file>
+            <file>file:/C:/Users/Pichau/Documents/Alumaq/test/testePersistencia/TesteDAO.java</file>
+            <file>file:/C:/Users/Pichau/Documents/Alumaq/src/META-INF/persistence.xml</file>
+            <file>file:/C:/Users/Pichau/Documents/Alumaq/src/telasFXML/Main.java</file>
+            <file>file:/C:/Users/Pichau/Documents/Alumaq/src/controllers/LoginController.java</file>
+            <file>file:/C:/Users/Pichau/Documents/Alumaq/src/controllers/Controller.java</file>
+            <file>file:/C:/Users/Pichau/Documents/Alumaq/src/controllers/EditarFuncionarioController.java</file>
         </group>
     </open-files>
 </project-private>

@@ -36,24 +36,18 @@ public class LoginController implements Initializable,Controller {
     
     @FXML
     void clica_login(ActionEvent event) {
-        
-        Usuario usuario = dao.getUsuario(tf_usuario.toString());
-        
-        if(usuario == null){
-            tf_usuario= null;
-            tf_senha= null;
-            
-            //mensagem de erro de usuario
-        }else{
-            if(!usuario.getSenha().equals(tf_senha.toString())){
+        try {
+            Usuario usuario = dao.getUsuario(tf_usuario.getText());
+             if(!usuario.getSenha().equals(tf_senha.getText())){
                 tf_senha=null;
                 //mensagem de erro de senha
             }else{
                 //prossegue pra página
                 Main.changeScreen("index");
             }
-        }
-        
+        } catch (Exception e) {
+            //mensagem de erro de login
+        }       
         
     }
 

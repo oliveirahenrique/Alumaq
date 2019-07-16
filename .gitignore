@@ -1,9 +1,17 @@
+/build/**
+/dist/**
 /build/
 /dist/
 
 # Ignore private settings from commiting
+/nbproject/private/**
+nbproject/private/**
+/nbproject/**
+nbproject/**
 /nbproject/private/
+nbproject/private/
 /nbproject/
+nbproject/
 
 #Force include .gitignore
 !.gitignore

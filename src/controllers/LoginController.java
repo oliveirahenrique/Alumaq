@@ -43,6 +43,12 @@ public class LoginController implements Initializable,Controller {
                 //mensagem de erro de senha
             }else{
                 //prossegue pra página
+                user.setId(usuario.getId());
+                user.setLogin(usuario.getLogin());
+                user.setSenha(usuario.getSenha());
+                user.setFuncionarioId(usuario.getFuncionarioId());
+                user.setCargoId(usuario.getCargoId());
+                 System.out.println("id: "+user.getId()+"  Login:"+user.getLogin()+"  Senha:"+user.getSenha()+"  Funcionario ID:"+user.getFuncionarioId()+"  Cargo ID:"+user.getCargoId());
                 Main.changeScreen("index");
             }
         } catch (Exception e) {

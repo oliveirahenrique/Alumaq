@@ -186,6 +186,16 @@ public class EditarFuncionarioController implements Initializable {
         this.tf_tel2.setText("");
     }
     
+    public void excluir() {
+        try {
+            Usuario usuario = dao.getUsuario(this.tf_loginUsuario.toString());
+            dao.remover(usuario);
+            System.out.println("Usuário excluído com sucesso!");
+        } catch (Exception e) {
+            System.out.println("Erro: não foi possível remover o usuário! " + e);
+        }
+    }
+    
     /**
      * Initializes the controller class.
      */

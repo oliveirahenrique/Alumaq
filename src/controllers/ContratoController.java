@@ -109,13 +109,30 @@ public class ContratoController implements Initializable {
             //segunda parcela
             Double valorp2 = Double.parseDouble(lb_total.toString()) / 2;
             
+            //registrando locacao
             Locacao locacao = new Locacao(dataInicio, dataFim, valorp1, valorp2, Tipo.LOCACAO, Fase.FASE1, cliente, funcionario);
             dao.cadastrar(locacao);
             
-            int equipamentoId = Integer.parseInt("Id do equipamento");
-            Equipamento equipamento = dao.pesquisarPorChave(Equipamento.class, equipamentoId);
-            Contrato_Equipamento contratoEquip = new Contrato_Equipamento(locacao, equipamento, qtd, valor);
-            
+            while("PRECISA IMPLEMENTAR ESSA CONDIÇÃO"){
+                //armazenando id do equipamento
+                int equipamentoId = Integer.parseInt(tc_item.toString());
+                
+                //armazenando qtd de itens da locacao
+                int qtdEquip = Integer.parseInt(tc_qtde.toString());
+
+                //armazenando o valor da locacao
+                int valorEquip = Integer.parseInt(tc_valor.toString());
+                
+                //pesquisando equipamento utilizando o id 
+                Equipamento equipamento = dao.pesquisarPorChave(Equipamento.class, equipamentoId);
+
+                //registrando contrato do equipamento
+                Contrato_Equipamento contratoEquip = new Contrato_Equipamento(locacao, equipamento, qtdEquip, valorEquip);
+
+                //dando baixa da qtd do equipamento no estoque
+                equipamento.setQtd_estoque(equipamento.getQtd_estoque() - qtdEquip);
+                dao.atualizar(equipamento);
+            }
             dao.cadastrar(contratoEquip);
         }
     }

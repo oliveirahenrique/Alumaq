@@ -1,12 +1,12 @@
 package controllers;
 
-import entidade.Cargo;
 import entidade.Contrato_Equipamento;
 import entidade.Equipamento;
 import entidade.Fase;
 import entidade.Locacao;
 import entidade.Setor;
 import entidade.Tipo;
+import entidade.Venda;
 import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -97,47 +97,99 @@ public class ContratoController implements Initializable, Controller {
 
     @FXML
     void clica_salvar(ActionEvent event) throws ParseException {
+        //data de inicio da locação
+        Date dataInicio;
+
+        //data fim da locação
+        Date dataFim;
+
+        //primeira parcela
+        Double valorp1;
+
+        //segunda parcela
+        Double valorp2;
+
+        //armazenando id do equipamento
+        int equipamentoId;
+
+        //armazenando qtd de itens da locacao
+        int qtdEquip;
+
+        //armazenando o valor da locacao
+        Double valorEquip;
+
         if (rb_locacao.isSelected()) {
-            //data de inicio da locação
-            Date dataInicio = new SimpleDateFormat("dd/MM/yyyy").parse(this.tf_dataInicio.getText());
-            
-            //data fim da locação
-            Date dataFim = new SimpleDateFormat("dd/MM/yyyy").parse(this.tf_dataFim.getText());
-            
-            //primeira parcela
-            Double valorp1 = Double.parseDouble(this.lb_total.getText()) / 2;
-            
-            //segunda parcela
-            Double valorp2 = Double.parseDouble(this.lb_total.getText()) / 2;
-            
-            try{
-            //registrando locacao
-            Locacao locacao = new Locacao(dataInicio, dataFim, valorp1, valorp2, Tipo.LOCACAO, Fase.FASE1, cliente, user.getFuncionarioId());
-            dao.cadastrar(locacao);
-            
-            while("PRECISA IMPLEMENTAR ESSA CONDIÇÃO"){
-                //armazenando id do equipamento
-                int equipamentoId = Integer.parseInt(this.tc_item.getText());
-                
-                //armazenando qtd de itens da locacao
-                int qtdEquip = Integer.parseInt(this.tc_qtde.getText());
+            dataInicio = new SimpleDateFormat("dd/MM/yyyy").parse(this.tf_dataInicio.getText());
 
-                //armazenando o valor da locacao
-                Double valorEquip = Double.parseDouble(this.tc_valor.getText());
-                
-                //pesquisando equipamento utilizando o id 
-                Equipamento equipamento = (Equipamento) dao.pesquisarPorChave(Equipamento.class, equipamentoId);
+            dataFim = new SimpleDateFormat("dd/MM/yyyy").parse(this.tf_dataFim.getText());
 
-                //registrando contrato do equipamento
-                Contrato_Equipamento contratoEquip = new Contrato_Equipamento(locacao, equipamento, qtdEquip, valorEquip);
-                dao.cadastrar(contratoEquip);
+            valorp1 = Double.parseDouble(this.lb_total.getText()) / 2;
 
-                //dando baixa da qtd do equipamento no estoque
-                equipamento.setQtd_estoque(equipamento.getQtd_estoque() - qtdEquip);
-                dao.atualizar(equipamento);
+            valorp2 = Double.parseDouble(this.lb_total.getText()) / 2;
+
+            try {
+                //registrando locacao
+                Locacao locacao = new Locacao(dataInicio, dataFim, valorp1, valorp2, Tipo.LOCACAO, Fase.FASE1, cliente, user.getFuncionarioId());
+                dao.cadastrar(locacao);
+
+                while ("PRECISA IMPLEMENTAR ESSA CONDIÇÃO") {
+                    //armazenando id do equipamento
+                    equipamentoId = Integer.parseInt(this.tc_item.getText());
+
+                    //armazenando qtd de itens da locacao
+                    qtdEquip = Integer.parseInt(this.tc_qtde.getText());
+
+                    //armazenando o valor da locacao
+                    valorEquip = Double.parseDouble(this.tc_valor.getText());
+
+                    //pesquisando equipamento utilizando o id 
+                    Equipamento equipamento = (Equipamento) dao.pesquisarPorChave(Equipamento.class, equipamentoId);
+
+                    //registrando contrato do equipamento
+                    Contrato_Equipamento contratoEquip = new Contrato_Equipamento(locacao, equipamento, qtdEquip, valorEquip);
+                    dao.cadastrar(contratoEquip);
+
+                    //dando baixa da qtd do equipamento no estoque
+                    equipamento.setQtd_estoque(equipamento.getQtd_estoque() - qtdEquip);
+                    dao.atualizar(equipamento);
+                }
+            } catch (Exception e) {
+                System.out.println("Erro ao iniciar contrato de locação");
+                Main.changeScreen("index");
             }
-            }catch(Exception e){
-                System.out.println("Erro ao iniar contrato");
+        } else if (rb_venda.isSelected()) {
+            dataInicio = new SimpleDateFormat("dd/MM/yyyy").parse(this.tf_dataInicio.getText());
+
+            valorp1 = Double.parseDouble(this.lb_total.getText());
+
+            try {
+                //registrando venda
+                Venda venda = new Venda(dataInicio, valorp1, Tipo.VENDA, Fase.FASE1, cliente, user.getFuncionarioId());
+                dao.cadastrar(venda);
+
+                while ("PRECISA IMPLEMENTAR ESSA CONDIÇÃO") {
+                    //armazenando id do equipamento
+                    equipamentoId = Integer.parseInt(this.tc_item.getText());
+
+                    //armazenando qtd de itens da locacao
+                    qtdEquip = Integer.parseInt(this.tc_qtde.getText());
+
+                    //armazenando o valor da locacao
+                    valorEquip = Double.parseDouble(this.tc_valor.getText());
+
+                    //pesquisando equipamento utilizando o id 
+                    Equipamento equipamento = (Equipamento) dao.pesquisarPorChave(Equipamento.class, equipamentoId);
+
+                    //registrando contrato do equipamento
+                    Contrato_Equipamento contratoEquip = new Contrato_Equipamento(venda, equipamento, qtdEquip, valorEquip);
+                    dao.cadastrar(contratoEquip);
+
+                    //dando baixa da qtd do equipamento no estoque
+                    equipamento.setQtd_estoque(equipamento.getQtd_estoque() - qtdEquip);
+                    dao.atualizar(equipamento);
+                }
+            } catch (Exception e) {
+                System.out.println("Erro ao iniciar contrato de venda");
                 Main.changeScreen("index");
             }
         }
@@ -229,8 +281,9 @@ public class ContratoController implements Initializable, Controller {
             if (e.getSetor().equals(Setor.VENDA) && e.isDisponivel()) {
                 valor += e.getValor();
                 e.setQtd_estoque(e.getQtd_estoque() - 1);
-                if (e.getQtd_estoque() == 0)
+                if (e.getQtd_estoque() == 0) {
                     e.setDisponivel(false);
+                }
 
                 dao.atualizar(e);
             } else {
@@ -263,8 +316,9 @@ public class ContratoController implements Initializable, Controller {
             if (e.getSetor().equals(Setor.LOCACAO) && e.isDisponivel()) {
                 valor += e.getValor();
                 e.setQtd_estoque(e.getQtd_estoque() - 1);
-                if (e.getQtd_estoque() == 0)
+                if (e.getQtd_estoque() == 0) {
                     e.setDisponivel(false);
+                }
 
                 dao.atualizar(e);
             } else {

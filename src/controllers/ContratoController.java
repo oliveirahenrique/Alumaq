@@ -241,7 +241,7 @@ public class ContratoController implements Initializable, Controller {
     }
 
     @FXML
-    void clica_nocaLocacao(ActionEvent event) {
+    void clica_novaLocacao(ActionEvent event) {
 
     }
 

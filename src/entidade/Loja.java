@@ -6,10 +6,21 @@ import persistencia.DAO;
 
 public class Loja {
 
+<<<<<<< HEAD
     private List<Funcionario> funcionarios;
     private List<ContratoOperacao> contrato;
 
     public Loja() {
+=======
+    private String nome;
+    private Endereco endereco;
+    private List<Funcionario> funcionarios;
+    private List<Contrato> contratos;
+    private int cnpj;
+
+    public Loja() {
+        funcionarios = new ArrayList<>();
+>>>>>>> 173b8b77ba56b1618a01d1700921e27327b359b8
     }
 
     public List<Funcionario> getFuncionarios() {
@@ -19,6 +30,7 @@ public class Loja {
 
         return funcionarios;
     }
+<<<<<<< HEAD
 
     public List<Locacao> getLocacoes() {
         DAO dao = new DAO();
@@ -35,4 +47,6 @@ public class Loja {
 
         return listaVenda;
     }
+=======
+>>>>>>> 173b8b77ba56b1618a01d1700921e27327b359b8
 }

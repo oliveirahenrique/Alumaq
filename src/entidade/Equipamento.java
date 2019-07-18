@@ -22,6 +22,7 @@ public class Equipamento implements Serializable {
     private String descricao = null;
     @NotNull
     private Setor setor;
+<<<<<<< HEAD
     @NotNull
     private boolean disponivel;
     @NotNull
@@ -40,6 +41,20 @@ public class Equipamento implements Serializable {
         this.qtd_estoque = qtd_estoque;
         this.setor = setor;
 
+=======
+
+    public Equipamento(int id, String n, String desc, Setor s, Double valor) {
+        setIdEq(id);
+        nome = n;
+        descricao = desc;
+        setSetor(s);
+        setDisponivel(false);
+        this.setValor(valor);
+
+    }
+
+    public Equipamento() {
+>>>>>>> 173b8b77ba56b1618a01d1700921e27327b359b8
     }
 
     public int getIdEq() {
@@ -74,6 +89,7 @@ public class Equipamento implements Serializable {
         this.valor = valor;
     }
 
+<<<<<<< HEAD
     /**
      * @param idEq the idEq to set
      */
@@ -123,4 +139,6 @@ public class Equipamento implements Serializable {
         this.qtd_estoque = qtd_estoque;
     }
 
+=======
+>>>>>>> 173b8b77ba56b1618a01d1700921e27327b359b8
 }

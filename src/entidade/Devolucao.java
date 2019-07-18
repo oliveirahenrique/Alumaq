@@ -5,6 +5,7 @@ import persistencia.DAO;
 
 public class Devolucao {
 
+<<<<<<< HEAD
     //private Pagamento pagamento;
     //private Funcionario f;
     private double valorTotal;
@@ -23,5 +24,14 @@ public class Devolucao {
             }
         }
         return this.valorTotal;
+=======
+    private Contrato contrato;
+    private Pagamento pagamento;
+    private Funcionario f;
+
+    public Devolucao(Contrato c) {
+        contrato = c;
+        contrato.fase = Fase.FINALIZADO;
+>>>>>>> 173b8b77ba56b1618a01d1700921e27327b359b8
     }
 }

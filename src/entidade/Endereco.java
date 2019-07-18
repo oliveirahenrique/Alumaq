@@ -9,7 +9,10 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 @Entity
+<<<<<<< HEAD
 @Table(name="endereco")
+=======
+>>>>>>> 173b8b77ba56b1618a01d1700921e27327b359b8
 public class Endereco implements Serializable {
 
     @Id
@@ -22,6 +25,7 @@ public class Endereco implements Serializable {
     @NotNull
     private int numero;
 
+<<<<<<< HEAD
     public Endereco() {
     }
 
@@ -46,6 +50,12 @@ public class Endereco implements Serializable {
      */
     public void setIdEndereco(Integer idEndereco) {
         this.idEndereco = idEndereco;
+=======
+    public Endereco(String r, String b, int n) {
+        rua = r;
+        bairro = b;
+        numero = n;
+>>>>>>> 173b8b77ba56b1618a01d1700921e27327b359b8
     }
 
     /**

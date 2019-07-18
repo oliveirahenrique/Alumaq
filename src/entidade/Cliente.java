@@ -13,8 +13,12 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
 @Entity
+<<<<<<< HEAD
 @Table(name="cliente")
 public class Cliente implements Serializable {
+=======
+public class Cliente {
+>>>>>>> 173b8b77ba56b1618a01d1700921e27327b359b8
 
     @Id
     @NotNull
@@ -22,6 +26,7 @@ public class Cliente implements Serializable {
     private Integer idCliente;
     @NotNull
     private String nome;
+<<<<<<< HEAD
     @NotNull
     private String cpf;
     private String email = null;
@@ -32,15 +37,32 @@ public class Cliente implements Serializable {
     @OneToOne
     private Endereco enderecoId;
     @NotNull
+=======
+    private String cidadeUF, logradouro;
+
+>>>>>>> 173b8b77ba56b1618a01d1700921e27327b359b8
     private String telefone1;
     private String telefone2 = null;
     @NotNull
     private String sexo;
+<<<<<<< HEAD
 
     public Cliente() {
     }
 
     public Cliente(String nome, String sexo, Date dataNascimento, String cpf, String telefone1, String telefone2, Endereco endereco, String email) {
+=======
+    private String dataNascimento;
+    private String cpf;
+
+//    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "user")
+//    private List<ReservaEquipamento> reservas;
+    //assinatura digital
+    public Cliente() {
+    }
+
+    public Cliente(String nome, String sexo, String dataNascimento, String cpf, String telefone1, String telefone2, String cidadeUF, String logradouro) {
+>>>>>>> 173b8b77ba56b1618a01d1700921e27327b359b8
         this.nome = nome;
         this.sexo = sexo;
         this.dataNascimento = dataNascimento;

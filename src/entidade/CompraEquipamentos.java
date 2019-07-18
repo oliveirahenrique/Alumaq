@@ -82,4 +82,9 @@ public class CompraEquipamentos implements Controller {
         }
     }
 
+<<<<<<< HEAD
+=======
+public class CompraEquipamentos {
+
+>>>>>>> 173b8b77ba56b1618a01d1700921e27327b359b8
 }

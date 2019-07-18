@@ -37,6 +37,7 @@ public class Funcionario implements Serializable,BalconistaInterface {
     private String cpf;
     @NotNull
     private String telefone1;
+<<<<<<< HEAD
     private String telefone2 = null;
 
     @OneToOne
@@ -47,6 +48,14 @@ public class Funcionario implements Serializable,BalconistaInterface {
     }
 
     public Funcionario(String nome, String cpf, Date dataNascimento, Endereco endereco, String telefone1, String telefone2, Double salario) {
+=======
+    private String telefone2;
+    private Double salario;
+    private Loja loja = new Loja();
+
+    public Funcionario(int id, String nome, String dataN, Endereco endereco, String tel, Double sal) {
+        idFunc = id;
+>>>>>>> 173b8b77ba56b1618a01d1700921e27327b359b8
         this.nome = nome;
         this.cpf = cpf;
         this.dataNascimento = dataNascimento;
@@ -71,6 +80,13 @@ public class Funcionario implements Serializable,BalconistaInterface {
     public void setTelefone2(String telefone2) {
         this.telefone2 = telefone2;
     }
+<<<<<<< HEAD
+=======
+
+    public Loja getLoja() {
+        return this.loja;
+    }
+>>>>>>> 173b8b77ba56b1618a01d1700921e27327b359b8
 
     public int getIdFunc() {
         return idFunc;

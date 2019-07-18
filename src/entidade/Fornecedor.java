@@ -10,7 +10,10 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
+<<<<<<< HEAD
 @Table(name = "fornecedor")
+=======
+>>>>>>> 173b8b77ba56b1618a01d1700921e27327b359b8
 public class Fornecedor implements Serializable {
 
     @Id
@@ -38,6 +41,7 @@ public class Fornecedor implements Serializable {
     public void setID(Integer idFornecedor) {
         this.idFornecedor = idFornecedor;
     }
+<<<<<<< HEAD
 
     public String getNome() {
         return nome;
@@ -55,4 +59,6 @@ public class Fornecedor implements Serializable {
         this.email = email;
     }
 
+=======
+>>>>>>> 173b8b77ba56b1618a01d1700921e27327b359b8
 }

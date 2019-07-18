@@ -39,7 +39,7 @@ public class Main extends Application {
         Parent reserva = FXMLLoader.load(getClass().getResource("ReservaEquipamento.fxml"));
         Parent login = FXMLLoader.load(getClass().getResource("Login.fxml"));
         Parent contrato = FXMLLoader.load(getClass().getResource("Contrato.fxml"));
-        Parent pagamentoTela = FXMLLoader.load(getClass().getResource("Pagamento.fxml"));
+        //Parent pagamentoTela = FXMLLoader.load(getClass().getResource("Pagamento.fxml"));
         
         indexScene = new Scene(index);
         cadastroClienteScene = new Scene(cadastroCliente);
@@ -49,7 +49,7 @@ public class Main extends Application {
         contratoScene = new Scene(contrato);
         reservaScene = new Scene(reserva);
         loginScene = new Scene(login);
-        pagamentoScene = new Scene(pagamentoTela);
+        //pagamentoScene = new Scene(pagamentoTela);
            
         //PagamentoController c= new PagamentoController(1);
         //stage.setScene(pagamentoScene);

@@ -13,6 +13,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import telasFXML.Main;
 
@@ -33,7 +34,7 @@ public class LoginController implements Initializable,Controller {
     private TextField tf_usuario;
 
     @FXML
-    private TextField tf_senha;
+    private PasswordField tf_senha;
     
     @FXML
     void clica_login(ActionEvent event) {

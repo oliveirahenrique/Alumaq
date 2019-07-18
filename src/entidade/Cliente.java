@@ -1,18 +1,20 @@
 package entidade;
 
-import com.sun.istack.internal.NotNull;
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name="cliente")
-public class Cliente {
+public class Cliente implements Serializable {
 
     @Id
     @NotNull
@@ -27,6 +29,7 @@ public class Cliente {
     @Temporal(TemporalType.DATE)
     private Date dataNascimento;
     @NotNull
+    @OneToOne
     private Endereco enderecoId;
     @NotNull
     private String telefone1;

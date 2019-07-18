@@ -12,6 +12,7 @@ nbproject/**
 nbproject/private/
 /nbproject/
 nbproject/
+/src/META-INF/
 
 #Force include .gitignore
 !.gitignore

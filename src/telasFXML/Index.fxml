@@ -20,7 +20,7 @@
                </items></Menu>
             <Menu fx:id="btn_funcionario" mnemonicParsing="false" text="Funcionario">
                <items>
-                  <MenuItem fx:id="btn_cadastrarFuncionario" mnemonicParsing="false" onAction="#clica_cadastrarFuncionario" text="Cadastrar Funcionarios" />
+                  <MenuItem fx:id="btn_cadastrarFuncionario" mnemonicParsing="false" onAction="#clica_cadastrarFuncionario" text="Cadastrar Funcionario" />
                </items>
             </Menu>
             <Menu fx:id="btn_equipamentos" mnemonicParsing="false" text="Equipamentos">

@@ -132,21 +132,21 @@ public class CadastrarFuncionarioController implements Initializable, Controller
 
     @FXML
     void clica_cancela(ActionEvent event) {
-        this.tf_bairro.setText("");
-        this.tf_cargoId.setText("");
-        this.tf_cidade.setText("");
-        this.tf_complemento.setText("");
-        this.tf_cpf.setText("");
-        this.tf_dataNasc.setText("");
-        this.tf_estado.setText("");
-        this.tf_login.setText("");
-        this.tf_nome.setText("");
-        this.tf_num.setText("");
-        this.tf_rua.setText("");
-        this.tf_salario.setText("");
-        this.tf_senha.setText("");
-        this.tf_tel1.setText("");
-        this.tf_tel2.setText("");
+//        tf_bairro.setText("");
+//        tf_cargoId.setText("");
+//        tf_cidade.setText("");
+//        tf_complemento.setText("");
+//        tf_cpf.setText("");
+//        tf_dataNasc.setText("");
+//        tf_estado.setText("");
+//        tf_login.setText("");
+//        tf_nome.setText("");
+//        tf_num.setText("");
+//        tf_rua.setText("");
+//        tf_salario.setText("");
+//        tf_senha.setText("");
+//        tf_tel1.setText("");
+//        tf_tel2.setText("");
         
         Main.changeScreen("index");
     }

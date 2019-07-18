@@ -22,6 +22,7 @@ public class Main extends Application {
     private static Scene contratoScene;
     private static Scene reservaScene;
     private static Scene pagamentoScene;
+    private static Scene devolucaoScene;
     
     
     protected static DAO dao = new DAO();      
@@ -39,6 +40,7 @@ public class Main extends Application {
         Parent reserva = FXMLLoader.load(getClass().getResource("ReservaEquipamento.fxml"));
         Parent login = FXMLLoader.load(getClass().getResource("Login.fxml"));
         Parent contrato = FXMLLoader.load(getClass().getResource("Contrato.fxml"));
+        Parent devolucao = FXMLLoader.load(getClass().getResource("Devolucao.fxml"));
         //Parent pagamentoTela = FXMLLoader.load(getClass().getResource("Pagamento.fxml"));
         
         indexScene = new Scene(index);
@@ -49,6 +51,7 @@ public class Main extends Application {
         contratoScene = new Scene(contrato);
         reservaScene = new Scene(reserva);
         loginScene = new Scene(login);
+        devolucaoScene = new Scene(devolucao);
         //pagamentoScene = new Scene(pagamentoTela);
            
         //PagamentoController c= new PagamentoController(1);
@@ -80,6 +83,9 @@ public class Main extends Application {
             break;
             case("cadastroEquipamento"):
                 stage.setScene(cadastroEquipScene);
+            break;
+            case("devolucao"):
+                stage.setScene(devolucaoScene);
             break;
             
         }

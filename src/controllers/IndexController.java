@@ -11,7 +11,12 @@ import javafx.scene.control.MenuItem;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
+import javafx.scene.layout.Region;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import telasFXML.Main;
 
 /**
@@ -60,6 +65,16 @@ public class IndexController implements Initializable, Controller {
     @FXML
     private MenuItem btn_novaPesquisa;
 
+     @FXML
+    private Menu btn_funcionario;
+
+    @FXML
+    private MenuItem btn_cadastrarFuncionario;
+
+
+    @FXML
+    private MenuItem btn_devolucao;
+
     
     @FXML
     void clica_cadastrarEquipamento(ActionEvent event) {
@@ -96,8 +111,35 @@ public class IndexController implements Initializable, Controller {
 
     @FXML
     void clica_novoPagamento(ActionEvent event) {
-         Main.changeScreen("");
+      Region pagTela = null;
+      try {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/telasFXML/Pagamento.fxml"));
+       
+        pagTela =  fxmlLoader.load();
+        Scene pagScene = new Scene(pagTela);
+        Stage stage2 = new Stage();
+        stage2.setScene(pagScene);
+        stage2.initModality(Modality.WINDOW_MODAL);
+        stage2.show();
+        
+    } catch (Exception ex) {
+          System.out.println(ex);
     }
+    }
+
+    
+
+    @FXML
+    void clica_cadastrarFuncionario(ActionEvent event) {
+        Main.changeScreen("cadastroFuncionario");
+    }
+
+    @FXML
+    void clica_devolucao(ActionEvent event) {
+        Main.changeScreen("devolucao");
+    }
+
+  
     
 
     /**

@@ -28,61 +28,61 @@ public class PagamentoController implements Initializable, Controller {
     @FXML
     private RadioButton rb_f1;
 
-    @FXML
+     @FXML
     private RadioButton rb_f2;
 
-    @FXML
+     @FXML
     private RadioButton rb_fim;
 
-    @FXML
+     @FXML
     private Button btn_buscaFuncionario;
 
-    @FXML
+     @FXML
     private Button btn_buscaCliente;
 
-    @FXML
+     @FXML
     private RadioButton rb_locacao;
 
-    @FXML
+     @FXML
     private TextField tf_dataInicio;
 
-    @FXML
+     @FXML
     private TextField tf_dataFim;
 
-    @FXML
+     @FXML
     private CheckBox box_aceito;
 
-    @FXML
+     @FXML
     private RadioButton rb_venda;
 
-    @FXML
+     @FXML
     private Button btn_salvarContrato;
 
-    @FXML
+     @FXML
     private Label lb_total;
 
-    @FXML
+     @FXML
     private TableView<?> tv_itens;
 
-    @FXML
+     @FXML
     private TableColumn<?, ?> tc_item;
 
-    @FXML
+     @FXML
     private TableColumn<?, ?> tc_qtde;
 
-    @FXML
+     @FXML
     private TableColumn<?, ?> tc_valor;
 
-    @FXML
+     @FXML
     private TableColumn<?, ?> tc_subtotal;
 
-    @FXML
+     @FXML
     private Button btn_adicionar;
 
-    @FXML
+     @FXML
     private Button btn_remover;
-    
-    void realiza_pagamento(ActionEvent event){
+
+     void realiza_pagamento(ActionEvent event){
         //usara esses ifs da tela de contratoController para saber se eh contrato
         //ou locacao ou será diferente?
         if (rb_venda.isSelected()){
@@ -92,19 +92,20 @@ public class PagamentoController implements Initializable, Controller {
             //
             //
             //
-            
-        } else if (rb_locacao.isSelected()){
+
+         } else if (rb_locacao.isSelected()){
             // TODO pegar objeto da locacao e do contrato equipamento pra saber os dados da locacao
             // TODO verificar se está na primeira ou segunda fase
             // TODO
         }
     }
+    
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }
-
+    }    
+    
 }

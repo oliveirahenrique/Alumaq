@@ -7,8 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="controllers.DevolucaoController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.DevolucaoController">
    <children>
       <Label contentDisplay="CENTER" layoutX="211.0" layoutY="14.0" prefHeight="56.0" prefWidth="169.0" text="Devolução" textAlignment="CENTER">
          <font>
@@ -23,6 +22,5 @@
         </columns>
       </TableView>
       <Button fx:id="btn_selecionar" layoutX="470.0" layoutY="338.0" mnemonicParsing="false" onAction="#clica_selecionar" text="Selecionar" />
-      <Button fx:id="btn_cancelar" cancelButton="true" layoutX="35.0" layoutY="338.0" mnemonicParsing="false" onAction="#clica_cancelar" text="Cancelar" />
    </children>
 </AnchorPane>

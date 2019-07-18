@@ -23,7 +23,9 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 import org.eclipse.persistence.internal.helper.SimpleDatabaseType;
+import telasFXML.Main;
 
 /**
  * FXML Controller class
@@ -32,11 +34,6 @@ import org.eclipse.persistence.internal.helper.SimpleDatabaseType;
  */
 public class PagamentoController implements Initializable, Controller {
 
-    private Integer contratoId;
-
-    public PagamentoController (Integer contratoId){
-        this.contratoId=contratoId;
-    }
      @FXML
     private Button btn_cancela;
 
@@ -44,31 +41,31 @@ public class PagamentoController implements Initializable, Controller {
     private Button btn_salvar;
 
     @FXML
-    private Label tl_cliente;
+    private TextField tf_cliente;
 
     @FXML
-    private Label tl_funcionario;
+    private TextField tf_funcionario;
 
     @FXML
-    private Label tl_dataInicio;
+    private TextField tf_dataInicio;
 
     @FXML
-    private Label tl_dataFim;
+    private TextField tf_dataFim;
 
     @FXML
-    private Label tl_tipo;
+    private TextField tf_tipo;
 
     @FXML
-    private Label tl_valorp1;
+    private TextField tf_valor;
 
     @FXML
-    private Label tl_multa;
+    private TextField tf_multa;
 
     @FXML
-    private Label tl_fase;    
-    
+    private TextField tf_fase;
+
     @FXML
-    private Label tl_valorTotal;
+    private TextField tf_valorTotal;
 
     @FXML
     void clica_cancelar(ActionEvent event) {
@@ -98,48 +95,55 @@ public class PagamentoController implements Initializable, Controller {
         //}
     }
 
+    public void preencheContrato(Integer i){
+        ContratoOperacao contrato = new ContratoOperacao();
+        System.out.println(i);
+        contrato = dao.getContratoOperacao(i);
+        System.out.println(contrato.getClienteId().getNome());
+        String value = contrato.getClienteId().getNome();
+        tf_cliente = new TextField(value);
+        tf_cliente.setText("teste");
+//
+//        tl_funcionario.setText(contrato.getFuncionarioId().getNome());
+//
+//        tl_dataInicio.setText(contrato.getDataInicio().toString());
+//
+//        tl_dataFim.setText(contrato.getDataFim().toString());
+//
+//        String tipo;
+//
+//        if (contrato.getTipo() == Tipo.LOCACAO) {
+//            tipo = "Locação";
+//        } else {
+//            tipo = "Venda";
+//        }
+//
+//        tl_tipo.setText(tipo);
+//        Double valorTotal;
+//        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+//        if (contrato.getFase() == Fase.FASE1) {
+//            tl_valorp1.setText(contrato.getValorp1().toString());
+//            tl_multa.setText("0.0");
+//            tl_fase.setText("Primeira Fase");
+//            valorTotal = contrato.getValorp1();
+//        } else {
+//            tl_valorp1.setText(contrato.getValorp2().toString());
+//            tl_multa.setText(contrato.getMulta().toString());
+//            tl_fase.setText("Segunda Fase");
+//            valorTotal = contrato.getMulta((Locacao) contrato,new Date());
+//        }
+//        
+//        tl_valorTotal.setText(valorTotal.toString());
+    }
+    
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        ContratoOperacao contrato = new ContratoOperacao();
-        contrato = (ContratoOperacao) dao.pesquisarPorChave(ContratoOperacao.class, contratoId);
-
-        tl_cliente.setText(contrato.getClienteId().getNome());
-
-        tl_funcionario.setText(contrato.getFuncionarioId().getNome());
-
-        tl_dataInicio.setText(contrato.getDataInicio().toString());
-
-        tl_dataFim.setText(contrato.getDataFim().toString());
-
-        String tipo;
-
-        if (contrato.getTipo() == Tipo.LOCACAO) {
-            tipo = "Locação";
-        } else {
-            tipo = "Venda";
-        }
-
-        tl_tipo.setText(tipo);
-        Double valorTotal;
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        if (contrato.getFase() == Fase.FASE1) {
-            tl_valorp1.setText(contrato.getValorp1().toString());
-            tl_multa.setText("0.0");
-            tl_fase.setText("Primeira Fase");
-            valorTotal = contrato.getValorp1();
-        } else {
-            tl_valorp1.setText(contrato.getValorp2().toString());
-            tl_multa.setText(contrato.getMulta().toString());
-            tl_fase.setText("Segunda Fase");
-            valorTotal = contrato.getMulta((Locacao) contrato,new Date());
-        }
-        
-        tl_valorTotal.setText(valorTotal.toString());
-
+//        Main man = new Main();
+//        preencheContrato(man.testeContrato());
     }
 
 }

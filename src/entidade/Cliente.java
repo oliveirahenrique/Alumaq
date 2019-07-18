@@ -1,6 +1,7 @@
 package entidade;
 
 import com.sun.istack.internal.NotNull;
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,7 +13,7 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Table(name="cliente")
-public class Cliente {
+public class Cliente implements Serializable {
 
     
     @Id

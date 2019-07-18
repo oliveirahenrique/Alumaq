@@ -6,6 +6,7 @@
 package persistencia;
 
 import entidade.Cliente;
+import entidade.ContratoOperacao;
 import entidade.Equipamento;
 import entidade.Fornecedor;
 import entidade.Funcionario;
@@ -102,6 +103,14 @@ public class DAO {
     public Usuario getUsuario(String login) {
         TypedQuery<Usuario> query = (TypedQuery<Usuario>) em.createNativeQuery("select * from usuario u where u.login = '"+login+"'", Usuario.class);
         List<Usuario> users = query.getResultList();
+        return users.get(0);
+    }
+    
+    @SuppressWarnings("empty-statement")
+    public ContratoOperacao getContratoOperacao(Integer id) {
+        System.out.println("select * from contrato c where c.id = '"+id+"'");
+        TypedQuery<ContratoOperacao> query = (TypedQuery<ContratoOperacao>) em.createNativeQuery("select * from contrato c where c.idcontrato = '"+id+"'", ContratoOperacao.class);
+        List<ContratoOperacao> users = query.getResultList();
         return users.get(0);
     }
 

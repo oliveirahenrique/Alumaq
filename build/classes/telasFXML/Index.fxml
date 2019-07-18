@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.IndexController">
+   <children>
+      <MenuBar prefHeight="29.0" prefWidth="680.0">
+         <menus>
+            <Menu id="btnMenuCliente" fx:id="btn_MenuCliente" mnemonicParsing="false" text="Cliente">
+               <items>
+                  <MenuItem fx:id="btn_novoCliente" mnemonicParsing="false" onAction="#clica_novoCliente" text="Novo Cliente" />
+               </items></Menu>
+            <Menu fx:id="btn_fornecedor" mnemonicParsing="false" text="Fornecedor"><items>
+                  <MenuItem fx:id="btn_cadastrarFornecedor" mnemonicParsing="false" onAction="#clica_cadastrarFornecedor" text="Cadastrar Fornecedor" />
+               </items></Menu>
+            <Menu fx:id="btn_funcionario" mnemonicParsing="false" text="Funcionario">
+               <items>
+                  <MenuItem fx:id="btn_cadastrarFuncionario" mnemonicParsing="false" onAction="#clica_cadastrarFuncionario" text="Cadastrar Funcionario" />
+               </items>
+            </Menu>
+            <Menu fx:id="btn_equipamentos" mnemonicParsing="false" text="Equipamentos">
+               <items>
+                  <MenuItem fx:id="btn_cadastrarEquipamento" mnemonicParsing="false" onAction="#clica_cadastrarEquipamento" text="Novo Equipamento" />
+                  <MenuItem fx:id="btn_reserva" mnemonicParsing="false" onAction="#clica_reserva" text="Reservar" />
+               </items></Menu>
+            <Menu fx:id="btn_contrato" mnemonicParsing="false" text="Contrato">
+               <items>
+                  <MenuItem fx:id="btn_novoContrato" mnemonicParsing="false" onAction="#clica_novoContrato" text="Novo Contrato" />
+                  <MenuItem fx:id="btn_devolucao" mnemonicParsing="false" onAction="#clica_devolucao" text="Devolução" />
+               </items></Menu>
+            <Menu fx:id="btn_pesquisa" mnemonicParsing="false" text="Pesquisa">
+               <items>
+                  <MenuItem fx:id="btn_novaPesquisa" mnemonicParsing="false" onAction="#clica_novaPesquisa" text="Nova Pesquisa" />
+               </items></Menu>
+         </menus>
+      </MenuBar>
+      <AnchorPane id="AnchorPane" layoutY="31.0" prefHeight="438.0" prefWidth="680.0">
+         <children>
+            <ImageView fx:id="iv_logo" fitHeight="236.0" fitWidth="304.0" layoutX="188.0" layoutY="103.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/img/logoT.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

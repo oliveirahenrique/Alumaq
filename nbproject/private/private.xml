@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/home/rmachado/NetBeansProjects/Alumaq/src/telasFXML/AddEquipamento.fxml</file>
+            <file>file:/home/rmachado/NetBeansProjects/Alumaq/src/telasFXML/Main.java</file>
+            <file>file:/home/rmachado/NetBeansProjects/Alumaq/src/telasFXML/CadastrarFuncionario.fxml</file>
+            <file>file:/home/rmachado/NetBeansProjects/Alumaq/src/entidade/ContratoOperacao.java</file>
+            <file>file:/home/rmachado/NetBeansProjects/Alumaq/src/telasFXML/CadastrarFornecedor.fxml</file>
+            <file>file:/home/rmachado/NetBeansProjects/Alumaq/src/telasFXML/Contrato.fxml</file>
+            <file>file:/home/rmachado/NetBeansProjects/Alumaq/test/testePersistencia/TesteDAO.java</file>
+            <file>file:/home/rmachado/NetBeansProjects/Alumaq/src/telasFXML/Login.fxml</file>
+            <file>file:/home/rmachado/NetBeansProjects/Alumaq/src/telasFXML/Index.fxml</file>
+            <file>file:/home/rmachado/NetBeansProjects/Alumaq/src/entidade/Fornecedor.java</file>
+            <file>file:/home/rmachado/NetBeansProjects/Alumaq/src/controllers/ReservaEquipamentoController.java</file>
+            <file>file:/home/rmachado/NetBeansProjects/Alumaq/src/META-INF/persistence.xml</file>
+            <file>file:/home/rmachado/NetBeansProjects/Alumaq/src/controllers/IndexController.java</file>
+            <file>file:/home/rmachado/NetBeansProjects/Alumaq/src/controllers/LoginController.java</file>
+            <file>file:/home/rmachado/NetBeansProjects/Alumaq/src/controllers/ContratoController.java</file>
+            <file>file:/home/rmachado/NetBeansProjects/Alumaq/src/controllers/Controller.java</file>
+            <file>file:/home/rmachado/NetBeansProjects/Alumaq/src/controllers/CadastrarClienteController.java</file>
+            <file>file:/home/rmachado/NetBeansProjects/Alumaq/src/controllers/EditarFuncionarioController.java</file>
+            <file>file:/home/rmachado/NetBeansProjects/Alumaq/src/controllers/CadastrarFuncionarioController.java</file>
+            <file>file:/home/rmachado/NetBeansProjects/Alumaq/src/telasFXML/ReservaEquipamento.fxml</file>
+            <file>file:/home/rmachado/NetBeansProjects/Alumaq/src/controllers/PagamentoController.java</file>
+            <file>file:/home/rmachado/NetBeansProjects/Alumaq/src/entidade/Endereco.java</file>
+            <file>file:/home/rmachado/NetBeansProjects/Alumaq/src/controllers/PesquisaController.java</file>
+            <file>file:/home/rmachado/NetBeansProjects/Alumaq/src/entidade/Funcionario.java</file>
+            <file>file:/home/rmachado/NetBeansProjects/Alumaq/src/controllers/CadastrarEquipamentoController.java</file>
+            <file>file:/home/rmachado/NetBeansProjects/Alumaq/src/telasFXML/Pesquisa.fxml</file>
+            <file>file:/home/rmachado/NetBeansProjects/Alumaq/src/controllers/AddEquipamentoController.java</file>
+            <file>file:/home/rmachado/NetBeansProjects/Alumaq/src/telasFXML/CadastrarCliente.fxml</file>
+            <file>file:/home/rmachado/NetBeansProjects/Alumaq/src/persistencia/DAO.java</file>
+            <file>file:/home/rmachado/NetBeansProjects/Alumaq/src/controllers/fxmlLoader.java</file>
+            <file>file:/home/rmachado/NetBeansProjects/Alumaq/src/controllers/DevolucaoController.java</file>
+            <file>file:/home/rmachado/NetBeansProjects/Alumaq/src/controllers/CadastrarFornecedorController.java</file>
+            <file>file:/home/rmachado/NetBeansProjects/Alumaq/src/telasFXML/CadastrarEquipamento.fxml</file>
+            <file>file:/home/rmachado/NetBeansProjects/Alumaq/src/telasFXML/Pagamento.fxml</file>
+            <file>file:/home/rmachado/NetBeansProjects/Alumaq/src/telasFXML/Devolucao.fxml</file>
+            <file>file:/home/rmachado/NetBeansProjects/Alumaq/src/entidade/Pagamento.java</file>
+        </group>
+    </open-files>
+</project-private>

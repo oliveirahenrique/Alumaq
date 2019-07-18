@@ -2,6 +2,15 @@
 /dist/
 
 # Ignore private settings from commiting
+/nbproject/private/**
+nbproject/private/**
+/nbproject/**
+nbproject/**
+/nbproject/private/
+nbproject/private/
+/nbproject/
+nbproject/
+/src/META-INF/
 /nbproject/private/private.properties
 /nbproject/private/private.xml
 

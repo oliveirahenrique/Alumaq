@@ -11,7 +11,10 @@
    <children>
       <MenuBar prefHeight="29.0" prefWidth="680.0">
          <menus>
-            <Menu id="btnMenuCliente" fx:id="btn_MenuCliente" mnemonicParsing="false" onAction="#clica_cliente" text="Cliente" />
+            <Menu id="btnMenuCliente" fx:id="btn_MenuCliente" mnemonicParsing="false" text="Cliente">
+               <items>
+                  <MenuItem fx:id="btn_novoCliente" mnemonicParsing="false" onAction="#clica_novoCliente" text="Novo Cliente" />
+               </items></Menu>
             <Menu fx:id="btn_fornecedor" mnemonicParsing="false" text="Fornecedor"><items>
                   <MenuItem fx:id="btn_cadastrarFornecedor" mnemonicParsing="false" onAction="#clica_cadastrarFornecedor" text="Cadastrar Fornecedor" />
                </items></Menu>
@@ -20,9 +23,18 @@
                   <MenuItem fx:id="btn_cadastrarEquipamento" mnemonicParsing="false" onAction="#clica_cadastrarEquipamento" text="Novo Equipamento" />
                   <MenuItem fx:id="btn_reserva" mnemonicParsing="false" onAction="#clica_reserva" text="Reservar" />
                </items></Menu>
-            <Menu fx:id="btn_contrato" mnemonicParsing="false" onAction="#clica_contrato" text="Contrato" />
-            <Menu fx:id="btn_pagamento" mnemonicParsing="false" onAction="#clica_pagamento" text="Pagamento" />
-            <Menu fx:id="btn_pesquisa" mnemonicParsing="false" onAction="#clica_pesquisa" text="Pesquisa" />
+            <Menu fx:id="btn_contrato" mnemonicParsing="false" text="Contrato">
+               <items>
+                  <MenuItem fx:id="btn_novoContrato" mnemonicParsing="false" onAction="#clica_novoContrato" text="Novo Cotrato" />
+               </items></Menu>
+            <Menu fx:id="btn_pagamento" mnemonicParsing="false" text="Pagamento">
+               <items>
+                  <MenuItem fx:id="btn_novoPagamento" mnemonicParsing="false" onAction="#clica_novoPagamento" text="Novo Pagamento" />
+               </items></Menu>
+            <Menu fx:id="btn_pesquisa" mnemonicParsing="false" text="Pesquisa">
+               <items>
+                  <MenuItem fx:id="btn_novaPesquisa" mnemonicParsing="false" onAction="#clica_novaPesquisa" text="Nova Pesquisa" />
+               </items></Menu>
          </menus>
       </MenuBar>
       <AnchorPane id="AnchorPane" layoutY="31.0" prefHeight="438.0" prefWidth="680.0">

@@ -3,7 +3,7 @@
 
 <b>Created by the following students:</b>
 
-Henrique oliveira<br>
+Henrique Oliveira<br>
 Natalia Machado dos Santos<br>
 Rafael Felipe dos Santos Machado<br>
 Vitor Muniz<br>

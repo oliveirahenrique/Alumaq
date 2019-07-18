@@ -23,7 +23,6 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import persistencia.DAO;
 import telasFXML.Main;
 
 public class ContratoController implements Initializable, Controller {
@@ -242,7 +241,7 @@ public class ContratoController implements Initializable, Controller {
     }
 
     @FXML
-    void clica_nocaLocacao(ActionEvent event) {
+    void clica_novaLocacao(ActionEvent event) {
 
     }
 

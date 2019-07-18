@@ -5,6 +5,7 @@
  */
 package controllers;
 
+import entidade.Funcionario;
 import entidade.Usuario;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -13,7 +14,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import telasFXML.Main;
 
@@ -34,22 +34,30 @@ public class LoginController implements Initializable,Controller {
     private TextField tf_usuario;
 
     @FXML
-    private PasswordField tf_senha;
+    private TextField tf_senha;
     
     @FXML
     void clica_login(ActionEvent event) {
         try {
             Usuario usuario = dao.getUsuario(tf_usuario.getText());
+            //System.out.println(usuario.getFuncionarioId().getIdFunc());
              if(!usuario.getSenha().equals(tf_senha.getText())){
                 tf_senha=null;
                 //mensagem de erro de senha
             }else{
-                user.setId(usuario.getId());
-                user.setLogin(usuario.getLogin());
-                user.setSenha(usuario.getSenha());
-                user.setFuncionarioId(usuario.getFuncionarioId());
-                user.setCargoId(usuario.getCargoId());
+                //Mainuser.setId(usuario.getId());
+                //Main.user.setLogin(usuario.getLogin());
+                //Main.user.setSenha(usuario.getSenha());
+                Funcionario f; 
+                f = (Funcionario)dao.pesquisarPorChave(Funcionario.class, usuario.getFuncionarioId().getIdFunc());
+               // Main.user.setFuncionarioId(f);
+                //Main.user.setCargoId(usuario.getCargoId());
+               
+                usuario.setFuncionarioId(f);
+                 Main.addUser(usuario);
+                //System.out.println(Main.user.getFuncionarioId().getNome());
                 Main.changeScreen("index");
+                
             }
         } catch (Exception e) {
             //mensagem de erro de login

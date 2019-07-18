@@ -44,9 +44,6 @@ public class ContratoController implements Initializable, Controller {
     private RadioButton rb_fim;
 
     @FXML
-    private Button btn_buscaFuncionario;
-
-    @FXML
     private Button btn_buscaCliente;
 
     @FXML
@@ -91,41 +88,53 @@ public class ContratoController implements Initializable, Controller {
     @FXML
     private Button btn_remover;
 
-     
-    
+    @FXML
+    private Label lb_funcionario;
+
+    @FXML
+    private TextField tf_cliente;
+
     @FXML
     void clica_add(ActionEvent event) throws IOException {
-       Region addTela = null;
-      try {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/telasFXML/AddEquipamento.fxml"));
-       
-        addTela =  fxmlLoader.load();
-        System.out.println("teste");
-        Scene addEqScene = new Scene(addTela);
-        System.out.println("teste2");
-        Stage stage = new Stage();
-        stage.setScene(addEqScene);
-        stage.initModality(Modality.WINDOW_MODAL);
-        stage.show();
-        
-    } catch (Exception ex) {
-          System.out.println(ex);
-    }
-                
-       
-        
-//        Parent addEq = FXMLLoader.load(getClass().getResource("AddEquipamento.fxml"));
-//        stage2 = new Stage();
-//        addEqScene = new Scene(addEq);
-//           
-//        stage2.setScene(addEqScene);
-//        stage2.show();
+        System.out.println("add "+Main.user.getFuncionarioId().getNome());
+        Region addTela = null;
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/telasFXML/AddEquipamento.fxml"));
+
+            addTela = fxmlLoader.load();
+            Scene addEqScene = new Scene(addTela);
+            Stage stage = new Stage();
+            stage.setScene(addEqScene);
+            stage.initModality(Modality.WINDOW_MODAL);
+            stage.show();
+
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
 
     }
 
     @FXML
     void clica_remove(ActionEvent event) {
+       
+    }
 
+    @FXML
+    void clica_cliente(ActionEvent event) {
+        Region addTela = null;
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/telasFXML/AddCliente.fxml"));
+
+            addTela = fxmlLoader.load();
+            Scene addEqScene = new Scene(addTela);
+            Stage stage = new Stage();
+            stage.setScene(addEqScene);
+            stage.initModality(Modality.WINDOW_MODAL);
+            stage.show();
+
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
     }
 
     @FXML
@@ -362,8 +371,14 @@ public class ContratoController implements Initializable, Controller {
         return r;
     }
 
+    public void setFun(){
+         lb_funcionario.setText(Main.user.getFuncionarioId().getNome());
+    }
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+       setFun();
+      
+      
     }
 }

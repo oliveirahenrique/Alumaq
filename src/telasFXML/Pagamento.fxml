@@ -2,30 +2,29 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.PagamentoController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.PagamentoController">
    <children>
       <Button fx:id="btn_cancela" layoutX="440.0" layoutY="336.0" mnemonicParsing="false" onAction="#clica_cancelar" text="Cancelar" />
       <Button fx:id="btn_salvar" layoutX="519.0" layoutY="336.0" mnemonicParsing="false" onAction="#clica_salvar" text="Salvar" />
       <Label layoutX="47.0" layoutY="39.0" text="Cliente:" />
+      <Label fx:id="tl_cliente" layoutX="112.0" layoutY="39.0" prefHeight="16.0" prefWidth="450.0" />
       <Label layoutX="48.0" layoutY="100.0" text="Funcionario:" />
+      <Label fx:id="tl_funcionario" layoutX="135.0" layoutY="100.0" prefHeight="17.0" prefWidth="309.0" />
       <Label layoutX="42.0" layoutY="165.0" text="Data de Início:" />
+      <Label fx:id="tl_dataInicio" layoutX="134.0" layoutY="165.0" />
       <Label layoutX="234.0" layoutY="165.0" text="Data Final:" />
+      <Label fx:id="tl_dataFim" layoutX="304.0" layoutY="165.0" />
       <Label layoutX="403.0" layoutY="165.0" text="Tipo:" />
+      <Label fx:id="tl_tipo" layoutX="470.0" layoutY="165.0" />
       <Label layoutX="47.0" layoutY="218.0" text="Valor:" />
+      <Label fx:id="tl_valorp1" layoutX="97.0" layoutY="218.0" prefHeight="17.0" prefWidth="75.0" />
       <Label layoutX="234.0" layoutY="218.0" text="Multa:" />
+      <Label fx:id="tl_multa" layoutX="288.0" layoutY="218.0" prefHeight="17.0" prefWidth="102.0" />
       <Label layoutX="403.0" layoutY="218.0" text="Fase:" />
+      <Label fx:id="tl_fase" layoutX="440.0" layoutY="218.0" prefHeight="16.0" prefWidth="143.0" />
       <Label layoutX="174.0" layoutY="293.0" text="Valor Total:" />
-      <TextField fx:id="tf_cliente" editable="false" layoutX="116.0" layoutY="35.0" prefHeight="25.0" prefWidth="422.0" />
-      <TextField fx:id="tf_funcionario" editable="false" layoutX="118.0" layoutY="96.0" prefHeight="25.0" prefWidth="422.0" />
-      <TextField fx:id="tf_dataInicio" editable="false" layoutX="130.0" layoutY="161.0" prefHeight="25.0" prefWidth="99.0" />
-      <TextField fx:id="tf_dataFim" editable="false" layoutX="300.0" layoutY="161.0" prefHeight="25.0" prefWidth="99.0" />
-      <TextField fx:id="tf_tipo" editable="false" layoutX="440.0" layoutY="161.0" prefHeight="25.0" prefWidth="99.0" />
-      <TextField fx:id="tf_valor" editable="false" layoutX="87.0" layoutY="214.0" prefHeight="25.0" prefWidth="99.0" />
-      <TextField fx:id="tf_multa" editable="false" layoutX="278.0" layoutY="214.0" prefHeight="25.0" prefWidth="99.0" />
-      <TextField fx:id="tf_fase" editable="false" layoutX="440.0" layoutY="214.0" prefHeight="25.0" prefWidth="99.0" />
-      <TextField fx:id="tf_valorTotal" editable="false" layoutX="251.0" layoutY="289.0" prefHeight="25.0" prefWidth="99.0" />
+      <Label fx:id="tl_valorTotal" layoutX="274.0" layoutY="293.0" prefHeight="16.0" prefWidth="160.0" />
    </children>
 </AnchorPane>

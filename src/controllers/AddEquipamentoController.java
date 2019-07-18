@@ -58,8 +58,8 @@ public class AddEquipamentoController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         carregarEquipamentos();
         
-        tv_equipamentos.getSelectionModel().selectedItemProperty().addListener(
-                (observable, oldValue, newValue) -> selecionarItemTableViewEquipamentos(newValue));
+        //tv_equipamentos.getSelectionModel().selectedItemProperty().addListener(
+               // (observable, oldValue, newValue) -> selecionarItemTableViewEquipamentos(newValue));
         
     }
     
@@ -71,8 +71,8 @@ public class AddEquipamentoController implements Initializable {
 
         tc_nome.setCellValueFactory(new PropertyValueFactory<>("nome"));
         tc_valor.setCellValueFactory(new PropertyValueFactory<>("valor"));
-        tc_qtdEstoque.setCellValueFactory(new PropertyValueFactory<>("estoque"));
-        tc_id.setCellValueFactory(new PropertyValueFactory<>("id"));
+        tc_qtdEstoque.setCellValueFactory(new PropertyValueFactory<>("qtd_estoque"));
+        tc_id.setCellValueFactory(new PropertyValueFactory<>("idEq"));
 
         equipamentos = dao.getListEquipamentos();
 
@@ -83,6 +83,7 @@ public class AddEquipamentoController implements Initializable {
 
     public void selecionarItemTableViewEquipamentos(Equipamento eq) {
         if (eq != null) {
+           
             
         } 
     }

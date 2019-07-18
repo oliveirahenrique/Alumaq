@@ -1,6 +1,5 @@
 package telasFXML;
 
-
 import controllers.PagamentoController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -23,8 +22,7 @@ public class Main extends Application {
     private static Scene reservaScene;
     private static Scene pagamentoScene;
     
-    
-    protected static DAO dao = new DAO();      
+    protected static DAO dao = new DAO();    
     
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -50,44 +48,44 @@ public class Main extends Application {
         reservaScene = new Scene(reserva);
         loginScene = new Scene(login);
         pagamentoScene = new Scene(pagamentoTela);
-           
-        //PagamentoController c= new PagamentoController(1);
-        //stage.setScene(pagamentoScene);
-        stage.setScene(loginScene);
+        PagamentoController c = new PagamentoController();
+        c.preencheContrato(1);
+        stage.setScene(pagamentoScene);
         stage.show();
     }
     
-     
-    public static void changeScreen(String scr){
-        switch(scr){
-            case("index"):
-               stage.setScene(indexScene);
-            break;
-            case("cadastroCliente"):
+    public Integer testeContrato() {
+        return 1;
+    }
+    
+    public static void changeScreen(String scr) {
+        switch (scr) {
+            case ("index"):
+                stage.setScene(indexScene);
+                break;
+            case ("cadastroCliente"):
                 stage.setScene(cadastroClienteScene);
-            break;            
-            case("reserva"):
+                break;            
+            case ("reserva"):
                 stage.setScene(reservaScene);
-            break;
-            case("contrato"):
+                break;
+            case ("contrato"):
                 stage.setScene(contratoScene);
-            break;
-            case("cadastroFornecedor"):
+                break;
+            case ("cadastroFornecedor"):
                 stage.setScene(cadastroFornecedorScene);
-            break;
-            case("cadastroFuncionario"):
+                break;
+            case ("cadastroFuncionario"):
                 stage.setScene(cadastroFuncScene);
-            break;
-            case("cadastroEquipamento"):
+                break;
+            case ("cadastroEquipamento"):
                 stage.setScene(cadastroEquipScene);
-            break;
+                break;
             
         }
-            
+        
     }
-
     
-  
     public static void main(String[] args) {        
         launch(args);
     }

@@ -24,6 +24,12 @@ import telasFXML.Main;
 public class CadastrarFuncionarioController implements Initializable, Controller {
 
     @FXML
+    private Button btn_salvar;
+
+    @FXML
+    private Button btn_cancelar;
+
+    @FXML
     private TextField tf_nome;
 
     @FXML
@@ -33,16 +39,10 @@ public class CadastrarFuncionarioController implements Initializable, Controller
     private TextField tf_salario;
 
     @FXML
-    private Button btn_salvar;
-
-    @FXML
-    private Button btn_cancelar;
-
-    @FXML
     private TextField tf_tel1;
 
     @FXML
-    private TextField tf_tel2;
+    private TextField tf_complemento;
 
     @FXML
     private TextField tf_rua;
@@ -58,42 +58,42 @@ public class CadastrarFuncionarioController implements Initializable, Controller
 
     @FXML
     private TextField tf_estado;
-    
-    @FXML
-    private TextField tf_complemento;
-    
+
     @FXML
     private TextField tf_cpf;
-    
+
+    @FXML
+    private TextField tf_tel2;
+
     @FXML
     private TextField tf_login;
-    
+
     @FXML
     private TextField tf_senha;
-    
+
     @FXML
     private TextField tf_cargoId;
 
     @FXML
-    void clica_salvar(ActionEvent event) throws ParseException {        
+    void clica_salvar(ActionEvent event) throws ParseException {
         // nome do funcionario
         String nome = this.tf_nome.getText();
-        
+
         // data de nascimento do funcionario
         Date dataNascimento = new SimpleDateFormat("dd/MM/yyyy").parse(this.tf_dataNasc.getText());
-        
+
         // salario do funcionario
         Double salario = Double.parseDouble(this.tf_salario.getText());
-        
+
         // telefone1 do funcionario
         String telefone1 = this.tf_tel1.getText();
-        
+
         // telefone2 do funcionario
         String telefone2 = this.tf_tel2.getText();
-        
+
         // cpf do funcionario
         String cpf = this.tf_cpf.getText();
-        
+
         // endereço do funcionario
         String rua = this.tf_rua.getText();
         int numero = Integer.parseInt(this.tf_num.getText());
@@ -108,11 +108,11 @@ public class CadastrarFuncionarioController implements Initializable, Controller
             endereco = new Endereco(rua, bairro, complemento, numero, cidade, estado);
         }
         dao.cadastrar(endereco);
-        
+
         // cadastra novo funcionario
         Funcionario funcionario = new Funcionario(nome, cpf, dataNascimento, endereco, telefone1, telefone2, salario);
         dao.cadastrar(funcionario);
-        
+
         // cadastra novo usuario
         String login = this.tf_login.getText();
         String senha = this.tf_senha.getText();
@@ -147,7 +147,7 @@ public class CadastrarFuncionarioController implements Initializable, Controller
         this.tf_senha.setText("");
         this.tf_tel1.setText("");
         this.tf_tel2.setText("");
-        
+
         Main.changeScreen("index");
     }
 

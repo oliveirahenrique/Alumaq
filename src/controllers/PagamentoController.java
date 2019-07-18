@@ -7,6 +7,7 @@ package controllers;
 
 import entidade.ContratoOperacao;
 import entidade.Fase;
+import entidade.Funcionario;
 import entidade.Locacao;
 import entidade.Tipo;
 import java.net.URL;
@@ -24,6 +25,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import org.eclipse.persistence.internal.helper.SimpleDatabaseType;
+import telasFXML.Main;
 
 /**
  * FXML Controller class
@@ -34,9 +36,7 @@ public class PagamentoController implements Initializable, Controller {
 
     private Integer contratoId;
 
-    public PagamentoController (Integer contratoId){
-        this.contratoId=contratoId;
-    }
+   
      @FXML
     private Button btn_cancela;
 
@@ -105,27 +105,29 @@ public class PagamentoController implements Initializable, Controller {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         ContratoOperacao contrato = new ContratoOperacao();
-        contrato = (ContratoOperacao) dao.pesquisarPorChave(ContratoOperacao.class, contratoId);
+        contrato = (ContratoOperacao) dao.pesquisarPorChave(ContratoOperacao.class, Main.id);
 
         tl_cliente.setText(contrato.getClienteId().getNome());
-
         tl_funcionario.setText(contrato.getFuncionarioId().getNome());
 
-        tl_dataInicio.setText(contrato.getDataInicio().toString());
+        SimpleDateFormat sdf =new SimpleDateFormat("dd/MM/yyyy");
+       tl_dataInicio.setText(sdf.format(contrato.getDataInicio()));
 
-        tl_dataFim.setText(contrato.getDataFim().toString());
+      
 
         String tipo;
 
         if (contrato.getTipo() == Tipo.LOCACAO) {
             tipo = "Locação";
+             tl_dataFim.setText(sdf.format(contrato.getDataFim()));
         } else {
             tipo = "Venda";
+            tl_dataFim.setText("--/--/----");
         }
 
         tl_tipo.setText(tipo);
         Double valorTotal;
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        
         if (contrato.getFase() == Fase.FASE1) {
             tl_valorp1.setText(contrato.getValorp1().toString());
             tl_multa.setText("0.0");

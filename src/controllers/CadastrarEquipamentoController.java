@@ -15,6 +15,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import telasFXML.Main;
 
 /**
@@ -102,6 +103,17 @@ public class CadastrarEquipamentoController implements Initializable, Controller
         }
     }
     
+    @FXML
+    private Button btn;
+
+    @FXML
+    private Label lb;
+
+    @FXML
+    void clica(ActionEvent event) {
+        lb.setText("FOOOOI");
+    }
+
     /**
      * Initializes the controller class.
      */

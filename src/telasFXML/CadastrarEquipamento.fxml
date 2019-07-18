@@ -28,5 +28,7 @@
       <TextField fx:id="tf_qtde" layoutX="312.0" layoutY="116.0" prefHeight="26.0" prefWidth="121.0" />
       <Button fx:id="btn_salvar" layoutX="452.0" layoutY="317.0" mnemonicParsing="false" onAction="#clica_salvar" text="Salvar" />
       <Button fx:id="btn_cancelar" layoutX="365.0" layoutY="317.0" mnemonicParsing="false" onAction="#clica_cancela" text="Cancelar" />
+      <Button fx:id="btn" layoutX="55.0" layoutY="330.0" mnemonicParsing="false" onAction="#clica" text="Button" />
+      <Label fx:id="lb" layoutX="163.0" layoutY="335.0" />
    </children>
 </AnchorPane>

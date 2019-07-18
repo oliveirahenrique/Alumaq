@@ -10,6 +10,10 @@ public class Pagamento {
     private Double valor;
     SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
     Date dataDevolucao;
+    
+    public Pagamento(){
+        
+    }
 
     public Pagamento(ContratoOperacao contrato, String dataDevolucao) throws ParseException {
         if (contrato instanceof Locacao) {

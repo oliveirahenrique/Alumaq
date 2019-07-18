@@ -6,34 +6,43 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="361.0" prefWidth="586.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CadastrarFuncionarioController">
+<AnchorPane id="AnchorPane" prefHeight="422.0" prefWidth="586.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CadastrarFuncionarioController">
    <children>
       <Label layoutX="175.0" layoutY="24.0" text="Cadastro Funcionário">
          <font>
             <Font size="25.0" />
          </font>
       </Label>
-      <Label layoutX="53.0" layoutY="83.0" text="Nome:" />
-      <Label layoutX="52.0" layoutY="170.0" text="Telefone1:" />
-      <TextField fx:id="tf_nome" layoutX="105.0" layoutY="80.0" prefHeight="26.0" prefWidth="400.0" />
-      <Label layoutX="52.0" layoutY="129.0" text="Data de Nasc.:" />
-      <TextField fx:id="tf_dataNasc" layoutX="152.0" layoutY="125.0" prefHeight="26.0" prefWidth="139.0" />
-      <Label layoutX="313.0" layoutY="131.0" text="Salário:" />
-      <TextField fx:id="tf_salario" layoutX="366.0" layoutY="126.0" prefHeight="26.0" prefWidth="139.0" />
-      <Button fx:id="btn_salvar" layoutX="495.0" layoutY="307.0" mnemonicParsing="false" onAction="#clica_salvar" text="Salvar" />
-      <TextField fx:id="tf_tel1" layoutX="128.0" layoutY="166.0" prefHeight="26.0" prefWidth="146.0" />
-      <Label layoutX="284.0" layoutY="173.0" text="Telefone2:" />
-      <TextField fx:id="tf_tel2" layoutX="360.0" layoutY="169.0" prefHeight="26.0" prefWidth="146.0" />
-      <Label layoutX="53.0" layoutY="212.0" text="Rua:" />
-      <TextField fx:id="tf_rua" layoutX="88.0" layoutY="209.0" prefHeight="26.0" prefWidth="267.0" />
-      <Label layoutX="366.0" layoutY="212.0" text="Nº:" />
-      <TextField fx:id="tf_num" layoutX="390.0" layoutY="207.0" prefHeight="26.0" prefWidth="116.0" />
-      <Label layoutX="54.0" layoutY="253.0" text="Bairro:" />
-      <TextField fx:id="tf_bairro" layoutX="104.0" layoutY="250.0" prefHeight="26.0" prefWidth="146.0" />
-      <Label layoutX="259.0" layoutY="253.0" text="Cidade:" />
-      <TextField fx:id="tf_cidade" layoutX="315.0" layoutY="252.0" prefHeight="26.0" prefWidth="116.0" />
-      <Label layoutX="439.0" layoutY="257.0" text="UF:" />
-      <TextField fx:id="tf_estado" layoutX="464.0" layoutY="252.0" prefHeight="26.0" prefWidth="44.0" />
-      <Button fx:id="btn_cancelar" layoutX="413.0" layoutY="307.0" mnemonicParsing="false" onAction="#clica_cancela" text="Cancelar" />
+      <Button fx:id="btn_salvar" layoutX="495.0" layoutY="388.0" mnemonicParsing="false" onAction="#clica_salvar" text="Salvar" />
+      <Button fx:id="btn_cancelar" layoutX="413.0" layoutY="388.0" mnemonicParsing="false" onAction="#clica_cancela" text="Cancelar" />
+      <Label layoutX="63.0" layoutY="93.0" text="Nome:" />
+      <Label layoutX="294.0" layoutY="177.0" text="Telefone1:" />
+      <TextField fx:id="tf_nome" layoutX="115.0" layoutY="90.0" prefHeight="26.0" prefWidth="400.0" />
+      <Label layoutX="62.0" layoutY="139.0" text="Data de Nasc.:" />
+      <TextField fx:id="tf_dataNasc" layoutX="162.0" layoutY="135.0" prefHeight="26.0" prefWidth="139.0" />
+      <Label layoutX="323.0" layoutY="141.0" text="Salário:" />
+      <TextField fx:id="tf_salario" layoutX="376.0" layoutY="136.0" prefHeight="26.0" prefWidth="139.0" />
+      <TextField fx:id="tf_tel1" layoutX="370.0" layoutY="173.0" prefHeight="26.0" prefWidth="146.0" />
+      <Label layoutX="294.0" layoutY="224.0" text="Complemento:" />
+      <TextField fx:id="tf_complemento" layoutX="400.0" layoutY="220.0" prefHeight="26.0" prefWidth="116.0" />
+      <Label layoutX="63.0" layoutY="263.0" text="Rua:" />
+      <TextField fx:id="tf_rua" layoutX="98.0" layoutY="260.0" prefHeight="26.0" prefWidth="267.0" />
+      <Label layoutX="376.0" layoutY="263.0" text="Nº:" />
+      <TextField fx:id="tf_num" layoutX="400.0" layoutY="258.0" prefHeight="26.0" prefWidth="116.0" />
+      <Label layoutX="64.0" layoutY="304.0" text="Bairro:" />
+      <TextField fx:id="tf_bairro" layoutX="114.0" layoutY="301.0" prefHeight="26.0" prefWidth="146.0" />
+      <Label layoutX="269.0" layoutY="304.0" text="Cidade:" />
+      <TextField fx:id="tf_cidade" layoutX="325.0" layoutY="303.0" prefHeight="26.0" prefWidth="116.0" />
+      <Label layoutX="449.0" layoutY="308.0" text="UF:" />
+      <TextField fx:id="tf_estado" layoutX="474.0" layoutY="303.0" prefHeight="26.0" prefWidth="44.0" />
+      <Label layoutX="61.0" layoutY="177.0" text="CPF:" />
+      <TextField fx:id="tf_cpf" layoutX="98.0" layoutY="172.0" prefHeight="26.0" prefWidth="186.0" />
+      <Label layoutX="63.0" layoutY="223.0" text="Telefone2:" />
+      <TextField fx:id="tf_tel2" layoutX="139.0" layoutY="219.0" prefHeight="26.0" prefWidth="146.0" />
+      <Label layoutX="63.0" layoutY="345.0" text="Login:" />
+      <TextField fx:id="tf_login" layoutX="109.0" layoutY="342.0" prefHeight="26.0" prefWidth="96.0" />
+      <TextField fx:id="tf_senha" layoutX="261.0" layoutY="344.0" prefHeight="26.0" prefWidth="96.0" />
+      <Label layoutX="370.0" layoutY="349.0" text="Cargo:" />
+      <TextField fx:id="tf_cargoId" layoutX="423.0" layoutY="344.0" prefHeight="26.0" prefWidth="96.0" />
    </children>
 </AnchorPane>

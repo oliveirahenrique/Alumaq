@@ -22,8 +22,7 @@
       <Label layoutX="50.0" layoutY="104.0" text="Funcionário:" />
       <Label layoutX="77.0" layoutY="140.0" text="Cliente:" />
       <Label layoutX="107.0" layoutY="184.0" text="Fase:" />
-      <TextField layoutX="143.0" layoutY="99.0" prefHeight="26.0" prefWidth="371.0" />
-      <TextField layoutX="144.0" layoutY="135.0" prefHeight="26.0" prefWidth="371.0" />
+      <TextField fx:id="tf_cliente" layoutX="144.0" layoutY="135.0" prefHeight="26.0" prefWidth="371.0" />
       <AnchorPane layoutX="149.0" layoutY="169.0" prefHeight="48.0" prefWidth="315.0">
          <children>
             <RadioButton fx:id="rb_f1" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#clica_f1" text="Fase 1" />
@@ -31,8 +30,7 @@
             <RadioButton fx:id="rb_fim" layoutX="195.0" layoutY="14.0" mnemonicParsing="false" onAction="#clica_fim" text="Finalizado" />
          </children>
       </AnchorPane>
-      <Button fx:id="btn_buscaFuncionario" layoutX="523.0" layoutY="99.0" mnemonicParsing="false" text="..." />
-      <Button fx:id="btn_buscaCliente" layoutX="523.0" layoutY="135.0" mnemonicParsing="false" text="..." />
+      <Button fx:id="btn_buscaCliente" layoutX="523.0" layoutY="135.0" mnemonicParsing="false" onAction="#clica_cliente" text="..." />
       <SplitPane dividerPositions="0.5" layoutX="34.0" layoutY="217.0" prefHeight="157.0" prefWidth="565.0">
          <items>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="156.0" prefWidth="249.0">
@@ -81,5 +79,6 @@
             </AnchorPane>
         </content>
       </ScrollPane>
+      <Label fx:id="lb_funcionario" layoutX="139.0" layoutY="106.0" />
    </children>
 </AnchorPane>

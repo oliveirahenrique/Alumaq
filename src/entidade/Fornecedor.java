@@ -24,12 +24,18 @@ public class Fornecedor implements Serializable {
 
     public Fornecedor() {
     }
+    
+    public Fornecedor(String nome, String email) {
+       this.nome = nome;
+       this.email = email;
+    }
 
     public Fornecedor(String nome, String email, Endereco endereco) {
-        this.nome = nome;
-        this.email = email;
+        super();
         this.enderecoId = endereco;
     }
+
+    
 
     public Integer getID() {
         return idFornecedor;

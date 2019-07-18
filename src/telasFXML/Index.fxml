@@ -18,6 +18,11 @@
             <Menu fx:id="btn_fornecedor" mnemonicParsing="false" text="Fornecedor"><items>
                   <MenuItem fx:id="btn_cadastrarFornecedor" mnemonicParsing="false" onAction="#clica_cadastrarFornecedor" text="Cadastrar Fornecedor" />
                </items></Menu>
+            <Menu fx:id="btn_funcionario" mnemonicParsing="false" text="Funcionario">
+               <items>
+                  <MenuItem fx:id="btn_cadastrarFuncionario" mnemonicParsing="false" onAction="#clica_cadastrarFuncionario" text="Cadastrar Funcionario" />
+               </items>
+            </Menu>
             <Menu fx:id="btn_equipamentos" mnemonicParsing="false" text="Equipamentos">
                <items>
                   <MenuItem fx:id="btn_cadastrarEquipamento" mnemonicParsing="false" onAction="#clica_cadastrarEquipamento" text="Novo Equipamento" />
@@ -26,6 +31,7 @@
             <Menu fx:id="btn_contrato" mnemonicParsing="false" text="Contrato">
                <items>
                   <MenuItem fx:id="btn_novoContrato" mnemonicParsing="false" onAction="#clica_novoContrato" text="Novo Cotrato" />
+                  <MenuItem fx:id="btn_devolucao" mnemonicParsing="false" onAction="#clica_devolucao" text="Devolução" />
                </items></Menu>
             <Menu fx:id="btn_pagamento" mnemonicParsing="false" text="Pagamento">
                <items>

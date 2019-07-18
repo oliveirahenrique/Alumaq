@@ -11,7 +11,12 @@ import javafx.scene.control.MenuItem;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
+import javafx.scene.layout.Region;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import telasFXML.Main;
 
 /**
@@ -20,8 +25,8 @@ import telasFXML.Main;
  * @author natalia
  */
 public class IndexController implements Initializable, Controller {
-    
- @FXML
+
+    @FXML
     private Menu btn_MenuCliente;
 
     @FXML
@@ -60,45 +65,76 @@ public class IndexController implements Initializable, Controller {
     @FXML
     private MenuItem btn_novaPesquisa;
 
-    
+    @FXML
+    private Menu btn_funcionario;
+
+    @FXML
+    private MenuItem btn_cadastrarFuncionario;
+
+    @FXML
+    private MenuItem btn_devolucao;
+
     @FXML
     void clica_cadastrarEquipamento(ActionEvent event) {
-        Main.changeScreen("cadastroEquipamento");
+        mudaTela("CadastrarEquipamento.fxml");
     }
-    
-          
+
     @FXML
     void clica_cadastrarFornecedor(ActionEvent event) {
-        Main.changeScreen("cadastroFornecedor");
+        mudaTela("CadastrarFornecedor.fxml");
     }
-        
-     
+
     @FXML
     void clica_reserva(ActionEvent event) {
-        Main.changeScreen("reserva");
+        mudaTela("Reserva.fxml");
     }
-    
-      
+
     @FXML
     void clica_novaPesquisa(ActionEvent event) {
-          Main.changeScreen("");
+        Main.changeScreen("");
     }
 
     @FXML
     void clica_novoCliente(ActionEvent event) {
-        Main.changeScreen("cadastroCliente");
+         mudaTela("CadastrarCliente.fxml");
     }
 
     @FXML
     void clica_novoContrato(ActionEvent event) {
-        Main.changeScreen("contrato");
+         mudaTela("Contrato.fxml");
     }
 
     @FXML
     void clica_novoPagamento(ActionEvent event) {
-         Main.changeScreen("");
+         mudaTela("Pagamento.fxml");
+    }
+
+    @FXML
+    void clica_cadastrarFuncionario(ActionEvent event) {
+        mudaTela("CadastrarFuncionario.fxml");
+    }
+
+    @FXML
+    void clica_devolucao(ActionEvent event) {
+       mudaTela("Devolucao.fxml");
     }
     
+    public void mudaTela(String s){
+        Region pagTela = null;
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/telasFXML/"+s));
+
+            pagTela = fxmlLoader.load();
+            Scene pagScene = new Scene(pagTela);
+            Stage stage2 = new Stage();
+            stage2.setScene(pagScene);
+            stage2.initModality(Modality.WINDOW_MODAL);
+            stage2.show();
+
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+    }
 
     /**
      * Initializes the controller class.
@@ -106,6 +142,6 @@ public class IndexController implements Initializable, Controller {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
     
 }

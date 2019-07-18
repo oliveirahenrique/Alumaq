@@ -12,8 +12,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import java.net.URL;
 import java.util.ResourceBundle;
+import static javafx.application.Platform.exit;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
+import javafx.stage.Modality;
 import telasFXML.Main;
 
 /**
@@ -68,7 +70,6 @@ public class CadastrarFornecedorController implements Initializable, Controller 
         tf_estado.setText("");
         tf_email.setText("");
 
-        Main.changeScreen("index");
     }
 
     @FXML

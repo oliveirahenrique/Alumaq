@@ -13,6 +13,6 @@ import persistencia.DAO;
  * @author Pichau
  */
 public interface Controller {
-    final DAO dao = new DAO();
-    final Usuario user = new Usuario();
+    static  DAO dao = new DAO();
+    //static  Usuario user = new Usuario();
 }

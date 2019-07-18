@@ -5,6 +5,7 @@
  */
 package controllers;
 
+import entidade.Funcionario;
 import entidade.Usuario;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -39,16 +40,24 @@ public class LoginController implements Initializable,Controller {
     void clica_login(ActionEvent event) {
         try {
             Usuario usuario = dao.getUsuario(tf_usuario.getText());
+            //System.out.println(usuario.getFuncionarioId().getIdFunc());
              if(!usuario.getSenha().equals(tf_senha.getText())){
                 tf_senha=null;
                 //mensagem de erro de senha
             }else{
-                user.setId(usuario.getId());
-                user.setLogin(usuario.getLogin());
-                user.setSenha(usuario.getSenha());
-                user.setFuncionarioId(usuario.getFuncionarioId());
-                user.setCargoId(usuario.getCargoId());
+                //Mainuser.setId(usuario.getId());
+                //Main.user.setLogin(usuario.getLogin());
+                //Main.user.setSenha(usuario.getSenha());
+                Funcionario f; 
+                f = (Funcionario)dao.pesquisarPorChave(Funcionario.class, usuario.getFuncionarioId().getIdFunc());
+               // Main.user.setFuncionarioId(f);
+                //Main.user.setCargoId(usuario.getCargoId());
+               
+                usuario.setFuncionarioId(f);
+                 Main.addUser(usuario);
+                //System.out.println(Main.user.getFuncionarioId().getNome());
                 Main.changeScreen("index");
+                
             }
         } catch (Exception e) {
             //mensagem de erro de login

@@ -7,6 +7,7 @@ import entidade.Locacao;
 import entidade.Setor;
 import entidade.Tipo;
 import entidade.Venda;
+import java.io.IOException;
 import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -15,7 +16,10 @@ import java.util.Date;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
@@ -23,6 +27,9 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Region;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import telasFXML.Main;
 
 public class ContratoController implements Initializable, Controller {
@@ -84,8 +91,35 @@ public class ContratoController implements Initializable, Controller {
     @FXML
     private Button btn_remover;
 
+     
+    
     @FXML
-    void clica_add(ActionEvent event) {
+    void clica_add(ActionEvent event) throws IOException {
+       Region addTela = null;
+      try {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/telasFXML/AddEquipamento.fxml"));
+       
+        addTela =  fxmlLoader.load();
+        System.out.println("teste");
+        Scene addEqScene = new Scene(addTela);
+        System.out.println("teste2");
+        Stage stage = new Stage();
+        stage.setScene(addEqScene);
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.show();
+        
+    } catch (Exception ex) {
+          System.out.println(ex);
+    }
+                
+       
+        
+//        Parent addEq = FXMLLoader.load(getClass().getResource("AddEquipamento.fxml"));
+//        stage2 = new Stage();
+//        addEqScene = new Scene(addEq);
+//           
+//        stage2.setScene(addEqScene);
+//        stage2.show();
 
     }
 

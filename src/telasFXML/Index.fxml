@@ -30,12 +30,8 @@
                </items></Menu>
             <Menu fx:id="btn_contrato" mnemonicParsing="false" text="Contrato">
                <items>
-                  <MenuItem fx:id="btn_novoContrato" mnemonicParsing="false" onAction="#clica_novoContrato" text="Novo Cotrato" />
+                  <MenuItem fx:id="btn_novoContrato" mnemonicParsing="false" onAction="#clica_novoContrato" text="Novo Contrato" />
                   <MenuItem fx:id="btn_devolucao" mnemonicParsing="false" onAction="#clica_devolucao" text="Devolução" />
-               </items></Menu>
-            <Menu fx:id="btn_pagamento" mnemonicParsing="false" text="Pagamento">
-               <items>
-                  <MenuItem fx:id="btn_novoPagamento" mnemonicParsing="false" onAction="#clica_novoPagamento" text="Novo Pagamento" />
                </items></Menu>
             <Menu fx:id="btn_pesquisa" mnemonicParsing="false" text="Pesquisa">
                <items>

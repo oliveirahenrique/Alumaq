@@ -45,6 +45,7 @@ public class ContratoOperacao implements Serializable {
     //assinatura digital
 
     public ContratoOperacao() {
+        
     }
 
     public ContratoOperacao(Date dataInicio, Date dataFim, Double valorp1, Double valorp2, Double multa, Tipo tipo, Fase fase, Cliente cliente, Funcionario funcionario) {

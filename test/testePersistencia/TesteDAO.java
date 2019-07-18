@@ -88,8 +88,8 @@ public class TesteDAO {
         System.out.println("");
 
         //Criando Fornecedores
-        Fornecedor fn1 = new Fornecedor("Fornecedor 1", "f1@gmail.com");
-        Fornecedor fn2 = new Fornecedor("Fornecedor 2", "f2@gmail.com");
+        Fornecedor fn1 = new Fornecedor("Fornecedor 1", "f1@gmail.com", e1);
+        Fornecedor fn2 = new Fornecedor("Fornecedor 2", "f2@gmail.com", e2);
 
         //Cadastrando os Fornecedores
         dao.cadastrar(fn1);

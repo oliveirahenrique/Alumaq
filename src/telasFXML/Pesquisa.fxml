@@ -1,18 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="controllers.PesquisaController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.PesquisaController">
    <children>
-      <Label layoutX="220.0" layoutY="14.0" text="Pesquisar">
+      <Label layoutX="234.0" layoutY="14.0" text="Pesquisa">
          <font>
             <Font size="30.0" />
          </font>
       </Label>
-      <ChoiceBox layoutX="24.0" layoutY="57.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="cb_opcoes" layoutX="24.0" layoutY="57.0" prefWidth="150.0" />
+      <TableView fx:id="tv_table" layoutX="24.0" layoutY="100.0" prefHeight="223.0" prefWidth="547.0">
+        <columns>
+          <TableColumn fx:id="tc_c1" prefWidth="142.0" text="C1" />
+          <TableColumn fx:id="tc_c2" prefWidth="132.0" text="C2" />
+            <TableColumn fx:id="tc_c3" prefWidth="142.0" text="C3" />
+            <TableColumn fx:id="tc_c4" prefWidth="130.0" text="C4" />
+        </columns>
+      </TableView>
+      <Button fx:id="btn_selecionar" layoutX="472.0" layoutY="348.0" mnemonicParsing="false" onAction="#clica_selecionar" prefHeight="26.0" prefWidth="99.0" text="Selecionar" />
+      <Button fx:id="btn_pesquisar" layoutX="189.0" layoutY="57.0" mnemonicParsing="false" onAction="#clica_pesquisar" text="Pesquisar" />
    </children>
 </AnchorPane>

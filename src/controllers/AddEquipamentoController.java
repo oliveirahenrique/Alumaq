@@ -16,6 +16,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import persistencia.DAO;
 
 /**
@@ -44,25 +45,33 @@ public class AddEquipamentoController implements Initializable {
     private TextField tf_qtd;
 
     @FXML
-    private Button btn_seleciona;
+    private javafx.scene.control.Button btn_seleciona;
 
-    
+
+    Integer eqSelect;
+
+    public AddEquipamentoController() {
+       
+    }
     @FXML
     void clica_seleciona(ActionEvent event) {
-
+        ContratoController.idEquipamento(eqSelect);
+        Stage stage = (Stage) btn_seleciona.getScene().getWindow(); //Obtendo a janela atual
+        stage.close(); //Fechando o Stage
+    
     }
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         carregarEquipamentos();
-        
-        //tv_equipamentos.getSelectionModel().selectedItemProperty().addListener(
-               // (observable, oldValue, newValue) -> selecionarItemTableViewEquipamentos(newValue));
-        
+
+        tv_equipamentos.getSelectionModel().selectedItemProperty().addListener(
+         (observable, oldValue, newValue) -> selecionarItemTableViewEquipamentos(newValue));
     }
-    
+
     DAO dao = new DAO();
     private List<Equipamento> equipamentos = new ArrayList<>();
     private ObservableList<Equipamento> obsEquipamentos;
@@ -83,8 +92,8 @@ public class AddEquipamentoController implements Initializable {
 
     public void selecionarItemTableViewEquipamentos(Equipamento eq) {
         if (eq != null) {
-           
-            
-        } 
+               eqSelect =  eq.getIdEq();
+        }
+        
     }
 }

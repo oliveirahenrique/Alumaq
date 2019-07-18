@@ -61,7 +61,7 @@ public class DAO {
 
     @SuppressWarnings("empty-statement")
     public List<Fornecedor> getListFornecedores() {
-        TypedQuery<Fornecedor> consulta = (TypedQuery<Fornecedor>) em.createNativeQuery("SELECT * FROM fornecedores", Fornecedor.class);
+        TypedQuery<Fornecedor> consulta = (TypedQuery<Fornecedor>) em.createNativeQuery("SELECT * FROM fornecedor", Fornecedor.class);
         List<Fornecedor> lista = consulta.getResultList();
 
         return lista;
@@ -117,6 +117,13 @@ public class DAO {
     public void fechar() {
         em.close();
         emf.close();
+    }
+
+    public List<ContratoOperacao> getListContratos() {
+        TypedQuery<ContratoOperacao> consulta = (TypedQuery<ContratoOperacao>) em.createNativeQuery("SELECT * FROM contrato ", ContratoOperacao.class);
+        List<ContratoOperacao> lista = consulta.getResultList();
+
+        return lista;
     }
 
 }

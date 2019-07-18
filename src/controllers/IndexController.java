@@ -54,12 +54,6 @@ public class IndexController implements Initializable, Controller {
     private MenuItem btn_novoContrato;
 
     @FXML
-    private Menu btn_pagamento;
-
-    @FXML
-    private MenuItem btn_novoPagamento;
-
-    @FXML
     private Menu btn_pesquisa;
 
     @FXML
@@ -86,12 +80,12 @@ public class IndexController implements Initializable, Controller {
 
     @FXML
     void clica_reserva(ActionEvent event) {
-        mudaTela("Reserva.fxml");
+        mudaTela("ReservaEquipamento.fxml");
     }
 
     @FXML
     void clica_novaPesquisa(ActionEvent event) {
-        Main.changeScreen("");
+        mudaTela("Pesquisa.fxml");
     }
 
     @FXML
@@ -102,11 +96,6 @@ public class IndexController implements Initializable, Controller {
     @FXML
     void clica_novoContrato(ActionEvent event) {
          mudaTela("Contrato.fxml");
-    }
-
-    @FXML
-    void clica_novoPagamento(ActionEvent event) {
-         mudaTela("Pagamento.fxml");
     }
 
     @FXML

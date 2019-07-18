@@ -13,6 +13,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -34,6 +35,8 @@ import telasFXML.Main;
 
 public class ContratoController implements Initializable, Controller {
 
+    List<Equipamento> equipamentos;
+    
     @FXML
     private RadioButton rb_f1;
 
@@ -68,19 +71,19 @@ public class ContratoController implements Initializable, Controller {
     private Label lb_total;
 
     @FXML
-    private TableView<?> tv_itens;
+    private TableView<Contrato_Equipamento> tv_itens;
 
     @FXML
-    private TableColumn<?, ?> tc_item;
+    private TableColumn<Contrato_Equipamento, ?> tc_item;
 
     @FXML
-    private TableColumn<?, ?> tc_qtde;
+    private TableColumn<Contrato_Equipamento, ?> tc_qtde;
 
     @FXML
-    private TableColumn<?, ?> tc_valor;
+    private TableColumn<Contrato_Equipamento, ?> tc_valor;
 
     @FXML
-    private TableColumn<?, ?> tc_subtotal;
+    private TableColumn<Contrato_Equipamento, ?> tc_subtotal;
 
     @FXML
     private Button btn_adicionar;
@@ -93,10 +96,33 @@ public class ContratoController implements Initializable, Controller {
 
     @FXML
     private TextField tf_cliente;
+    
+     @FXML
+    private Button btn_cancelar;
+
+     
+    @FXML
+    void clica_cancelar(ActionEvent event) {
+        setFuncionario();
+        //tf_cliente.setText("");
+        rb_locacao.setDisable(false);
+        rb_locacao.setSelected(false);
+        rb_venda.setDisable(false);
+        rb_venda.setSelected(false);
+        rb_f1.setDisable(false);
+        rb_f1.setSelected(false);
+        rb_f2.setDisable(false);
+        rb_f2.setSelected(false);
+        rb_fim.setDisable(false);
+        rb_fim.setSelected(false);
+        
+        tf_dataInicio.setText("");
+        tf_dataFim.setText("");
+        
+    }
 
     @FXML
     void clica_add(ActionEvent event) throws IOException {
-        System.out.println("add "+Main.user.getFuncionarioId().getNome());
         Region addTela = null;
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/telasFXML/AddEquipamento.fxml"));
@@ -107,6 +133,8 @@ public class ContratoController implements Initializable, Controller {
             stage.setScene(addEqScene);
             stage.initModality(Modality.WINDOW_MODAL);
             stage.show();
+            
+            addEquipamento();
 
         } catch (Exception ex) {
             System.out.println(ex);
@@ -171,8 +199,9 @@ public class ContratoController implements Initializable, Controller {
 
             try {
                 //registrando locacao
-                Locacao locacao = new Locacao(dataInicio, dataFim, valorp1, valorp2, Tipo.LOCACAO, Fase.FASE1, cliente, user.getFuncionarioId());
+                Locacao locacao = new Locacao(dataInicio, dataFim, valorp1, valorp2, Tipo.LOCACAO, Fase.FASE1, cliente, Main.user.getFuncionarioId());
                 dao.cadastrar(locacao);
+                Main.setAllId(locacao.getIdContrato());
 
                 while ("PRECISA IMPLEMENTAR ESSA CONDIÇÃO") {
                     equipamentoId = Integer.parseInt(this.tc_item.getText());
@@ -203,8 +232,9 @@ public class ContratoController implements Initializable, Controller {
 
             try {
                 //registrando venda
-                Venda venda = new Venda(dataInicio, valorp1, Tipo.VENDA, Fase.FASE1, cliente, user.getFuncionarioId());
+                Venda venda = new Venda(dataInicio, valorp1, Tipo.VENDA, Fase.FASE1, cliente, Main.user.getFuncionarioId());
                 dao.cadastrar(venda);
+                Main.setAllId(venda.getIdContrato());
 
                 while ("PRECISA IMPLEMENTAR ESSA CONDIÇÃO") {
                     equipamentoId = Integer.parseInt(this.tc_item.getText());
@@ -229,12 +259,36 @@ public class ContratoController implements Initializable, Controller {
                 Main.changeScreen("index");
             }
         }
+        
+         Region pagTela = null;
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/telasFXML/Pagamento.fxml"));
+
+            pagTela = fxmlLoader.load();
+            Scene pagScene = new Scene(pagTela);
+            Stage stage2 = new Stage();
+            stage2.setScene(pagScene);
+            stage2.initModality(Modality.WINDOW_MODAL);
+            stage2.show();
+
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
     }
 
     @FXML
     void clicaLocacao(ActionEvent event) {
         if (rb_locacao.isSelected()) {
             rb_venda.setDisable(true);
+            tf_dataInicio.setDisable(false);
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            tf_dataInicio.setText(sdf.format(new Date()));
+            tf_dataFim.setDisable(false);
+            box_aceito.setDisable(false);
+            
+            btn_adicionar.setDisable(false);
+            btn_remover.setDisable(false);
+      
         } else {
             rb_venda.setDisable(false);
         }
@@ -245,6 +299,12 @@ public class ContratoController implements Initializable, Controller {
         if (rb_venda.isSelected()) {
             rb_locacao.setDisable(true);
             rb_f2.setDisable(true);
+            tf_dataInicio.setDisable(true);
+            tf_dataFim.setDisable(true);
+            box_aceito.setDisable(true);
+            btn_adicionar.setDisable(false);
+            btn_remover.setDisable(false);
+      
         } else {
             rb_locacao.setDisable(false);
         }
@@ -293,10 +353,20 @@ public class ContratoController implements Initializable, Controller {
 
     }
 
-    ArrayList<Equipamento> equipamentos;
+    
 
     public ContratoController() {
 
+    }
+    
+    static Integer  idEquipamento;
+    public static void idEquipamento(Integer e){
+        idEquipamento = e;
+    }
+    
+    void addEquipamento(){
+        Equipamento e = (Equipamento) dao.pesquisarPorChave(Equipamento.class, idEquipamento);
+        equipamentos.add(e);
     }
 
     public ContratoController(ArrayList<Equipamento> equipamentos) {
@@ -371,14 +441,20 @@ public class ContratoController implements Initializable, Controller {
         return r;
     }
 
-    public void setFun(){
+    public void setFuncionario(){
          lb_funcionario.setText(Main.user.getFuncionarioId().getNome());
+         btn_adicionar.setDisable(true);
+         btn_remover.setDisable(true);
+      
     }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-       setFun();
-      
+       setFuncionario();
+       
+       equipamentos = new ArrayList<>();
+       
+       
       
     }
 }

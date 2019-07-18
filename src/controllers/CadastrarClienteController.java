@@ -8,7 +8,6 @@ package controllers;
 import static controllers.Controller.dao;
 import entidade.Cliente;
 import entidade.Endereco;
-import entidade.Fornecedor;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -110,7 +109,7 @@ public class CadastrarClienteController implements Initializable, Controller {
             }
         } catch (Exception e) {
         }
-        System.out.println("Erro ao Cadastrar Fornecedor");
+        System.out.println("Erro ao Cadastrar Cliente");
 
     }
 

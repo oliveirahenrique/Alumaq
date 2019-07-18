@@ -2,7 +2,6 @@ package testePersistencia;
 
 import entidade.Cargo;
 import entidade.Cliente;
-import entidade.ContratoOperacao;
 import entidade.Endereco;
 import entidade.Fase;
 import entidade.Funcionario;

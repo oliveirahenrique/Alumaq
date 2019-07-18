@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CadastrarFornecedorController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CadastrarFornecedorController">
    <children>
       <Label layoutX="185.0" layoutY="34.0" text="Cadastro Fornecedor">
          <font>
@@ -31,5 +31,7 @@
       <Label layoutX="63.0" layoutY="133.0" text="E-mail:" />
       <TextField fx:id="tf_email" layoutX="115.0" layoutY="130.0" prefHeight="26.0" prefWidth="400.0" />
       <Button fx:id="btn_cancelar" layoutX="423.0" layoutY="317.0" mnemonicParsing="false" onAction="#clica_cancela" text="Cancelar" />
+      <Label layoutX="59.0" layoutY="309.0" text="Compĺemento:" />
+      <TextField fx:id="tf_complemento" layoutX="157.0" layoutY="305.0" />
    </children>
 </AnchorPane>

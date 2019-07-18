@@ -39,6 +39,6 @@ public class Locacao extends ContratoOperacao {
      * @param multa the multa to set
      */
     public void setMulta(Double multa) {
-        this.multa = multa;
+        this.setMulta(multa);
     }
 }

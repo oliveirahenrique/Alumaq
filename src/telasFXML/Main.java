@@ -1,6 +1,7 @@
 package telasFXML;
 
 
+import controllers.PagamentoController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -20,6 +21,7 @@ public class Main extends Application {
     private static Scene loginScene;
     private static Scene contratoScene;
     private static Scene reservaScene;
+    private static Scene pagamentoScene;
     
     
     protected static DAO dao = new DAO();      
@@ -37,6 +39,7 @@ public class Main extends Application {
         Parent reserva = FXMLLoader.load(getClass().getResource("ReservaEquipamento.fxml"));
         Parent login = FXMLLoader.load(getClass().getResource("Login.fxml"));
         Parent contrato = FXMLLoader.load(getClass().getResource("Contrato.fxml"));
+        Parent pagamentoTela = FXMLLoader.load(getClass().getResource("Pagamento.fxml"));
         
         indexScene = new Scene(index);
         cadastroClienteScene = new Scene(cadastroCliente);
@@ -46,7 +49,10 @@ public class Main extends Application {
         contratoScene = new Scene(contrato);
         reservaScene = new Scene(reserva);
         loginScene = new Scene(login);
+        pagamentoScene = new Scene(pagamentoTela);
            
+        //PagamentoController c= new PagamentoController(1);
+        //stage.setScene(pagamentoScene);
         stage.setScene(loginScene);
         stage.show();
     }

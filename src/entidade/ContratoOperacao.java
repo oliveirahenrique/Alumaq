@@ -34,7 +34,7 @@ public class ContratoOperacao implements Serializable {
     protected Double valorp2=null;
     @NotNull
     protected Tipo tipo;
-    protected Double multa=null;
+    private Double multa=0.0;
     @NotNull
     protected Fase fase;
 
@@ -198,6 +198,28 @@ public class ContratoOperacao implements Serializable {
      */
     public void setFuncionarioId(Funcionario funcionarioId) {
         this.funcionarioId = funcionarioId;
+    }
+
+    /**
+     * @return the multa
+     */
+    public Double getMulta() {
+        return multa;
+    }
+    
+    public Double getMulta(Locacao l, Date dataDevolucao) {
+        long diffMilisegundos = Math.abs(dataDevolucao.getTime() - l.dataFim.getTime());
+        long diffDias = TimeUnit.DAYS.convert(diffMilisegundos, TimeUnit.MILLISECONDS);
+        double valorDaMulta = (l.getValorp1() + l.getValorp2()) * 0.02 * diffDias;
+        
+        return valorDaMulta;
+    }
+
+    /**
+     * @param multa the multa to set
+     */
+    public void setMulta(Double multa) {
+        this.multa = multa;
     }
 
 }

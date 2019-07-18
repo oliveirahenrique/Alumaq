@@ -5,7 +5,13 @@
  */
 package controllers;
 
+import entidade.ContratoOperacao;
+import entidade.Fase;
+import entidade.Locacao;
+import entidade.Tipo;
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,6 +23,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import org.eclipse.persistence.internal.helper.SimpleDatabaseType;
 
 /**
  * FXML Controller class
@@ -25,87 +32,114 @@ import javafx.scene.control.TextField;
  */
 public class PagamentoController implements Initializable, Controller {
 
+    private Integer contratoId;
+
+    public PagamentoController (Integer contratoId){
+        this.contratoId=contratoId;
+    }
+     @FXML
+    private Button btn_cancela;
+
     @FXML
-    private RadioButton rb_f1;
+    private Button btn_salvar;
 
-     @FXML
-    private RadioButton rb_f2;
+    @FXML
+    private Label tl_cliente;
 
-     @FXML
-    private RadioButton rb_fim;
+    @FXML
+    private Label tl_funcionario;
 
-     @FXML
-    private Button btn_buscaFuncionario;
+    @FXML
+    private Label tl_dataInicio;
 
-     @FXML
-    private Button btn_buscaCliente;
+    @FXML
+    private Label tl_dataFim;
 
-     @FXML
-    private RadioButton rb_locacao;
+    @FXML
+    private Label tl_tipo;
 
-     @FXML
-    private TextField tf_dataInicio;
+    @FXML
+    private Label tl_valorp1;
 
-     @FXML
-    private TextField tf_dataFim;
+    @FXML
+    private Label tl_multa;
 
-     @FXML
-    private CheckBox box_aceito;
+    @FXML
+    private Label tl_fase;    
+    
+    @FXML
+    private Label tl_valorTotal;
 
-     @FXML
-    private RadioButton rb_venda;
+    @FXML
+    void clica_cancelar(ActionEvent event) {
 
-     @FXML
-    private Button btn_salvarContrato;
+    }
 
-     @FXML
-    private Label lb_total;
+    @FXML
+    void clica_salvar(ActionEvent event) {
 
-     @FXML
-    private TableView<?> tv_itens;
-
-     @FXML
-    private TableColumn<?, ?> tc_item;
-
-     @FXML
-    private TableColumn<?, ?> tc_qtde;
-
-     @FXML
-    private TableColumn<?, ?> tc_valor;
-
-     @FXML
-    private TableColumn<?, ?> tc_subtotal;
-
-     @FXML
-    private Button btn_adicionar;
-
-     @FXML
-    private Button btn_remover;
-
-     void realiza_pagamento(ActionEvent event){
-        //usara esses ifs da tela de contratoController para saber se eh contrato
-        //ou locacao ou será diferente?
-        if (rb_venda.isSelected()){
-            // TODO pegar objeto da venda e do contratoequipamento pra saber os dados da venda
-            // 
-            //
-            //
-            //
-            //
-
-         } else if (rb_locacao.isSelected()){
-            // TODO pegar objeto da locacao e do contrato equipamento pra saber os dados da locacao
-            // TODO verificar se está na primeira ou segunda fase
-            // TODO
-        }
     }
     
+    void realiza_pagamento(ActionEvent event) {
+        //usara esses ifs da tela de contratoController para saber se eh contrato
+        //ou locacao ou será diferente?
+        //if (rb_venda.isSelected()){
+        // TODO pegar objeto da venda e do contratoequipamento pra saber os dados da venda
+        // 
+        //
+        //
+        //
+        //
+
+        //} else if (rb_locacao.isSelected()){
+        // TODO pegar objeto da locacao e do contrato equipamento pra saber os dados da locacao
+        // TODO verificar se está na primeira ou segunda fase
+        // TODO
+        //}
+    }
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
-    
+        ContratoOperacao contrato = new ContratoOperacao();
+        contrato = (ContratoOperacao) dao.pesquisarPorChave(ContratoOperacao.class, contratoId);
+
+        tl_cliente.setText(contrato.getClienteId().getNome());
+
+        tl_funcionario.setText(contrato.getFuncionarioId().getNome());
+
+        tl_dataInicio.setText(contrato.getDataInicio().toString());
+
+        tl_dataFim.setText(contrato.getDataFim().toString());
+
+        String tipo;
+
+        if (contrato.getTipo() == Tipo.LOCACAO) {
+            tipo = "Locação";
+        } else {
+            tipo = "Venda";
+        }
+
+        tl_tipo.setText(tipo);
+        Double valorTotal;
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        if (contrato.getFase() == Fase.FASE1) {
+            tl_valorp1.setText(contrato.getValorp1().toString());
+            tl_multa.setText("0.0");
+            tl_fase.setText("Primeira Fase");
+            valorTotal = contrato.getValorp1();
+        } else {
+            tl_valorp1.setText(contrato.getValorp2().toString());
+            tl_multa.setText(contrato.getMulta().toString());
+            tl_fase.setText("Segunda Fase");
+            valorTotal = contrato.getMulta((Locacao) contrato,new Date());
+        }
+        
+        tl_valorTotal.setText(valorTotal.toString());
+
+    }
+
 }

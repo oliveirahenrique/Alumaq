@@ -13,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import telasFXML.Main;
 
 /**
  * FXML Controller class
@@ -60,6 +61,11 @@ public class ReservaEquipamentoController implements Initializable, Controller {
     @FXML
     void clica_salvar(ActionEvent event) {
 
+    }
+    
+    @FXML
+    void clica_cancelar(ActionEvent event) {        
+        Main.changeScreen("index");
     }
 
 

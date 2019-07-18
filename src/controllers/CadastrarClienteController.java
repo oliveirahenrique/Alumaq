@@ -69,27 +69,6 @@ public class CadastrarClienteController implements Initializable, Controller {
     private TextField tf_email;
 
     @FXML
-    private Button btn_cancelar;
-
-    @FXML
-    void clica_cancela(ActionEvent event) {
-        tf_nome.setText("");
-        tf_tel1.setText("");
-        tf_tel2.setText("");
-        tf_dataNascimento.setText("");
-        tf_cpf.setText("");
-        tf_rua.setText("");
-        tf_num.setText("");
-        tf_bairro.setText("");
-        tf_complemento.setText("");
-        tf_cidade.setText("");
-        tf_estado.setText("");
-        tf_email.setText("");
-
-        Main.changeScreen("index");
-    }
-
-    @FXML
     void clica_salvar(ActionEvent event) {
         try {
             Endereco endereco = new Endereco(tf_rua.getText(), tf_bairro.getText(), tf_complemento.getText(), Integer.parseInt(tf_num.getText()), tf_cidade.getText(), tf_estado.getText());
